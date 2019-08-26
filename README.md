@@ -5,7 +5,7 @@ WordPress 版 WebStack 主题
 ### 首页截图
 <br/>
 
-![Thumbnail_index](https://i.loli.net/2019/02/18/5c6a81958b193.png)
+![Thumbnail_index](https://cdn.iowen.cn/wp-content/uploads/2019/08/iowen_2019-08-27_01-05-39.png)
 
 <br/>
 
