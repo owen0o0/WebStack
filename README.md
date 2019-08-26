@@ -35,3 +35,9 @@ WordPress 版 WebStack 主题
 ![Thumbnail_index](https://cdn.iowen.cn/wp-content/uploads/2019/08/iowen_2019-08-27_01-22-37.jpg)
 
 ![Thumbnail_index](https://cdn.iowen.cn/wp-content/uploads/2019/08/iowen_2019-08-27_01-27-48.png)
+
+<br/>
+
+### 感谢
+感谢 <a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank">Viggo</a> 的前台设计
+<br/>
