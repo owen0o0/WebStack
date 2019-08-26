@@ -28,3 +28,10 @@ WordPress 版 WebStack 主题
 + 分类最多两级，且父级不要添加内容
 + 可以不添加网址图片，主题会自动获取目标网址的 favicon 图标
 <br/>
+
+### 后台截图
+<br/>
+
+![Thumbnail_index](https://cdn.iowen.cn/wp-content/uploads/2019/08/iowen_2019-08-27_01-22-37.jpg)
+
+![Thumbnail_index](https://cdn.iowen.cn/wp-content/uploads/2019/08/iowen_2019-08-27_01-27-48.png)
