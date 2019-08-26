@@ -1,0 +1,232 @@
+/**
+ *
+ * -----------------------------------------------------------
+ *
+ * Codestar Framework
+ * A Lightweight and easy-to-use WordPress Options Framework
+ *
+ * Copyright 2015 Codestar <info@codestarlive.com>
+ *
+ * -----------------------------------------------------------
+ *
+ */
+.cs-framework {
+  margin-left: 20px;
+  margin-right: 0;
+}
+.cs-framework .cs-header h1 {
+  float: right;
+}
+.cs-framework .cs-header fieldset {
+  float: left;
+}
+.cs-framework .cs-nav {
+  float: right;
+}
+.cs-framework .cs-nav ul {
+  clear: right;
+}
+.cs-framework .cs-nav ul li .cs-section-active:after {
+  right: auto;
+  left: 0;
+  border-left-color: #fff;
+  border-right-color: transparent;
+}
+.cs-framework .cs-nav ul li .cs-arrow:after {
+  content: "\f053";
+  right: auto;
+  left: 10px;
+}
+.cs-framework .cs-nav ul li.cs-tab-active .cs-arrow:after {
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.cs-framework .cs-nav ul ul li a {
+  padding-right: 25px;
+  padding-left: 15px;
+}
+.cs-framework .cs-nav ul ul:before {
+  left: auto;
+  right: 15px;
+}
+.cs-framework .cs-nav .cs-icon {
+  margin-left: 5px;
+  margin-right: 0;
+}
+.cs-framework .cs-nav-background {
+  left: auto;
+  right: 0;
+}
+.cs-framework .cs-content {
+  margin-left: 0;
+  margin-right: 225px;
+}
+.cs-framework .cs-content .cs-sections {
+  float: right;
+}
+.cs-framework .cs-show-all .cs-content {
+  margin-right: 0;
+  overflow: hidden;
+}
+.cs-framework .cs-expand-all {
+  right: auto;
+  left: 40px;
+}
+.cs-framework .cs-footer {
+  text-align: left;
+}
+
+.cs-metabox-framework {
+  margin: -6px -12px -12px -12px;
+}
+.cs-metabox-framework .cs-content .cs-section-title {
+  padding: 20px;
+}
+
+.cs-element .cs-title {
+  float: right;
+}
+.cs-element .cs-fieldset {
+  margin-left: 0;
+  margin-right: 30%;
+}
+
+.cs-pseudo-field {
+  padding: 0 0 0 5px !important;
+}
+
+.cs-field-number em {
+  margin-left: 0;
+  margin-right: 5px;
+}
+
+.cs-field-typography select,
+.cs-field-typography .chosen-container {
+  margin-right: 0;
+  margin-left: 5px;
+}
+
+.cs-field-checkbox .horizontal li,
+.cs-field-radio .horizontal li {
+  margin-right: 0;
+  margin-left: 15px;
+}
+
+.cs-field-switcher label {
+  float: right;
+}
+.cs-field-switcher .cs-text-desc {
+  float: right;
+  margin-left: 0;
+  margin-right: 5px;
+}
+
+.cs-field-color_picker .cs-alpha-slider {
+  margin-left: 0;
+  margin-right: 2px;
+}
+.cs-field-color_picker .cs-alpha-slider .ui-slider-handle {
+  margin: 0 -11px;
+}
+.cs-field-color_picker .cs-alpha-slider-offset {
+  background-position: center right;
+}
+.cs-field-color_picker .cs-alpha-text {
+  right: auto;
+  left: 10px;
+}
+
+.cs-field-group .ui-accordion-icons {
+  padding-left: 0;
+  padding-right: 30px;
+}
+.cs-field-group .ui-accordion-header-icon {
+  left: auto;
+  right: .5em;
+}
+.cs-field-group .dashicons-arrow-right:before {
+  content: "\f141";
+}
+
+.cs-help {
+  right: auto;
+  left: 5px;
+}
+
+.cs-field-icon .button {
+  margin-right: 0;
+  margin-left: 5px;
+}
+.cs-field-icon .cs-icon-preview i {
+  margin-right: 0;
+  margin-left: 5px;
+}
+
+.cs-field-gallery ul li {
+  margin-right: 0;
+  margin-left: 5px;
+}
+.cs-field-gallery .button {
+  margin-right: 0;
+  margin-left: 5px;
+}
+
+.cs-field-sorter .cs-modules {
+  float: right;
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+.cs-taxonomy-add-fields .cs-fieldset {
+  margin-right: 0;
+}
+.cs-taxonomy-add-fields .cs-help {
+  left: -5px;
+  right: auto;
+}
+
+.cs-taxonomy-edit-fields .cs-fieldset {
+  margin-left: 0;
+  margin-right: 225px;
+}
+.cs-taxonomy-edit-fields .cs-help {
+  right: auto;
+  left: -5px;
+}
+
+#cs-save-ajax {
+  right: auto;
+  left: 5px;
+}
+
+.cs-dialog .cs-element {
+  padding-right: 15px;
+  padding-left: 30px;
+}
+.cs-dialog .cs-shortcode-clone .cs-remove-clone {
+  right: auto;
+  left: 5px;
+}
+
+#customize-controls .cs-element .cs-fieldset,
+.widget-content .cs-element .cs-fieldset,
+#side-sortables .cs-element .cs-fieldset {
+  margin-right: 0;
+}
+
+@media only screen and (max-width: 1200px) {
+  .cs-metabox-framework .cs-element .cs-fieldset {
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 782px) {
+  .cs-framework .cs-fieldset,
+  .cs-framework .cs-content {
+    margin-right: 0;
+  }
+}
+.ui-dialog {
+  right: auto;
+}

@@ -1,0 +1,166 @@
+/**
+*
+* -----------------------------------------------------------
+*
+* Codestar Framework Light Theme
+* A Lightweight and easy-to-use WordPress Options Framework
+*
+* Copyright 2015 Codestar <info@codestarlive.com>
+*
+* -----------------------------------------------------------
+*
+*/
+@import "compass";
+@import "vendor/mixins";
+
+/**
+ *
+ * Option
+ *
+ */
+.cs-option-framework {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e5e5e5;
+}
+
+.cs-framework .cs-header {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #eee;
+}
+
+.cs-framework .cs-footer {
+  border-top: 1px solid #eee;
+  background-color: #f9f9f9;
+}
+
+.cs-framework .cs-header h1 {
+  color: #333;
+}
+
+/**
+* Nav container
+*/
+.cs-framework .cs-nav-background {
+  background-color: #f9f9f9;
+  border-right: 1px solid #eee;
+}
+
+.cs-framework .cs-nav ul li a {
+  border-bottom-color: #eee;
+  background-color: transparent;
+  color: #555;
+}
+
+.cs-framework .cs-nav ul li a:hover {
+  color: #333;
+}
+
+.cs-framework .cs-nav ul ul {
+  border-bottom-color: #eee;
+}
+
+.cs-framework .cs-nav ul ul::before {
+  background-color: #eee;
+}
+
+.cs-framework .cs-nav ul ul li a {
+  padding: 12px 12px 12px 24px;
+  background-color: transparent;
+  border-bottom-color: #eee;
+}
+
+.cs-framework .cs-nav ul li .cs-section-active,
+.cs-framework .cs-nav ul ul li .cs-section-active {
+  background-color: #fff;
+  color: #333;
+}
+
+/**
+* Element container
+*/
+.cs-framework .cs-body:before,
+.cs-framework .cs-body:after {
+  display: table;
+  content: "";
+}
+
+.cs-framework .cs-body:after {
+  clear: both;
+}
+
+.cs-framework .cs-content .cs-section-title {
+  background-color: #00a0d2;
+}
+
+.cs-element .cs-title {
+  width: 35%;
+}
+
+.cs-field-heading,
+.cs-field-subheading,
+.cs-element .cs-title h4 {
+  color: #333;
+  font-weight: 400;
+}
+
+.cs-element .cs-fieldset {
+  margin-left: 38%;
+}
+
+.cs-field-switcher .cs-text-desc {
+  margin: 0;
+  clear: both;
+}
+
+.cs-field-switcher label em {
+  background-color: #c5c5c5;
+}
+
+.cs-field-switcher label input:checked ~ em {
+  background-color: #00a0d2;
+}
+
+.cs-element input[type="text"],
+.cs-element input[type="number"],
+.cs-element select,
+.cs-element textarea {
+  width: 100%;
+  padding: 6px 8px;
+}
+
+
+.cs-element input[type="text"],
+.cs-element input[type="number"],
+.cs-element select {
+  height: 34px;
+}
+
+.cs-fieldset .wp-editor-wrap {
+  float: left;
+  width: 100%;
+}
+
+.cs-fieldset .wp-editor-tools {
+  padding-top: 0 !important;
+  background-color: transparent !important;
+}
+
+.cs-field-upload {
+  position: relative;
+}
+
+.cs-field-upload input[type="text"] {
+  padding-right: 75px;
+}
+
+.cs-field-upload .button {
+  position: absolute;
+  top: 34px;
+  right: 32px;
+}
+
+/* Seperator */
+.cs-framework .cs-nav .cs-seperator {
+  color: #888;
+  border-bottom-color: #dadada;
+}
