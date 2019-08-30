@@ -27,6 +27,11 @@ WordPress 版 WebStack 主题
 + 在 WordPress 后台“网址”文章类型下添加内容
 + 分类最多两级，且父级不要添加内容
 + 可以不添加网址图片，主题会自动获取目标网址的 favicon 图标
++ 导航菜单栏标题前面的图标请在分类图像描述中填入（参考下图），图标样式请参考fontawesome
+![Thumbnail_index](https://cdn.iowen.cn/wp-content/uploads/2019/08/Snipaste_2019-08-30_13-43-06.png)
++ 导航菜单栏下方可以添加自定义菜单，在后台的外观-->菜单里设置，在菜单的css类添加图标（参考下图），图标样式请参考fontawesome
+![Thumbnail_index](https://cdn.iowen.cn/wp-content/uploads/2019/08/Snipaste_2019-08-30_13-50-59.png)
++ <a href="https://www.iowen.cn/wordpress-version-webstack/" target="_blank">其他-></a>
 <br/>
 
 ### 后台截图
