@@ -30,7 +30,7 @@ function fav_con($mid) { ?>
             $link_url = get_post_meta($post->ID, '_sites_link', true); 
             $default_ico = get_template_directory_uri() .'/images/favicon.png';
           ?>
-            <div class="col-sm-3">
+            <div class="<?php echo io_get_option('columns') ?>">
               <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('<?php echo io_get_option('is_go')? '/go/?url='.base64_encode($link_url) : $link_url ?>', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?php echo $link_url ?>">
                 <div class="xe-comment-entry">
                   <a class="xe-user-img">

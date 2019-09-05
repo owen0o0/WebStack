@@ -68,6 +68,20 @@ $options[] = array(
             'default'   => get_stylesheet_directory_uri() . '/images/app-ico.png',
         ),
         array(
+            'id'      => 'columns',
+            'type'    => 'radio',
+            'title'   => '网址列数',
+            'desc'    => '一行显示个数',
+            'default' => 'col-sm-3',
+            'class'   => 'horizontal',
+            'options' => array(
+                'col-sm-6'  => '2',
+                'col-sm-4'  => '3',
+                'col-sm-3'  => '4',
+                'col-sm-2'  => '6'
+            ),
+        ),
+        array(
             'type'    => 'notice',
             'content' => '其他设置',
             'class'   => 'info',
@@ -216,7 +230,7 @@ $options[] = array(
 	
   		array(
 			'type'    => 'subheading',
-			'content' => '嘿！你好，欢迎使用WebStack主题。<br><br>目前这款主题为免费公开，如使用过程中遇到什么问题，可到博客<a href="https://www.iowen.cn" target="_blank">一为忆</a>反馈<br><br>制作一款WordPress主题实属不易，欢迎各位老板伸出援手，友情赞助！（你们的支持就是我们最大的动力！）',
+			'content' => '嘿！你好，欢迎使用WebStack主题。<br><br>目前这款主题为免费公开，如使用过程中遇到什么问题，可到博客<a href="https://www.iowen.cn" target="_blank">一为忆</a>反馈<br><br>制作一款WordPress主题不易，欢迎各位老板伸出援手，友情赞助！（你们的支持就是我最大的动力！）',
 		),
 	
 		array(
