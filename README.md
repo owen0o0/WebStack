@@ -46,3 +46,10 @@ WordPress 版 WebStack 主题
 ### 感谢
 感谢 <a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank">Viggo</a> 的前台设计
 <br/>
+
+### 更新
+V20190906
++ 增加文章页面板，修复无法显示文章的问题
++ 修复404页乱码
++ 设置项增加一行显示数量，可选2、3、4、6
++ 提示：因增加设置项，更新主题后保存下主题设置
