@@ -17,8 +17,28 @@ WordPress 版 WebStack 主题
 <br/>
 
 ### 安装指南
-+ WordPress 后台「主题」栏目 -> 上传主题 -> 启用主题
-+ WordPress Themes 文件夹新建文件夹，并上传所有文件
++ 安装 WordPress ，教程百度
++ 设置伪静态
+```
+# Nginx规则
+location /
+{
+    try_files $uri $uri/ /index.php?$args;
+}
+rewrite /wp-admin$ $scheme://$host$uri/ permanent;
+
+# Apache 规则
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+```
++ WordPress 后台「主题」栏目 -> 上传主题 -> 启用主题，或者在 /wp-content/themes 文件夹新建webstack文件夹，并上传所有文件
++ 果然点击地址出现404，请到WordPress 后台「设置」栏目 -> 固定链接 -> 保存更改
 + 反馈交♂流：<a href="https://www.iowen.cn" target="_blank">一为忆</a>
 
 <br/>
