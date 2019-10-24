@@ -31,7 +31,7 @@ function theme_load_scripts() {
 		wp_enqueue_style('nav'); 
  
 		wp_deregister_script( 'jquery' );
-		wp_register_script( 'jquery', '//libs.baidu.com/jquery/2.0.0/jquery.min.js', array(), $theme_version ,false);
+		wp_register_script( 'jquery', '//cdn.staticfile.org/jquery/2.0.0/jquery.min.js', array(), $theme_version ,false);
 		wp_enqueue_script('jquery');
  
 		wp_enqueue_script('bootstrap');
