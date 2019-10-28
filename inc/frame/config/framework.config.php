@@ -72,13 +72,13 @@ $options[] = array(
             'type'    => 'radio',
             'title'   => '网址列数',
             'desc'    => '一行显示个数',
-            'default' => 'col-sm-3',
+            'default' => 'col-md-4 col-lg-3',
             'class'   => 'horizontal',
             'options' => array(
-                'col-sm-6'  => '2',
-                'col-sm-4'  => '3',
-                'col-sm-3'  => '4',
-                'col-sm-2'  => '6'
+                'col-md-6'                    => '2',
+                'col-md-4'                    => '3',
+                'col-md-4 col-lg-3'           => '4',
+                'col-sm-4 col-md-3 col-lg-2'  => '6'
             ),
         ),
         array(

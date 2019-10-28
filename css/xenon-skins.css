@@ -52,7 +52,7 @@
 .page-body.skin-aero.login-page.login-light .login-form .login-footer a:hover{color:#508e1f}
 .page-body.skin-aero.login-page.login-light .login-form .login-footer .info-links a{color:rgba(151,152,152,.7)}
 .page-body.skin-aero.login-page.login-light .login-form .login-footer .info-links a:hover{color:#979898}
-@media screen and (max-width:768px){.page-body.skin-aero.login-page{padding-top:0}
+@media screen and (max-width:767px){.page-body.skin-aero.login-page{padding-top:0}
 .page-body.skin-aero.login-page .login-form,.page-body.skin-aero.login-page .errors-container,.page-body.skin-aero.login-page .external-login{padding-left:10px;padding-right:10px}
 .page-body.skin-aero.login-page .errors-container{margin-top:20px}.page-body.skin-aero.login-page.login-light .login-form{padding-left:30px;padding-right:30px}
 .page-body.skin-aero.login-page.login-light .errors-container,.page-body.skin-aero.login-page.login-light .external-login{padding-left:0;padding-right:0}
@@ -133,7 +133,7 @@
 .page-body.skin-navy.login-page.login-light .login-form .login-footer a:hover{color:#508e1f}
 .page-body.skin-navy.login-page.login-light .login-form .login-footer .info-links a{color:rgba(151,152,152,.7)}
 .page-body.skin-navy.login-page.login-light .login-form .login-footer .info-links a:hover{color:#979898}
-@media screen and (max-width:768px){.page-body.skin-navy.login-page{padding-top:0}
+@media screen and (max-width:767px){.page-body.skin-navy.login-page{padding-top:0}
 .page-body.skin-navy.login-page .login-form,.page-body.skin-navy.login-page .errors-container,.page-body.skin-navy.login-page .external-login{padding-left:10px;padding-right:10px}
 .page-body.skin-navy.login-page .errors-container{margin-top:20px}.page-body.skin-navy.login-page.login-light .login-form{padding-left:30px;padding-right:30px}
 .page-body.skin-navy.login-page.login-light .errors-container,.page-body.skin-navy.login-page.login-light .external-login{padding-left:0;padding-right:0}
@@ -217,7 +217,7 @@
 .page-body.skin-facebook.login-page.login-light .login-form .login-footer a:hover{color:#508e1f}
 .page-body.skin-facebook.login-page.login-light .login-form .login-footer .info-links a{color:rgba(151,152,152,.7)}
 .page-body.skin-facebook.login-page.login-light .login-form .login-footer .info-links a:hover{color:#979898}
-@media screen and (max-width:768px){.page-body.skin-facebook.login-page{padding-top:0}
+@media screen and (max-width:767px){.page-body.skin-facebook.login-page{padding-top:0}
 .page-body.skin-facebook.login-page .login-form,.page-body.skin-facebook.login-page .errors-container,.page-body.skin-facebook.login-page .external-login{padding-left:10px;padding-right:10px}
 .page-body.skin-facebook.login-page .errors-container{margin-top:20px}.page-body.skin-facebook.login-page.login-light .login-form{padding-left:30px;padding-right:30px}
 .page-body.skin-facebook.login-page.login-light .errors-container,.page-body.skin-facebook.login-page.login-light .external-login{padding-left:0;padding-right:0}
@@ -301,7 +301,7 @@
 .page-body.skin-turquoise.login-page.login-light .login-form .login-footer a:hover{color:#508e1f}
 .page-body.skin-turquoise.login-page.login-light .login-form .login-footer .info-links a{color:rgba(151,152,152,.7)}
 .page-body.skin-turquoise.login-page.login-light .login-form .login-footer .info-links a:hover{color:#979898}
-@media screen and (max-width:768px){.page-body.skin-turquoise.login-page{padding-top:0}
+@media screen and (max-width:767px){.page-body.skin-turquoise.login-page{padding-top:0}
 .page-body.skin-turquoise.login-page .login-form,.page-body.skin-turquoise.login-page .errors-container,.page-body.skin-turquoise.login-page .external-login{padding-left:10px;padding-right:10px}
 .page-body.skin-turquoise.login-page .errors-container{margin-top:20px}.page-body.skin-turquoise.login-page.login-light .login-form{padding-left:30px;padding-right:30px}
 .page-body.skin-turquoise.login-page.login-light .errors-container,.page-body.skin-turquoise.login-page.login-light .external-login{padding-left:0;padding-right:0}
@@ -381,7 +381,7 @@
 .page-body.skin-lime.login-page.login-light .login-form .login-footer a:hover{color:#508e1f}
 .page-body.skin-lime.login-page.login-light .login-form .login-footer .info-links a{color:rgba(151,152,152,.7)}
 .page-body.skin-lime.login-page.login-light .login-form .login-footer .info-links a:hover{color:#979898}
-@media screen and (max-width:768px){.page-body.skin-lime.login-page{padding-top:0}
+@media screen and (max-width:767px){.page-body.skin-lime.login-page{padding-top:0}
 .page-body.skin-lime.login-page .login-form,.page-body.skin-lime.login-page .errors-container,.page-body.skin-lime.login-page .external-login{padding-left:10px;padding-right:10px}
 .page-body.skin-lime.login-page .errors-container{margin-top:20px}.page-body.skin-lime.login-page.login-light .login-form{padding-left:30px;padding-right:30px}
 .page-body.skin-lime.login-page.login-light .errors-container,.page-body.skin-lime.login-page.login-light .external-login{padding-left:0;padding-right:0}
@@ -461,7 +461,7 @@
 .page-body.skin-green.login-page.login-light .login-form .login-footer a:hover{color:#508e1f}
 .page-body.skin-green.login-page.login-light .login-form .login-footer .info-links a{color:rgba(151,152,152,.7)}
 .page-body.skin-green.login-page.login-light .login-form .login-footer .info-links a:hover{color:#979898}
-@media screen and (max-width:768px){.page-body.skin-green.login-page{padding-top:0}
+@media screen and (max-width:767px){.page-body.skin-green.login-page{padding-top:0}
 .page-body.skin-green.login-page .login-form,.page-body.skin-green.login-page .errors-container,.page-body.skin-green.login-page .external-login{padding-left:10px;padding-right:10px}
 .page-body.skin-green.login-page .errors-container{margin-top:20px}.page-body.skin-green.login-page.login-light .login-form{padding-left:30px;padding-right:30px}
 .page-body.skin-green.login-page.login-light .errors-container,.page-body.skin-green.login-page.login-light .external-login{padding-left:0;padding-right:0}
@@ -542,7 +542,7 @@
 .page-body.skin-purple.login-page.login-light .login-form .login-footer a:hover{color:#508e1f}
 .page-body.skin-purple.login-page.login-light .login-form .login-footer .info-links a{color:rgba(151,152,152,.7)}
 .page-body.skin-purple.login-page.login-light .login-form .login-footer .info-links a:hover{color:#979898}
-@media screen and (max-width:768px){.page-body.skin-purple.login-page{padding-top:0}
+@media screen and (max-width:767px){.page-body.skin-purple.login-page{padding-top:0}
 .page-body.skin-purple.login-page .login-form,.page-body.skin-purple.login-page .errors-container,.page-body.skin-purple.login-page .external-login{padding-left:10px;padding-right:10px}
 .page-body.skin-purple.login-page .errors-container{margin-top:20px}.page-body.skin-purple.login-page.login-light .login-form{padding-left:30px;padding-right:30px}
 .page-body.skin-purple.login-page.login-light .errors-container,.page-body.skin-purple.login-page.login-light .external-login{padding-left:0;padding-right:0}
@@ -623,7 +623,7 @@
 .page-body.skin-white.login-page.login-light .login-form .login-footer a:hover{color:#508e1f}
 .page-body.skin-white.login-page.login-light .login-form .login-footer .info-links a{color:rgba(151,152,152,.7)}
 .page-body.skin-white.login-page.login-light .login-form .login-footer .info-links a:hover{color:#979898}
-@media screen and (max-width:768px){.page-body.skin-white.login-page{padding-top:0}
+@media screen and (max-width:767px){.page-body.skin-white.login-page{padding-top:0}
 .page-body.skin-white.login-page .login-form,.page-body.skin-white.login-page .errors-container,.page-body.skin-white.login-page .external-login{padding-left:10px;padding-right:10px}
 .page-body.skin-white.login-page .errors-container{margin-top:20px}.page-body.skin-white.login-page.login-light .login-form{padding-left:30px;padding-right:30px}
 .page-body.skin-white.login-page.login-light .errors-container,.page-body.skin-white.login-page.login-light .external-login{padding-left:0;padding-right:0}
@@ -705,7 +705,7 @@
 .page-body.skin-concrete.login-page.login-light .login-form .login-footer a:hover{color:#508e1f}
 .page-body.skin-concrete.login-page.login-light .login-form .login-footer .info-links a{color:rgba(151,152,152,.7)}
 .page-body.skin-concrete.login-page.login-light .login-form .login-footer .info-links a:hover{color:#979898}
-@media screen and (max-width:768px){.page-body.skin-concrete.login-page{padding-top:0}
+@media screen and (max-width:767px){.page-body.skin-concrete.login-page{padding-top:0}
 .page-body.skin-concrete.login-page .login-form,.page-body.skin-concrete.login-page .errors-container,.page-body.skin-concrete.login-page .external-login{padding-left:10px;padding-right:10px}
 .page-body.skin-concrete.login-page .errors-container{margin-top:20px}.page-body.skin-concrete.login-page.login-light .login-form{padding-left:30px;padding-right:30px}
 .page-body.skin-concrete.login-page.login-light .errors-container,.page-body.skin-concrete.login-page.login-light .external-login{padding-left:0;padding-right:0}
@@ -790,7 +790,7 @@
 .page-body.skin-watermelon.login-page.login-light .login-form .login-footer a:hover{color:#508e1f}
 .page-body.skin-watermelon.login-page.login-light .login-form .login-footer .info-links a{color:rgba(151,152,152,.7)}
 .page-body.skin-watermelon.login-page.login-light .login-form .login-footer .info-links a:hover{color:#979898}
-@media screen and (max-width:768px){.page-body.skin-watermelon.login-page{padding-top:0}
+@media screen and (max-width:767px){.page-body.skin-watermelon.login-page{padding-top:0}
 .page-body.skin-watermelon.login-page .login-form,.page-body.skin-watermelon.login-page .errors-container,.page-body.skin-watermelon.login-page .external-login{padding-left:10px;padding-right:10px}
 .page-body.skin-watermelon.login-page .errors-container{margin-top:20px}.page-body.skin-watermelon.login-page.login-light .login-form{padding-left:30px;padding-right:30px}
 .page-body.skin-watermelon.login-page.login-light .errors-container,.page-body.skin-watermelon.login-page.login-light .external-login{padding-left:0;padding-right:0}
@@ -874,7 +874,7 @@
 .page-body.skin-lemonade.login-page.login-light .login-form .login-footer a:hover{color:#508e1f}
 .page-body.skin-lemonade.login-page.login-light .login-form .login-footer .info-links a{color:rgba(151,152,152,.7)}
 .page-body.skin-lemonade.login-page.login-light .login-form .login-footer .info-links a:hover{color:#979898}
-@media screen and (max-width:768px){.page-body.skin-lemonade.login-page{padding-top:0}
+@media screen and (max-width:767px){.page-body.skin-lemonade.login-page{padding-top:0}
 .page-body.skin-lemonade.login-page .login-form,.page-body.skin-lemonade.login-page .errors-container,.page-body.skin-lemonade.login-page .external-login{padding-left:10px;padding-right:10px}
 .page-body.skin-lemonade.login-page .errors-container{margin-top:20px}.page-body.skin-lemonade.login-page.login-light .login-form{padding-left:30px;padding-right:30px}
 .page-body.skin-lemonade.login-page.login-light .errors-container,.page-body.skin-lemonade.login-page.login-light .external-login{padding-left:0;padding-right:0}
@@ -940,7 +940,7 @@
 .page-body.horizontal-menu-skin-aero .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile>a span:hover{color:#fff}
 .page-body.horizontal-menu-skin-aero .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile.open>a{background-color:#5f9a97;border-color:#5f9a97}
 .page-body.horizontal-menu-skin-aero .page-loading-overlay{background-color:#558c89}
-@media screen and (max-width:768px){.page-body.horizontal-menu-skin-aero .navbar.horizontal-menu{background:#558c89;color:#ececea}
+@media screen and (max-width:767px){.page-body.horizontal-menu-skin-aero .navbar.horizontal-menu{background:#558c89;color:#ececea}
 .page-body.horizontal-menu-skin-aero .navbar.horizontal-menu .navbar-inner>.navbar-nav a{color:#ececea;border-color:#5f9a97}
 .page-body.horizontal-menu-skin-aero .navbar.horizontal-menu .navbar-inner>.navbar-nav a:hover,.page-body.horizontal-menu-skin-aero .navbar.horizontal-menu .navbar-inner>.navbar-nav a:active,.page-body.horizontal-menu-skin-aero .navbar.horizontal-menu .navbar-inner>.navbar-nav a:focus{color:#fff}
 .page-body.horizontal-menu-skin-aero .navbar.horizontal-menu .navbar-inner>.nav.navbar-mobile a{color:#ececea}
@@ -985,7 +985,7 @@
 .page-body.horizontal-menu-skin-navy .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile>a span:hover{color:#fff}
 .page-body.horizontal-menu-skin-navy .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile.open>a{background-color:#34495e;border-color:#34495e}
 .page-body.horizontal-menu-skin-navy .page-loading-overlay{background-color:#2c3e50}
-@media screen and (max-width:768px){.page-body.horizontal-menu-skin-navy .navbar.horizontal-menu{background:#2c3e50;color:#a7bfd6}
+@media screen and (max-width:767px){.page-body.horizontal-menu-skin-navy .navbar.horizontal-menu{background:#2c3e50;color:#a7bfd6}
 .page-body.horizontal-menu-skin-navy .navbar.horizontal-menu .navbar-inner>.navbar-nav a{color:#a7bfd6;border-color:#34495e}
 .page-body.horizontal-menu-skin-navy .navbar.horizontal-menu .navbar-inner>.navbar-nav a:hover,.page-body.horizontal-menu-skin-navy .navbar.horizontal-menu .navbar-inner>.navbar-nav a:active,.page-body.horizontal-menu-skin-navy .navbar.horizontal-menu .navbar-inner>.navbar-nav a:focus{color:#fff}
 .page-body.horizontal-menu-skin-navy .navbar.horizontal-menu .navbar-inner>.nav.navbar-mobile a{color:#a7bfd6}
@@ -1030,7 +1030,7 @@
 .page-body.horizontal-menu-skin-facebook .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile>a span:hover{color:#fff}
 .page-body.horizontal-menu-skin-facebook .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile.open>a{background-color:#4160a0;border-color:#4160a0}
 .page-body.horizontal-menu-skin-facebook .page-loading-overlay{background-color:#3b5998}
-@media screen and (max-width:768px){.page-body.horizontal-menu-skin-facebook .navbar.horizontal-menu{background:#3b5998;color:#8b9dc3}
+@media screen and (max-width:767px){.page-body.horizontal-menu-skin-facebook .navbar.horizontal-menu{background:#3b5998;color:#8b9dc3}
 .page-body.horizontal-menu-skin-facebook .navbar.horizontal-menu .navbar-inner>.navbar-nav a{color:#8b9dc3;border-color:#4160a0}
 .page-body.horizontal-menu-skin-facebook .navbar.horizontal-menu .navbar-inner>.navbar-nav a:hover,.page-body.horizontal-menu-skin-facebook .navbar.horizontal-menu .navbar-inner>.navbar-nav a:active,.page-body.horizontal-menu-skin-facebook .navbar.horizontal-menu .navbar-inner>.navbar-nav a:focus{color:#fff}
 .page-body.horizontal-menu-skin-facebook .navbar.horizontal-menu .navbar-inner>.nav.navbar-mobile a{color:#8b9dc3}
@@ -1075,7 +1075,7 @@
 .page-body.horizontal-menu-skin-turquoise .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile>a span:hover{color:#fff}
 .page-body.horizontal-menu-skin-turquoise .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile.open>a{background-color:#1daf92;border-color:#1daf92}
 .page-body.horizontal-menu-skin-turquoise .page-loading-overlay{background-color:#16a085}
-@media screen and (max-width:768px){.page-body.horizontal-menu-skin-turquoise .navbar.horizontal-menu{background:#16a085;color:#96ead9}
+@media screen and (max-width:767px){.page-body.horizontal-menu-skin-turquoise .navbar.horizontal-menu{background:#16a085;color:#96ead9}
 .page-body.horizontal-menu-skin-turquoise .navbar.horizontal-menu .navbar-inner>.navbar-nav a{color:#96ead9;border-color:#1daf92}
 .page-body.horizontal-menu-skin-turquoise .navbar.horizontal-menu .navbar-inner>.navbar-nav a:hover,.page-body.horizontal-menu-skin-turquoise .navbar.horizontal-menu .navbar-inner>.navbar-nav a:active,.page-body.horizontal-menu-skin-turquoise .navbar.horizontal-menu .navbar-inner>.navbar-nav a:focus{color:#fff}
 .page-body.horizontal-menu-skin-turquoise .navbar.horizontal-menu .navbar-inner>.nav.navbar-mobile a{color:#96ead9}
@@ -1120,7 +1120,7 @@
 .page-body.horizontal-menu-skin-lime .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile>a span:hover{color:#fff}
 .page-body.horizontal-menu-skin-lime .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile.open>a{background-color:#95cd62;border-color:#95cd62}
 .page-body.horizontal-menu-skin-lime .page-loading-overlay{background-color:#8cc657}
-@media screen and (max-width:768px){.page-body.horizontal-menu-skin-lime .navbar.horizontal-menu{background:#8cc657;color:#fff}
+@media screen and (max-width:767px){.page-body.horizontal-menu-skin-lime .navbar.horizontal-menu{background:#8cc657;color:#fff}
 .page-body.horizontal-menu-skin-lime .navbar.horizontal-menu .navbar-inner>.navbar-nav a{color:#fff;border-color:#95cd62}
 .page-body.horizontal-menu-skin-lime .navbar.horizontal-menu .navbar-inner>.navbar-nav a:hover,.page-body.horizontal-menu-skin-lime .navbar.horizontal-menu .navbar-inner>.navbar-nav a:active,.page-body.horizontal-menu-skin-lime .navbar.horizontal-menu .navbar-inner>.navbar-nav a:focus{color:#fff}
 .page-body.horizontal-menu-skin-lime .navbar.horizontal-menu .navbar-inner>.nav.navbar-mobile a{color:#fff}
@@ -1165,7 +1165,7 @@
 .page-body.horizontal-menu-skin-green .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile>a span:hover{color:#fff}
 .page-body.horizontal-menu-skin-green .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile.open>a{background-color:#2fbd6b;border-color:#2fbd6b}
 .page-body.horizontal-menu-skin-green .page-loading-overlay{background-color:#27ae60}
-@media screen and (max-width:768px){.page-body.horizontal-menu-skin-green .navbar.horizontal-menu{background:#27ae60;color:#a2f9c7}
+@media screen and (max-width:767px){.page-body.horizontal-menu-skin-green .navbar.horizontal-menu{background:#27ae60;color:#a2f9c7}
 .page-body.horizontal-menu-skin-green .navbar.horizontal-menu .navbar-inner>.navbar-nav a{color:#a2f9c7;border-color:#2fbd6b}
 .page-body.horizontal-menu-skin-green .navbar.horizontal-menu .navbar-inner>.navbar-nav a:hover,.page-body.horizontal-menu-skin-green .navbar.horizontal-menu .navbar-inner>.navbar-nav a:active,.page-body.horizontal-menu-skin-green .navbar.horizontal-menu .navbar-inner>.navbar-nav a:focus{color:#fff}
 .page-body.horizontal-menu-skin-green .navbar.horizontal-menu .navbar-inner>.nav.navbar-mobile a{color:#a2f9c7}
@@ -1210,7 +1210,7 @@
 .page-body.horizontal-menu-skin-purple .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile>a span:hover{color:#fff}
 .page-body.horizontal-menu-skin-purple .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile.open>a{background-color:#81629f;border-color:#81629f}
 .page-body.horizontal-menu-skin-purple .page-loading-overlay{background-color:#795b95}
-@media screen and (max-width:768px){.page-body.horizontal-menu-skin-purple .navbar.horizontal-menu{background:#795b95;color:#c2afd4}
+@media screen and (max-width:767px){.page-body.horizontal-menu-skin-purple .navbar.horizontal-menu{background:#795b95;color:#c2afd4}
 .page-body.horizontal-menu-skin-purple .navbar.horizontal-menu .navbar-inner>.navbar-nav a{color:#c2afd4;border-color:#81629f}
 .page-body.horizontal-menu-skin-purple .navbar.horizontal-menu .navbar-inner>.navbar-nav a:hover,.page-body.horizontal-menu-skin-purple .navbar.horizontal-menu .navbar-inner>.navbar-nav a:active,.page-body.horizontal-menu-skin-purple .navbar.horizontal-menu .navbar-inner>.navbar-nav a:focus{color:#fff}
 .page-body.horizontal-menu-skin-purple .navbar.horizontal-menu .navbar-inner>.nav.navbar-mobile a{color:#c2afd4}
@@ -1255,7 +1255,7 @@
 .page-body.horizontal-menu-skin-white .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile>a span:hover{color:#95cd62}
 .page-body.horizontal-menu-skin-white .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile.open>a{background-color:#eee;border-color:#eee}
 .page-body.horizontal-menu-skin-white .page-loading-overlay{background-color:#fff}
-@media screen and (max-width:768px){.page-body.horizontal-menu-skin-white .navbar.horizontal-menu{background:#fff;color:#666}
+@media screen and (max-width:767px){.page-body.horizontal-menu-skin-white .navbar.horizontal-menu{background:#fff;color:#666}
 .page-body.horizontal-menu-skin-white .navbar.horizontal-menu .navbar-inner>.navbar-nav a{color:#666;border-color:#eee}
 .page-body.horizontal-menu-skin-white .navbar.horizontal-menu .navbar-inner>.navbar-nav a:hover,.page-body.horizontal-menu-skin-white .navbar.horizontal-menu .navbar-inner>.navbar-nav a:active,.page-body.horizontal-menu-skin-white .navbar.horizontal-menu .navbar-inner>.navbar-nav a:focus{color:#95cd62}
 .page-body.horizontal-menu-skin-white .navbar.horizontal-menu .navbar-inner>.nav.navbar-mobile a{color:#666}
@@ -1300,7 +1300,7 @@
 .page-body.horizontal-menu-skin-concrete .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile>a span:hover{color:#a40f37}
 .page-body.horizontal-menu-skin-concrete .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile.open>a{background-color:#b8bbb3;border-color:#b8bbb3}
 .page-body.horizontal-menu-skin-concrete .page-loading-overlay{background-color:#a8aba2}
-@media screen and (max-width:768px){.page-body.horizontal-menu-skin-concrete .navbar.horizontal-menu{background:#a8aba2;color:#666}
+@media screen and (max-width:767px){.page-body.horizontal-menu-skin-concrete .navbar.horizontal-menu{background:#a8aba2;color:#666}
 .page-body.horizontal-menu-skin-concrete .navbar.horizontal-menu .navbar-inner>.navbar-nav a{color:#666;border-color:#b8bbb3}
 .page-body.horizontal-menu-skin-concrete .navbar.horizontal-menu .navbar-inner>.navbar-nav a:hover,.page-body.horizontal-menu-skin-concrete .navbar.horizontal-menu .navbar-inner>.navbar-nav a:active,.page-body.horizontal-menu-skin-concrete .navbar.horizontal-menu .navbar-inner>.navbar-nav a:focus{color:#a40f37}
 .page-body.horizontal-menu-skin-concrete .navbar.horizontal-menu .navbar-inner>.nav.navbar-mobile a{color:#666}
@@ -1345,7 +1345,7 @@
 .page-body.horizontal-menu-skin-watermelon .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile>a span:hover{color:#fff}
 .page-body.horizontal-menu-skin-watermelon .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile.open>a{background-color:#c03737;border-color:#c03737}
 .page-body.horizontal-menu-skin-watermelon .page-loading-overlay{background-color:#b63131}
-@media screen and (max-width:768px){.page-body.horizontal-menu-skin-watermelon .navbar.horizontal-menu{background:#b63131;color:#f7b2b2}
+@media screen and (max-width:767px){.page-body.horizontal-menu-skin-watermelon .navbar.horizontal-menu{background:#b63131;color:#f7b2b2}
 .page-body.horizontal-menu-skin-watermelon .navbar.horizontal-menu .navbar-inner>.navbar-nav a{color:#f7b2b2;border-color:#c03737}
 .page-body.horizontal-menu-skin-watermelon .navbar.horizontal-menu .navbar-inner>.navbar-nav a:hover,.page-body.horizontal-menu-skin-watermelon .navbar.horizontal-menu .navbar-inner>.navbar-nav a:active,.page-body.horizontal-menu-skin-watermelon .navbar.horizontal-menu .navbar-inner>.navbar-nav a:focus{color:#fff}
 .page-body.horizontal-menu-skin-watermelon .navbar.horizontal-menu .navbar-inner>.nav.navbar-mobile a{color:#f7b2b2}
@@ -1390,7 +1390,7 @@
 .page-body.horizontal-menu-skin-lemonade .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile>a span:hover{color:#fff}
 .page-body.horizontal-menu-skin-lemonade .navbar.horizontal-menu .navbar-inner>.nav>li.user-profile.open>a{background-color:#ffcf67;border-color:#ffcf67}
 .page-body.horizontal-menu-skin-lemonade .page-loading-overlay{background-color:#f5c150}
-@media screen and (max-width:768px){.page-body.horizontal-menu-skin-lemonade .navbar.horizontal-menu{background:#f5c150;color:#ffeec9}
+@media screen and (max-width:767px){.page-body.horizontal-menu-skin-lemonade .navbar.horizontal-menu{background:#f5c150;color:#ffeec9}
 .page-body.horizontal-menu-skin-lemonade .navbar.horizontal-menu .navbar-inner>.navbar-nav a{color:#ffeec9;border-color:#ffcf67}
 .page-body.horizontal-menu-skin-lemonade .navbar.horizontal-menu .navbar-inner>.navbar-nav a:hover,.page-body.horizontal-menu-skin-lemonade .navbar.horizontal-menu .navbar-inner>.navbar-nav a:active,.page-body.horizontal-menu-skin-lemonade .navbar.horizontal-menu .navbar-inner>.navbar-nav a:focus{color:#fff}
 .page-body.horizontal-menu-skin-lemonade .navbar.horizontal-menu .navbar-inner>.nav.navbar-mobile a{color:#ffeec9}
