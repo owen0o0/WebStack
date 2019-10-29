@@ -111,6 +111,9 @@ footer.main-footer{
     border-top: 0;
     background-color:#fff;
 }
+.no-search{
+    margin-top: 85px;
+}
 @media screen and (min-width: 768px){
 .sidebar-menu.collapsed .main-menu>li>a>i {
     font-size: 20px;
@@ -123,6 +126,9 @@ footer.main-footer{
 footer.main-footer .footer-text{
     text-align: center;
     float: none;
+}
+.no-search{
+    margin-top: 0px;
 }
 }
 .comments-area{

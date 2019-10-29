@@ -33,6 +33,10 @@ include( 'templates/header-nav.php' );
   </nav>
 <?php
 if(io_get_option('is_search')){include('search-tool.php'); }
+else{?>
+<div class="no-search"></div>
+<?php
+}
 
 
 foreach($categories as $category) {
