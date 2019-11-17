@@ -1,6 +1,6 @@
 <?php  if ( ! defined( 'ABSPATH' ) ) { exit; }
 function fav_con($mid) { ?>
-        <h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="<?php echo $mid->name; ?>"></i><?php echo $mid->name; ?></h4>
+        <h4 class="text-gray"><i class="fa fa-list-ul" style="margin-right: 7px;" id="<?php echo $mid->name; ?>"></i><?php echo $mid->name; ?></h4>
         <div class="row">
         <?php   
           //定义$post为全局变量，这样之后的输出就不会是同一篇文章了
@@ -29,6 +29,7 @@ function fav_con($mid) { ?>
           elseif ($myposts->have_posts()): while ($myposts->have_posts()): $myposts->the_post(); 
             $link_url = get_post_meta($post->ID, '_sites_link', true); 
             $default_ico = get_template_directory_uri() .'/images/favicon.png';
+            if(current_user_can('level_10') || get_post_meta($post->ID, '_visible', true)!="true"):
           ?>
             <div class="<?php echo io_get_option('columns') ?>">
               <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('<?php echo io_get_option('is_go')? '/go/?url='.base64_encode($link_url) : $link_url ?>', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?php echo $link_url ?>">
@@ -45,7 +46,7 @@ function fav_con($mid) { ?>
                 </div>
               </div>
             </div>
-          <?php endwhile; endif; wp_reset_postdata(); ?>
+          <?php endif; endwhile; endif; wp_reset_postdata(); ?>
         </div>   
         <br /> 
 <?php } ?>

@@ -3,6 +3,11 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 // 网址
 $new_meta_sites_boxes =
 array(
+	"visible" => array(
+		"name" => "_visible",
+		"title" => "仅管理员可见",
+		"type"=>"checkbox"),
+
 	"sites_link" => array(
 		"name" => "_sites_link",
 		"std" => "",
