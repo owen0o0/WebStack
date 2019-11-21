@@ -35,7 +35,11 @@ function fav_con($mid) { ?>
               <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('<?php echo io_get_option('is_go')? '/go/?url='.base64_encode($link_url) : $link_url ?>', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?php echo $link_url ?>">
                 <div class="xe-comment-entry">
                   <a class="xe-user-img">
-                    <img src="<?php echo get_post_meta($post->ID, '_thumbnail', true)? get_post_meta($post->ID, '_thumbnail', true): ('https://f.ydr.me/'.$link_url) ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" class="img-circle" width="40">
+                    <?php if(io_get_option('lazyload')): ?>
+                    <img class="img-circle lazy" src="images/favicon.png" data-src="<?php echo get_post_meta($post->ID, '_thumbnail', true)? get_post_meta($post->ID, '_thumbnail', true): ('https://f.ydr.me/'.$link_url) ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" width="40">
+                    <?php else: ?>
+                    <img class="img-circle lazy" src="<?php echo get_post_meta($post->ID, '_thumbnail', true)? get_post_meta($post->ID, '_thumbnail', true): ('https://f.ydr.me/'.$link_url) ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" width="40">
+                    <?php endif ?>
                   </a>
                   <div class="xe-comment">
                     <a href="javascript:void(0)" class="xe-user-name overflowClip_1">

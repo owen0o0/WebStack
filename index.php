@@ -15,17 +15,17 @@ include( 'templates/header-nav.php' );
 ?>
 <div class="main-content">
   <nav class="navbar user-info-navbar" role="navigation">
-    <div style="position: absolute;background: #fff;width: 100%;box-shadow: 0 5px 20px rgba(0,0,0,.05);padding-bottom:1px;">
+    <div class="navbar-content">
       <ul class="user-info-menu left-links list-inline list-unstyled">
-        <li class="hidden-sm hidden-xs">
+        <li class="hidden-xs">
             <a href="#" data-toggle="sidebar">
                 <i class="fa-bars"></i>
             </a>
         </li>
-        <li  >
-          <div id="tp-weather-widget" style="padding: 25px 10px;"></div>
-          <script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
-          <script>tpwidget("init",{"flavor": "slim","location": "WX4FBXXFKE4F","geolocation": "enabled","language": "zh-chs","unit": "c","theme": "white","container": "tp-weather-widget","bubble": "enabled","alarmType": "badge","uid": "UD5EFC1165","hash": "2ee497836a31c599f67099ec09b0ef62"});tpwidget("show");</script>
+        <li>
+          <div id="he-plugin-simple"></div>
+          <script>WIDGET = {CONFIG: {"modules": "12034","background": 5,"tmpColor": "aaa","tmpSize": 16,"cityColor": "aaa","citySize": 16,"aqiSize": 16,"weatherIconSize": 24,"alertIconSize": 18,"padding": "30px 10px 30px 10px","shadow": "1","language": "auto","borderRadius": 5,"fixed": "false","vertical": "middle","horizontal": "left","key": "a922adf8928b4ac1ae7a31ae7375e191"}}</script>
+          <script src="https://widget.heweather.net/simple/static/js/he-simple-common.js?v=1.1"></script>
         </li>
       </ul>
     </div>

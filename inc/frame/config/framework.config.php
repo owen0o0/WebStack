@@ -6,7 +6,7 @@
 // ===============================================================================================
 $settings           = array(
   'menu_title'      => __('主题设置','io_setting'),
-  'menu_type'       => 'theme', // menu, submenu, options, theme, etc.
+  'menu_type'       => 'menu', // menu, submenu, options, theme, etc.
   'menu_slug'       => 'io_get_option',
   'menu_position'   => 59,
   'menu_icon'       => CS_URI.'/assets/images/setting.png',
@@ -72,12 +72,12 @@ $options[] = array(
             'type'    => 'radio',
             'title'   => '网址列数',
             'desc'    => '一行显示个数',
-            'default' => 'col-md-4 col-lg-3',
+            'default' => 'col-sm-4 col-md-3',
             'class'   => 'horizontal',
             'options' => array(
-                'col-md-6'                    => '2',
-                'col-md-4'                    => '3',
-                'col-md-4 col-lg-3'           => '4',
+                'col-sm-6'                    => '2',
+                'col-sm-4'                    => '3',
+                'col-sm-4 col-md-3'           => '4',
                 'col-sm-4 col-md-3 col-lg-2'  => '6'
             ),
         ),
@@ -87,9 +87,26 @@ $options[] = array(
             'class'   => 'info',
         ),
         array(
+            'id'      => 'theme_mode',
+            'type'    => 'radio',
+            'title'   => '颜色主题',
+            'default' => 'white',
+            'class'   => 'horizontal',
+            'options' => array(
+                'black'     => '暗色',
+                'white'     => '亮色'
+            ),
+        ),
+        array(
             'id'      => 'icp',
             'type'    => 'text',
             'title'   => '备案号',
+        ),
+        array(
+            'id'      => 'lazyload',
+            'type'    => 'switcher',
+            'title'   => '图标懒加载',
+            'default' => false,
         ),
         array(
             'id'      => 'is_search',
@@ -101,7 +118,7 @@ $options[] = array(
             'id'      => 'is_go',
             'type'    => 'switcher',
             'title'   => '内链跳转',
-            'default' => true,
+            'default' => false,
         ),
     ),
 );

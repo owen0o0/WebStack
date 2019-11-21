@@ -35,7 +35,7 @@
                 })
             }
         })
-        $('.user-info-menu .hidden-sm').click(function(){
+        $('.user-info-menu .hidden-xs').click(function(){
             if($('.sidebar-menu').hasClass('collapsed')) {
                 $('.has-sub.expanded > ul').attr("style","")
             } else {

@@ -29,8 +29,10 @@ array(
 	"thumbnail" => array(
 		"name" => "_thumbnail",
 		"std" => "",
-		"title" => "添加图片地址，调用指定缩略图",
-		"type"=>"text"),
+		"title" => "添加图标地址，调用自定义图标",
+		"size" => "",
+        'button_text' => '添加图标',
+		"type"=>"upload"),
 );
 
 // 面板内容
@@ -73,7 +75,13 @@ function new_meta_sites_boxes() {
 				else $checked = '';
 				echo '<br /><label><input type="checkbox" name="' . $meta_box['name'] . '" value="true"  ' . $checked . ' />';
 				echo '' . $meta_box['title'] . '</label><br />';
-				break;
+			break;
+			case 'upload':
+				$button_text = (isset($meta_box['button_text'])) ? $meta_box['button_text'] : 'Upload';
+				echo '<h4>' . $meta_box['title'] . '</h4>';
+				echo '<input class="damiwp_url_input" style="width: 95%;margin-bottom: 10px;" type="text" id="'.$meta_box['name'].'_input" size="'.$meta_box['size'].'" value="'.$meta_box['std'].'" name="'.$meta_box['name'].'"/><a href="#" id="'.$meta_box['name'].'" class="dami_upload_button button">'.$button_text.'</a>';
+				add_script_and_styles();
+			break;
 			}
 		}
 }
@@ -103,3 +111,28 @@ function save_sites_postdata($post_id) {
 add_action('admin_menu', 'create_meta_sites_box');
 add_action('save_post', 'save_sites_postdata');
 
+function add_script_and_styles() {
+	echo "<script>
+	jQuery(document).ready(function(){
+	var dami_upload_frame;
+	var value_id;
+	jQuery('.dami_upload_button').live('click',function(event){
+	  value_id =jQuery( this ).attr('id');
+	  event.preventDefault();
+	  if( dami_upload_frame ){
+		dami_upload_frame.open();
+		return;
+	  }
+	  dami_upload_frame = wp.media({
+		title: '上传图片',
+		button: {
+		  text: '确定',
+		},
+		multiple: false
+	  });
+	  dami_upload_frame.on('select',function(){
+		attachment = dami_upload_frame.state().get('selection').first().toJSON();
+		//jQuery('#'+value_id+'_input').val(attachment.url).trigger('change');
+		jQuery('input[name='+value_id+']').val(attachment.url).trigger('change');});dami_upload_frame.open();});});
+		</script>";
+}

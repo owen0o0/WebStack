@@ -20,9 +20,8 @@
 <meta property="og:site_name" content="<?php echo io_get_option('seo_home_desc') ?>">
 <link rel="shortcut icon" href="<?php echo io_get_option('favicon') ?>">
 <link rel="apple-touch-icon" href="<?php echo io_get_option('apple_icon') ?>">
-<link rel="stylesheet" href="//fonts.loli.net/css?family=Arimo:400,700,400italic">
 <?php wp_head(); ?>
 </head> 
- <body class="page-body">
+ <body class="page-body <?php echo io_get_option('theme_mode')?>">
     <div class="page-container">
       

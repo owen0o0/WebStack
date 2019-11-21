@@ -18,7 +18,7 @@ include( 'templates/header-nav.php' );
 	<div class="row">
 		<div class="col-12 col-lg-10 mx-auto">
             <div class="panel panel-default">
-                <h4 class="text-gray"><?php echo get_the_title() ?></h4>
+                <h1><?php echo get_the_title() ?></h1>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-sm-12">
