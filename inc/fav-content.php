@@ -1,6 +1,6 @@
 <?php  if ( ! defined( 'ABSPATH' ) ) { exit; }
 function fav_con($mid) { ?>
-        <h4 class="text-gray"><i class="fa fa-list-ul" style="margin-right: 7px;" id="<?php echo $mid->name; ?>"></i><?php echo $mid->name; ?></h4>
+        <h4 class="text-gray"><i class="icon-io-tag" style="margin-right: 27px;" id="<?php echo $mid->name; ?>"></i><?php echo $mid->name; ?></h4>
         <div class="row">
         <?php   
           //定义$post为全局变量，这样之后的输出就不会是同一篇文章了
@@ -31,24 +31,24 @@ function fav_con($mid) { ?>
             $default_ico = get_template_directory_uri() .'/images/favicon.png';
             if(current_user_can('level_10') || get_post_meta($post->ID, '_visible', true)!="true"):
           ?>
-            <div class="<?php echo io_get_option('columns') ?>">
-              <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('<?php echo io_get_option('is_go')? '/go/?url='.base64_encode($link_url) : $link_url ?>', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?php echo $link_url ?>">
+            <div class="xe-card <?php echo io_get_option('columns') ?>">
+              <a href="<?php echo io_get_option('is_go')? '/go/?url='.base64_encode($link_url) : $link_url ?>" target="_blank" class="xe-widget xe-conversations box2 label-info" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?php echo $link_url ?>">
                 <div class="xe-comment-entry">
-                  <a class="xe-user-img">
+                  <div class="xe-user-img">
                     <?php if(io_get_option('lazyload')): ?>
-                    <img class="img-circle lazy" src="images/favicon.png" data-src="<?php echo get_post_meta($post->ID, '_thumbnail', true)? get_post_meta($post->ID, '_thumbnail', true): ('https://f.ydr.me/'.$link_url) ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" width="40">
+                    <img class="img-circle lazy" src="<?php echo $default_ico; ?>" data-src="<?php echo get_post_meta($post->ID, '_thumbnail', true)? get_post_meta($post->ID, '_thumbnail', true): ('//api.iowen.cn/favicon/'.format_url($link_url) . '.png') ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" width="40">
                     <?php else: ?>
-                    <img class="img-circle lazy" src="<?php echo get_post_meta($post->ID, '_thumbnail', true)? get_post_meta($post->ID, '_thumbnail', true): ('https://f.ydr.me/'.$link_url) ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" width="40">
+                    <img class="img-circle lazy" src="<?php echo get_post_meta($post->ID, '_thumbnail', true)? get_post_meta($post->ID, '_thumbnail', true): ('//api.iowen.cn/favicon/'.format_url($link_url) . '.png') ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" width="40">
                     <?php endif ?>
-                  </a>
+                  </div>
                   <div class="xe-comment">
-                    <a href="javascript:void(0)" class="xe-user-name overflowClip_1">
+                    <div class="xe-user-name overflowClip_1">
                       <strong><?php the_title() ?></strong>
-                    </a>
+                    </div>
                     <p class="overflowClip_2"><?php echo get_post_meta($post->ID, '_sites_sescribe', true) ?></p>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
           <?php endif; endwhile; endif; wp_reset_postdata(); ?>
         </div>   

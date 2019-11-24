@@ -463,3 +463,24 @@ class iconfont {
 	}
 }
 new iconfont();
+
+function include_post_types_in_search($query) {
+	if(is_search()) {
+		$post_types = get_post_types(array('public' => true, 'exclude_from_search' => false), 'objects');
+		$searchable_types = array();
+		if($post_types) {
+			foreach( $post_types as $type) {
+				$searchable_types[] = $type->name;
+			}
+		}
+		$query->set('post_type', $searchable_types);
+	}
+	return $query;
+}
+add_action('pre_get_posts', 'include_post_types_in_search');
+
+function format_url($url){
+    $pattern = '@^(?:https?://)?([^/]+)@i';
+    $result = preg_match($pattern, $url, $matches);
+    return $matches[1];
+}
