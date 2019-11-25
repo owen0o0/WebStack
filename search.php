@@ -29,9 +29,9 @@ get_header();
             	    	<div class="xe-comment-entry">
                   			<div class="xe-user-img">
                   			  	<?php if(io_get_option('lazyload')): ?>
-                  			  	<img class="img-circle lazy" src="images/favicon.png" data-src="<?php echo get_post_meta($post->ID, '_thumbnail', true)? get_post_meta($post->ID, '_thumbnail', true): ('//api.iowen.cn/favicon/'.format_url($link_url) . '.png') ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" width="40">
+                  			  	<img class="img-circle lazy" src="<?php echo $default_ico; ?>" data-src="<?php echo get_post_meta($post->ID, '_thumbnail', true)? get_post_meta($post->ID, '_thumbnail', true): (io_get_option('ico_url') .format_url($link_url) . io_get_option('ico_png')) ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" width="40">
                   			  	<?php else: ?>
-                  			  	<img class="img-circle lazy" src="<?php echo get_post_meta($post->ID, '_thumbnail', true)? get_post_meta($post->ID, '_thumbnail', true): ('//api.iowen.cn/favicon/'.format_url($link_url) . '.png') ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" width="40">
+                  			  	<img class="img-circle lazy" src="<?php echo get_post_meta($post->ID, '_thumbnail', true)? get_post_meta($post->ID, '_thumbnail', true): (io_get_option('ico_url') .format_url($link_url) . io_get_option('ico_png')) ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" width="40">
                   			  	<?php endif ?>
                   			</div>
             	    	  	<div class="xe-comment">
