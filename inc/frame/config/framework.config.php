@@ -25,12 +25,12 @@ $cats_id .= '<span style="margin-right: 15px;">'.$cat->cat_name.' [ '.$cat->cat_
 $blog_name = trim(get_bloginfo('name'));
 
 // ---------------------------------------
-// 常规  --------------------------------
+// 图标  --------------------------------
 // ---------------------------------------
 $options[] = array(
     'name' => 'overwiew',
-    'title' => '常规设置',
-    'icon' => 'fa fa-list',
+    'title' => '图标设置',
+    'icon' => 'fa fa-star',
     'fields' => array(
         array(
             'type'    => 'notice',
@@ -67,6 +67,18 @@ $options[] = array(
             'add_title' => '上传',
             'default'   => get_stylesheet_directory_uri() . '/images/app-ico.png',
         ),
+    ),
+);
+
+
+// ---------------------------------------
+// 其他  --------------------------------
+// ---------------------------------------
+$options[] = array(
+    'name' => 'other_settings',
+    'title' => '常规设置',
+    'icon' => 'fa fa-list',
+    'fields' => array(
         array(
             'id'      => 'columns',
             'type'    => 'radio',
@@ -119,6 +131,32 @@ $options[] = array(
             'type'    => 'switcher',
             'title'   => '内链跳转',
             'default' => false,
+        ),
+        array(
+            'type'    => 'notice',
+            'content' => '图标源设置',
+            'class'   => 'info',
+        ),
+        array(
+            'id'      => 'ico_url',
+            'type'    => 'text',
+            'title'   => '图标源',
+            'default' => 'https://api.iowen.cn/favicon/',
+            'desc'    => 'api 地址',
+        ),
+        array(
+            'id'      => 'url_format',
+            'type'    => 'switcher',
+            'title'   => '不包含 http(s)://',
+            'default' => true,
+            'desc'    => '根据图标源 api 要求设置，如果api要求不能包含协议名称，请开启此选项',
+        ),
+        array(
+            'id'      => 'ico_png',
+            'type'    => 'text',
+            'title'   => '图标源api后缀',
+            'default' => '.png',
+            'desc'    => '如：.png ,请根据api格式要求设置，如不需要请留空',
         ),
     ),
 );

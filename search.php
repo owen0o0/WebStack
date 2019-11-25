@@ -46,7 +46,7 @@ get_header();
     		<?php endif; endwhile; endif;?>
 			</div> 
 			<br /> 
-			<div style="text-align: center;margin-top: 50px;">
+			<div style="text-align:center;margin-top:50px;margin-bottom:30px;">
 			<a href="<?php bloginfo('url') ?>" class="but-home ">返回主页</a>
 			</div>
 		</div>

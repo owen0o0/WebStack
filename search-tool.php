@@ -18,9 +18,9 @@
             <ul class="search-type">
                 <li><input checked hidden type="radio" name="type" id="type-baidu" value="https://www.baidu.com/s?wd=" data-placeholder="百度一下"><label for="type-baidu"><span style="color:#2100E0">百度</span></label></li>
                 <li><input hidden type="radio" name="type" id="type-google" value="https://www.google.com/search?q=" data-placeholder="谷歌两下"><label for="type-google"><span style="color:#3B83FA">G</span><span style="color:#F3442C">o</span><span style="color:#FFC300">o</span><span style="color:#4696F8">g</span><span style="color:#2CAB4E">l</span><span style="color:#F54231">e</span></label></li>
+                <li><input hidden type="radio" name="type" id="type-zhannei" value="?s=" data-placeholder="站内搜索"><label for="type-zhannei"><span style="color:#888888">站内</span></label></li>
                 <li><input hidden type="radio" name="type" id="type-taobao" value="https://s.taobao.com/search?q=" data-placeholder="淘宝"><label for="type-taobao"><span style="color:#f40">淘宝</span></label></li>
                 <li><input hidden type="radio" name="type" id="type-bing1" value="https://cn.bing.com/search?q=" data-placeholder="微软Bing搜索"><label for="type-bing1"><span style="color:#007daa">Bing</span></label></li>
-                <li><input hidden type="radio" name="type" id="type-zhannei" value="?s=" data-placeholder="站内搜索"><label for="type-zhannei"><span style="color:#888888">站内</span></label></li>
             </ul>
         </div>
         <div class="search-group group-b">
