@@ -67,3 +67,4 @@ RewriteRule . /index.php [L]
 
 ### 更新
 <a href="https://github.com/owen0o0/WebStack/releases" target="_blank">更新日志</a>
+更新方法为替换源文件，或者在wordpress后台删除主题，然后重新安装主题
