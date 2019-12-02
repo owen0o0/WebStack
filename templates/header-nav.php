@@ -12,7 +12,7 @@
                     </div>
                     <div class="mobile-menu-toggle visible-xs">
                         <a href="#" data-toggle="mobile-menu">
-                            <i class="fa-bars"></i>
+                            <i class="fa fa-bars"></i>
                         </a>
                     </div>
                 </header>

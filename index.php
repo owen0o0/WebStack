@@ -19,7 +19,7 @@ include( 'templates/header-nav.php' );
       <ul class="user-info-menu left-links list-inline list-unstyled">
         <li class="hidden-xs">
             <a href="#" data-toggle="sidebar">
-                <i class="fa-bars"></i>
+                <i class="fa fa-bars"></i>
             </a>
         </li>
         <li>

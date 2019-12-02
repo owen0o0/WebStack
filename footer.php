@@ -2,7 +2,7 @@
             <footer class="main-footer sticky footer-type-1">
                 <div class="go-up">
                     <a href="#" rel="go-top">
-                        <i class="fa-angle-up"></i>
+                        <i class="fa fa-angle-up"></i>
                     </a>
                 </div>
                 <div class="footer-inner">
