@@ -11,7 +11,7 @@ array(
 	"sites_link" => array(
 		"name" => "_sites_link",
 		"std" => "",
-		"title" => "输入网址链接",
+		"title" => "输入网址链接，需包含 http(s)://",
 		"type"=>"text"),
 
 	"sites_sescribe" => array(
@@ -32,6 +32,14 @@ array(
 		"title" => "添加图标地址，调用自定义图标",
 		"size" => "",
         'button_text' => '添加图标',
+		"type"=>"upload"),
+
+	"wechat_qr" => array(
+		"name" => "_wechat_qr",
+		"std" => "",
+		"title" => "添加公众号二维码",
+		"size" => "",
+        'button_text' => '添加二维码',
 		"type"=>"upload"),
 );
 

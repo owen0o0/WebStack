@@ -31,24 +31,8 @@ function fav_con($mid) { ?>
             $default_ico = get_template_directory_uri() .'/images/favicon.png';
             if(current_user_can('level_10') || get_post_meta($post->ID, '_visible', true)!="true"):
           ?>
-            <div class="xe-card <?php echo io_get_option('columns') ?>">
-              <a href="<?php echo io_get_option('is_go')? '/go/?url='.base64_encode($link_url) : $link_url ?>" target="_blank" class="xe-widget xe-conversations box2 label-info" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?php echo $link_url ?>">
-                <div class="xe-comment-entry">
-                  <div class="xe-user-img">
-                    <?php if(io_get_option('lazyload')): ?>
-                    <img class="img-circle lazy" src="<?php echo $default_ico; ?>" data-src="<?php echo get_post_meta($post->ID, '_thumbnail', true)? get_post_meta($post->ID, '_thumbnail', true): (io_get_option('ico_url') .format_url($link_url) . io_get_option('ico_png')) ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" width="40">
-                    <?php else: ?>
-                    <img class="img-circle lazy" src="<?php echo get_post_meta($post->ID, '_thumbnail', true)? get_post_meta($post->ID, '_thumbnail', true): (io_get_option('ico_url') .format_url($link_url) . io_get_option('ico_png')) ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" width="40">
-                    <?php endif ?>
-                  </div>
-                  <div class="xe-comment">
-                    <div class="xe-user-name overflowClip_1">
-                      <strong><?php the_title() ?></strong>
-                    </div>
-                    <p class="overflowClip_2"><?php echo get_post_meta($post->ID, '_sites_sescribe', true) ?></p>
-                  </div>
-                </div>
-              </a>
+            <div class="xe-card <?php echo io_get_option('columns') ?> <?php echo get_post_meta($post->ID, '_wechat_qr', true)? 'wechat':''?>">
+              <?php include( get_theme_file_path() .'/templates/site-card.php' ); ?>
             </div>
           <?php endif; endwhile; endif; wp_reset_postdata(); ?>
         </div>   

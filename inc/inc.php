@@ -480,6 +480,8 @@ function include_post_types_in_search($query) {
 add_action('pre_get_posts', 'include_post_types_in_search');
 
 function format_url($url){
+    if($url == '')
+    return;
     if(io_get_option('url_format')){
         $pattern = '@^(?:https?://)?([^/]+)@i';
         $result = preg_match($pattern, $url, $matches);

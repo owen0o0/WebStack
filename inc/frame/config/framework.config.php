@@ -80,6 +80,21 @@ $options[] = array(
     'icon' => 'fa fa-list',
     'fields' => array(
         array(
+            'id'      => 'details_page',
+            'type'    => 'switcher',
+            'title'   => '详情页',
+            'desc'    => '显示网址详情页',
+            'after'   => '<br><p>关闭状态为网址块直接跳转到目标网址</p>',
+            'default' => false,
+        ),
+        array(
+            'id'      => 'is_qr',
+            'type'    => 'switcher',
+            'title'   => '显示二维码',
+            'after'   => '<br><p>网址块弹窗提示替换为二维码</p>',
+            'default' => false,
+        ),
+        array(
             'id'      => 'columns',
             'type'    => 'radio',
             'title'   => '网址列数',
@@ -206,7 +221,7 @@ $options[] = array(
         array(
             'id' => 'code_2_footer',
             'type' => 'wysiwyg',
-            'title' => 'footer自定义代码',
+            'title' => 'footer自定义 js 代码',
             'desc' => '显示在网站底部',
             'after'    => '<p class="cs-text-muted">'.__('出现在网站底部 body 前，主要用于站长统计代码...</p>','io_setting'),
             'settings' => array(
