@@ -464,6 +464,9 @@ class iconfont {
 }
 new iconfont();
 
+/**
+ * 让搜索支持自定义文章
+ */
 function include_post_types_in_search($query) {
 	if(is_search()) {
 		$post_types = get_post_types(array('public' => true, 'exclude_from_search' => false), 'objects');
@@ -479,6 +482,22 @@ function include_post_types_in_search($query) {
 }
 add_action('pre_get_posts', 'include_post_types_in_search');
 
+/**
+ * 让搜索支持自定义字段
+ */
+add_action('posts_search', function($search, $query){
+	global $wpdb;
+
+	if ($query->is_main_query() && !empty($query->query['s'])) {
+
+		$sql    = " OR EXISTS (SELECT * FROM {$wpdb->postmeta} WHERE post_id={$wpdb->posts}.ID and meta_key = '_sites_sescribe' and meta_value like %s)";
+		$like	= '%' . $wpdb->esc_like($query->query['s']) . '%';
+
+		$search	.= $wpdb->prepare($sql, $like);
+	}
+	return $search;
+},2,2);
+
 function format_url($url){
     if($url == '')
     return;
@@ -491,3 +510,34 @@ function format_url($url){
         return $url;
     }
 }
+
+// 分页代码
+function pagination($query_string){
+    global $posts_per_page, $paged;
+    $my_query = new WP_Query($query_string ."&posts_per_page=-1");
+    $total_posts = $my_query->post_count;
+    if(empty($paged))$paged = 1;
+    $prev = $paged - 1;
+    $next = $paged + 1;
+    $range = 2; // only edit this if you want to show more page-links
+    $showitems = ($range * 2)+1;  
+     
+    $pages = ceil($total_posts/$posts_per_page);
+    if(1 != $pages){
+    echo "<div class='pagination'>";
+    echo ($paged > 2 && $paged+$range+1 > $pages && $showitems < $pages)? "<a href='".get_pagenum_link(1)."'>最前</a>":"";
+    echo ($paged > 1 && $showitems < $pages)? "<a href='".get_pagenum_link($prev)."'>上一页</a>":"";  
+     
+    for ($i=1; $i <= $pages; $i++){
+    if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems )){
+    echo ($paged == $i)? "<span class='current'>".$i."</span>":"<a href='".get_pagenum_link($i)."' class='inactive' >".$i."</a>";
+    }
+    }  
+     
+    echo ($paged < $pages && $showitems < $pages) ? "<a href='".get_pagenum_link($next)."'>下一页</a>" :"";
+    echo ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) ? "<a href='".get_pagenum_link($pages)."'>最后</a>":"";
+    echo "</div>\n";
+    }
+    }
+
+ 

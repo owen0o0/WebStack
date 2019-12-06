@@ -5,7 +5,13 @@ get_header();
 
 <a href="<?php bloginfo('url') ?>" style="position:absolute;margin:30px 0 0 30px;z-index:1000;"><img src="<?php echo io_get_option('logo_normal') ?>" height="40" alt="<?php bloginfo('name') ?>"></a>
 <div class="main-content">
-	<?php include('search-tool.php'); ?>
+	<div id="search" class="s-search">
+		<form name="formsearch" method="get" action="<?php bloginfo('url'); ?>?s=" id="super-search-fm">
+            <input type="text" id="search-text" name="s" class="search-keyword" placeholder="输入关键字搜索" style="outline:0"/> 
+            <button type="submit" οnmοuseοut="this.className='select_class'" οnmοuseοver="this.className='select_over'" ><i class="fa fa-search "></i></button>
+        </form>
+	</div>
+
 	<div class="row">
 		<div class="col-12 col-lg-8 mx-auto">
 			<h4 class="text-gray"><i class="fa fa-search" style="margin-right: 27px;"></i>“<?php echo $s; ?>” <?php _e('的搜索结果','i_swallow'); ?></h4>
@@ -29,8 +35,15 @@ get_header();
 				<?php include( 'templates/site-card.php' ); ?>
             	</div>
     		<?php endif; endwhile; endif;?>
-			</div> 
+			</div>
 			<br /> 
+			<div class="posts-nav">
+			    <?php echo paginate_links(array(
+			        'prev_next'          => 0,
+			        'before_page_number' => '',
+			        'mid_size'           => 2,
+			    ));?>
+			</div>
 			<div style="text-align:center;margin-top:50px;margin-bottom:30px;">
 			<a href="<?php bloginfo('url') ?>" class="but-home ">返回主页</a>
 			</div>
