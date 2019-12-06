@@ -29,7 +29,7 @@ function post_type_sites() {
 		'show_ui'            => true,
 		'show_in_menu'       => true,
 		'query_var'          => true,
-		'rewrite'            => array( 'slug' => 'site' ),
+		'rewrite'            => array( 'slug' => 'sites' ),
 		'capability_type'    => 'post',
 		'menu_icon'          => 'dashicons-admin-site',
 		'has_archive'        => false,
@@ -134,8 +134,8 @@ function save_term_order( $term_id ) {
  */
 add_filter('post_type_link', 'custom_sites_link', 1, 3);
 function custom_sites_link( $link, $post = 0 ){
-    if ( $post->post_type == 'site' ){
-        return home_url( 'site/' . $post->ID .'.html' );
+    if ( $post->post_type == 'sites' ){
+        return home_url( 'sites/' . $post->ID .'.html' );
     } else {
         return $link;
     }
@@ -143,12 +143,12 @@ function custom_sites_link( $link, $post = 0 ){
 add_action( 'init', 'custom_sites_rewrites_init' );
 function custom_sites_rewrites_init(){
     add_rewrite_rule(
-        'site/([0-9]+)?.html$',
-        'index.php?post_type=site&p=$matches[1]',
+        'sites/([0-9]+)?.html$',
+        'index.php?post_type=sites&p=$matches[1]',
         'top' );
     add_rewrite_rule(
-        'site/([0-9]+)?.html/comment-page-([0-9]{1,})$',
-        'index.php?post_type=site&p=$matches[1]&cpage=$matches[2]',
+        'sites/([0-9]+)?.html/comment-page-([0-9]{1,})$',
+        'index.php?post_type=sites&p=$matches[1]&cpage=$matches[2]',
         'top'
         );
 }
