@@ -232,6 +232,70 @@ $options[] = array(
         ),
     )
 );
+// ----------------------------------------
+// 添加广告-------------------------------
+// ----------------------------------------
+$options[] = array(
+    'name' => 'ad',
+    'title' => '添加广告',
+    'icon' => 'fa fa-google',
+    'fields' => array(
+        array(
+            'id'      => 'ad_home_s',
+            'type'    => 'switcher',
+            'title'   => '首页顶部广告位',
+            'default' => false,
+        ),
+        array(
+            'id'      => 'ad_right_s',
+            'type'    => 'switcher',
+            'title'   => '详情页右边广告位',
+            'default' => true,
+        ),
+        array(
+            'id'      => 'ad_footer_s',
+            'type'    => 'switcher',
+            'title'   => 'footer广告位',
+            'default' => false,
+        ),
+        array(
+            'id'         => 'ad_home',
+            'type'       => 'wysiwyg',
+            'title'      => '首页顶部广告位内容',
+            'default'    => '<a href="https://www.iowen.cn/wordpress-version-webstack/" target="_blank"><img src="' . get_template_directory_uri() . '/screenshot.jpg" alt="广告也精彩" /></a>',
+            'settings'   => array(
+              'textarea_rows' => 5,
+              'tinymce'       => false,
+              'media_buttons' => false,
+            ),
+			'dependency' => array( 'ad_home_s', '==', true )
+        ),
+        array(
+            'id'         => 'ad_right',
+            'type'       => 'wysiwyg',
+            'title'      => '详情页右边广告位内容',
+            'default'    => '<a href="https://www.iowen.cn/wordpress-version-webstack/" target="_blank"><img src="' . get_template_directory_uri() . '/screenshot.jpg" alt="广告也精彩" /></a>',
+            'settings'   => array(
+              'textarea_rows' => 5,
+              'tinymce'       => false,
+              'media_buttons' => false,
+            ),
+			'dependency' => array( 'ad_right_s', '==', true )
+        ),
+        array(
+            'id'         => 'ad_footer',
+            'type'       => 'wysiwyg',
+            'title'      => 'footer广告位内容',
+            'default'    => '<a href="https://www.iowen.cn/wordpress-version-webstack/" target="_blank"><img src="' . get_template_directory_uri() . '/screenshot.jpg" alt="广告也精彩" /></a>',
+            'settings'   => array(
+              'textarea_rows' => 5,
+              'tinymce'       => false,
+              'media_buttons' => false,
+            ),
+			'dependency' => array( 'ad_footer_s', '==', true )
+        ),
+    )
+);
 
 // ----------------------------------------
 // 优化加速-------------------------------

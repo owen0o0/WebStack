@@ -39,7 +39,7 @@ include( 'templates/header-nav.php' );
                                     <img class="img-cover" src="<?php echo $imgurl ?>" alt="<?php echo $sitetitle ?>" title="<?php echo $sitetitle ?>">
                                 </div>
 	    					</div>
-	    					<div class="col-12 col-sm-8 col-lg-9 mt-4 mt-md-0">
+	    					<div class="col-12 col-sm-8 col-lg-5 mt-4 mt-md-0">
 	    						<div class="site-body p-xl-4">
                                     <?php 
                                     $terms = get_the_terms( get_the_ID(), 'favorites' );
@@ -73,6 +73,11 @@ include( 'templates/header-nav.php' );
 
 	    						</div>
 	    					</div>
+                            <div class="col-12 col-sm-12 col-lg-4 mt-4 mt-lg-0">
+                                
+                                <?php if(io_get_option('ad_right_s')) echo '<div class="ad ad-right">' . stripslashes( io_get_option('ad_right') ) . '</div>'; ?>
+                                
+                            </div>
                         </div>
                         <div class="mt-4 pt-4 border-top">
                             <?php  
@@ -129,6 +134,10 @@ include( 'templates/header-nav.php' );
                 <br /> 
 
 	    	</div>
+        
+        <?php if(io_get_option('ad_footer_s')) echo '<div class="ad ad-footer">' . stripslashes( io_get_option('ad_footer') ) . '</div>'; ?>
+        
         </div>
+        
     </div>
 <?php get_footer(); ?>

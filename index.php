@@ -23,8 +23,11 @@ else{?>
 <div class="no-search"></div>
 <?php
 }
+?>
 
+<?php if(!wp_is_mobile() && io_get_option('ad_home_s')) echo '<div class="ad ad-home">' . stripslashes( io_get_option('ad_home') ) . '</div>'; ?>        
 
+<?php
 foreach($categories as $category) {
   if($category->category_parent == 0){
     $children = get_categories(array(
