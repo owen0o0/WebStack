@@ -124,6 +124,14 @@ $options[] = array(
                 'white'     => '亮色'
             ),
         ),
+		array(
+			'id'      => 'site_n',
+			'type'    => 'number',
+			'title'   => '网址数量',
+			'default' => '-1',
+            'desc'    => '首页分类下显示的网址数量',
+            'after'   => '<p>-1 为显示分类下所有网址</p>',
+		),
         array(
             'id'      => 'icp',
             'type'    => 'text',

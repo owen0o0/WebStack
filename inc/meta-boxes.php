@@ -82,13 +82,13 @@ function new_meta_sites_boxes() {
 				if (isset($meta_box['std']) && $meta_box['std'] == 'true') $checked = 'checked = "checked"';
 				else $checked = '';
 				echo '<br /><label><input type="checkbox" name="' . $meta_box['name'] . '" value="true"  ' . $checked . ' />';
-				echo '' . $meta_box['title'] . '</label><br />';
+				echo '' . $meta_box['title'] . '</label><br /><br />';
 			break;
 			case 'upload':
 				$button_text = (isset($meta_box['button_text'])) ? $meta_box['button_text'] : 'Upload';
 				echo '<h4>' . $meta_box['title'] . '</h4>';
-				echo '<input class="damiwp_url_input" style="width: 95%;margin-bottom: 10px;" type="text" id="'.$meta_box['name'].'_input" size="'.$meta_box['size'].'" value="'.$meta_box['std'].'" name="'.$meta_box['name'].'"/><a href="#" id="'.$meta_box['name'].'" class="dami_upload_button button">'.$button_text.'</a>';
-				add_script_and_styles();
+				echo '<input class="damiwp_url_input" style="width: 95%;margin-bottom: 10px;" type="text" id="'.$meta_box['name'].'_input" size="'.$meta_box['size'].'" value="'.$meta_box['std'].'" name="'.$meta_box['name'].'"/><br><a href="#" id="'.$meta_box['name'].'" class="dami_upload_button button">'.$button_text.'</a>';
+				//add_script_and_styles();
 			break;
 			}
 		}
@@ -96,7 +96,7 @@ function new_meta_sites_boxes() {
 function create_meta_sites_box() {
 	global $theme_name;
 	if (function_exists('add_meta_box')) {
-		add_meta_box('new-meta-boxes', '添加链接', 'new_meta_sites_boxes', 'sites', 'normal', 'high');
+		add_meta_box('new-meta-boxes', '网址链接属性', 'new_meta_sites_boxes', 'sites', 'normal', 'high');
 	}
 }
 function save_sites_postdata($post_id) {
@@ -119,6 +119,7 @@ function save_sites_postdata($post_id) {
 add_action('admin_menu', 'create_meta_sites_box');
 add_action('save_post', 'save_sites_postdata');
 
+add_action( 'admin_footer', 'add_script_and_styles' );
 function add_script_and_styles() {
 	echo "<script>
 	jQuery(document).ready(function(){

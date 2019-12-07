@@ -25,7 +25,7 @@ else{?>
 }
 ?>
 
-<?php if(!wp_is_mobile() && io_get_option('ad_home_s')) echo '<div class="ad ad-home">' . stripslashes( io_get_option('ad_home') ) . '</div>'; ?>        
+<?php if(!wp_is_mobile() && io_get_option('ad_home_s')) echo '<div class="row"><div class="ad ad-home col-md-6">' . stripslashes( io_get_option('ad_home') ) . '</div><div class="ad ad-home col-md-6 visible-md-block visible-lg-block">' . stripslashes( io_get_option('ad_home') ) . '</div></div>'; ?>        
 
 <?php
 foreach($categories as $category) {

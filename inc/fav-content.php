@@ -1,6 +1,10 @@
 <?php  if ( ! defined( 'ABSPATH' ) ) { exit; }
 function fav_con($mid) { ?>
-        <h4 class="text-gray"><i class="icon-io-tag" style="margin-right: 27px;" id="<?php echo $mid->name; ?>"></i><?php echo $mid->name; ?></h4>
+        <h4 class="text-gray" style="display: inline-block;"><i class="icon-io-tag" style="margin-right: 27px;" id="<?php echo $mid->name; ?>"></i><?php echo $mid->name; ?></h4>
+        <?php 
+        $link = esc_url( get_term_link( $mid, 'res_category' ) );
+        echo "<a class='btn-move' href='$link'>more+</a>";
+        ?>
         <div class="row">
         <?php   
           //定义$post为全局变量，这样之后的输出就不会是同一篇文章了
@@ -9,7 +13,7 @@ function fav_con($mid) { ?>
           $args = array(
             'post_type'           => 'sites',        //自定义文章类型，这里为sites
             'ignore_sticky_posts' => 1,              //忽略置顶文章
-            'posts_per_page'      => -1,             //显示的文章数量
+            'posts_per_page'      => io_get_option('site_n'),             //显示的文章数量
             'meta_key'            => '_sites_order',
             'orderby'             => 'meta_value_num',
             'tax_query'           => array(
