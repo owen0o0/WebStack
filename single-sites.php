@@ -27,11 +27,12 @@ include( 'templates/header-nav.php' );
                         <div class="row">
 	    					<div class="col-12 col-sm-4 col-lg-3">
                                 <?php 
-                                $m_link_url = get_post_meta($post->ID, '_sites_link', true); 
-                                if($m_link_url == '')
+                                $m_link_url  = get_post_meta($post->ID, '_sites_link', true); 
+                                $m_thumbnail = get_post_meta(get_the_ID(), '_thumbnail', true);
+                                if($m_thumbnail == '' && $m_link_url == '')
                                     $imgurl = get_template_directory_uri() .'/images/favicon.png';
                                 else
-                                    $imgurl = get_post_meta(get_the_ID(), '_thumbnail', true)? get_post_meta(get_the_ID(), '_thumbnail', true): (io_get_option('ico_url') .format_url($m_link_url) . io_get_option('ico_png'));
+                                    $imgurl = $m_thumbnail? $m_thumbnail : (io_get_option('ico_url') .format_url($m_link_url) . io_get_option('ico_png'));
                                 $sitetitle = get_the_title();
                                 ?>
                                 <div class="siteico">

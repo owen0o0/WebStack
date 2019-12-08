@@ -198,6 +198,7 @@ footer.main-footer{border-top:0;background-color:#fff}
 .pb-4,.py-4{padding-bottom:3rem!important}
 .pt-4,.py-4{padding-top:3rem!important}
 .border-top{border-top:1px solid rgba(130,130,130,0.1)!important}
+.main-content .tooltip{word-break:break-word}
 /*.ad{overflow:hidden}*/
 .ad img{width:100%;max-height:350px}
 .ad-home img,.ad-footer img{max-height:150px}
