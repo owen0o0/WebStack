@@ -124,7 +124,12 @@ function term_order_field( $term, $taxonomy ) {
 add_action('created_favorites','save_term_order',10,1);
 add_action('edit_favorites','save_term_order',10,1);
 function save_term_order( $term_id ) {
-   update_term_meta( $term_id, '_term_order', $_POST[ '_term_order' ] );
+	if (isset($_POST['_term_order'])) {
+   		update_term_meta( $term_id, '_term_order', $_POST[ '_term_order' ] );
+	}
+	$ca_menu_id = esc_attr($_POST['ca_ordinal']);
+	if ($ca_menu_id)
+		update_term_meta( $term_id, '_term_order', $ca_menu_id);
 }
 
 
@@ -145,10 +150,247 @@ function custom_sites_rewrites_init(){
     add_rewrite_rule(
         'sites/([0-9]+)?.html$',
         'index.php?post_type=sites&p=$matches[1]',
-        'top' );
+		'top' 
+	);
     add_rewrite_rule(
         'sites/([0-9]+)?.html/comment-page-([0-9]{1,})$',
         'index.php?post_type=sites&p=$matches[1]&cpage=$matches[2]',
         'top'
-        );
+    );
 }
+
+
+//此部分功能是生成分类下拉菜单
+add_action('restrict_manage_posts','io_post_type_filter',10,2);
+function io_post_type_filter($post_type, $which){
+    if('sites' !== $post_type){ //这里为自定义文章类型，需修改
+      return; //检查是否是我们需要的文章类型
+    }
+    $taxonomy_slug     = 'favorites'; //这里为自定义分类法，需修改
+    $taxonomy          = get_taxonomy($taxonomy_slug);
+    $selected          = '';
+    $request_attr      = 'favorites'; //这里为自定义分类法，需修改
+    if ( isset($_REQUEST[$request_attr] ) ) {
+      $selected = $_REQUEST[$request_attr];
+    }
+    wp_dropdown_categories(array(
+      'show_option_all' =>  __("所有{$taxonomy->label}"),
+      'taxonomy'        =>  $taxonomy_slug,
+      'name'            =>  $request_attr,
+      'orderby'         =>  'name',
+      'selected'        =>  $selected,
+      'hierarchical'    =>  true,
+      'depth'           =>  5,
+      'show_count'      =>  true, // Show number of post in parent term
+      'hide_empty'      =>  false, // Don't show posts w/o terms
+    ));
+}
+//此部分功能是列出指定分类下的所有文章
+add_filter('parse_query','io_work_convert_restrict'); 
+function io_work_convert_restrict($query) {  
+    global $pagenow;  
+    global $typenow;  
+    if ($pagenow=='edit.php') {  
+        $filters = get_object_taxonomies($typenow);  
+        foreach ($filters as $tax_slug) {  
+            $var = &$query->query_vars[$tax_slug];  
+            if ( isset($var) && $var>0) {  
+                $term = get_term_by('id',$var,$tax_slug);  
+                $var = $term->slug;  
+            }  
+        }  
+    }  
+    return $query;  
+} 
+
+/**
+ * 文章列表添加自定义字段
+ * https://www.iowen.cn/wordpress-quick-edit
+ */
+add_filter('manage_edit-sites_columns', 'io_ordinal_manage_posts_columns');
+add_action('manage_posts_custom_column','io_ordinal_manage_posts_custom_column',10,2);
+function io_ordinal_manage_posts_columns($columns){
+	$columns['ordinal']    = '排序'; 
+	$columns['visible']    = '可见性'; 
+	return $columns;
+}
+function io_ordinal_manage_posts_custom_column($column_name,$id){ 
+	switch( $column_name ) :
+		case 'ordinal': {
+			echo get_post_meta($id, '_sites_order', true);
+			break;
+		}
+		case 'visible': {
+			echo get_post_meta($id, '_visible', true)? "管理员" : "所有人";
+			break;
+		}
+	endswitch;
+}
+
+//分类列表添加自定义字段
+add_filter('manage_edit-favorites_columns', 'io_id_manage_tags_columns');
+add_action('manage_favorites_custom_column','io_id_manage_tags_custom_column',10,3);
+function io_id_manage_tags_columns($columns){
+	$columns['ca_ordinal']    = '菜单排序'; 
+	$columns['id']    = 'ID'; 
+    return $columns;
+}
+function io_id_manage_tags_custom_column($null,$column_name,$id){
+    if ($column_name == 'ca_ordinal') {
+        echo get_term_meta($id, '_term_order', true);
+    }
+    if ($column_name == 'id') {
+        echo $id;
+    }
+}
+
+/**
+ * 文章列表添加自定义字段
+ * 
+ */
+add_action( 'admin_head', 'io_custom_css' );
+function io_custom_css(){
+	echo '<style>
+		#ordinal{
+			width:80px;
+		} 
+	</style>';
+}
+
+//文章列表添加排序规则
+add_filter('manage_edit-sites_sortable_columns', 'sort_sites_order_column');
+//add_filter('manage_edit-favorites_sortable_columns', 'sort_favorites_order_column');
+add_action('pre_get_posts', 'sort_sites_order');
+function sort_sites_order_column($defaults)
+{
+    $defaults['ordinal'] = 'ordinal';
+    return $defaults;
+}
+function sort_favorites_order_column($defaults)
+{
+    $defaults['ca_ordinal'] = 'ca_ordinal';
+    return $defaults;
+}
+function sort_sites_order($query) {
+    if(!is_admin())
+		return;
+    $orderby = $query->get('orderby');
+    if('ordinal' == $orderby) {
+        $query->set('meta_key', '_sites_order');
+        $query->set('orderby', 'meta_value_num');
+    }
+    if('ca_ordinal' == $orderby) {
+        $query->set('meta_key', '_term_order');
+        $query->set('orderby', 'meta_value_num');
+    }
+}
+
+
+add_action('quick_edit_custom_box',  'io_add_quick_edit', 10, 2);
+function io_add_quick_edit($column_name, $post_type) {
+	if ($column_name == 'ordinal') {
+		//请注意：<fieldset>类可以是：
+		//inline-edit-col-left，inline-edit-col-center，inline-edit-col-right
+		//所有列均为float：left，
+		//因此，如果要在左列，请使用clear：both元素
+		echo '
+		<fieldset class="inline-edit-col-left" style="clear: both;">
+			<div class="inline-edit-col"> 
+				<label class="alignleft">
+					<span class="title">排序</span>
+					<span class="input-text-wrap"><input type="number" name="ordinal" class="ptitle" value=""></span>
+				</label> 
+				<em class="alignleft inline-edit-or"> 越大越靠前</em>
+			</div>
+		</fieldset>';
+	}
+	if ($column_name == 'ca_ordinal') {  
+	  	echo '
+	  	<fieldset>
+		  	<div class="inline-edit-col"> 
+			  	<label class="alignleft">
+				  	<span class="title">排序</span>
+				  	<span class="input-text-wrap"><input type="number" name="ca_ordinal" class="ptitle" value=""></span>
+			  	</label> 
+			  	<em class="alignleft inline-edit-or"> 越大越靠前</em>
+		  	</div>
+	  	</fieldset>';
+	}
+}
+
+
+//保存和更新数据
+add_action('save_post', 'io_save_quick_edit_data');
+function io_save_quick_edit_data($post_id) {
+    //如果是自动保存日志，并非我们所提交数据，那就不处理
+    if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
+        return $post_id;
+    // 验证权限，'sites' 为文章类型，默认为 'post' ,这里为我自定义的文章类型'sites'
+    if ( 'sites' == $_POST['post_type'] ) {
+        if ( !current_user_can( 'edit_page', $post_id ) )
+            return $post_id;
+    } else {
+        if ( !current_user_can( 'edit_post', $post_id ) )
+        return $post_id;
+	}  
+	$post = get_post($post_id); 
+	// 'ordinal' 与前方代码对应
+    if (isset($_POST['ordinal']) && ($post->post_type != 'revision')) {
+        $left_menu_id = esc_attr($_POST['ordinal']);
+        if ($left_menu_id)
+			update_post_meta( $post_id, '_sites_order', $left_menu_id);// ‘_sites_order’为自定义字段
+    } 
+}
+
+//输出js
+add_action('admin_footer', 'ashuwp_quick_edit_javascript');
+function ashuwp_quick_edit_javascript() {
+	$current_screen = get_current_screen(); 
+    if (!is_object($current_screen) || ($current_screen->post_type != 'sites'))return;
+	if($current_screen->id == 'edit-sites'){
+ 	echo"
+    <script type='text/javascript'>
+    jQuery(function($){
+		var wp_inline_edit_function = inlineEditPost.edit;
+		inlineEditPost.edit = function( post_id ) {
+			wp_inline_edit_function.apply( this, arguments );
+			var id = 0;
+			if ( typeof( post_id ) == 'object' ) {
+				id = parseInt( this.getId( post_id ) );
+			}
+			if ( id > 0 ) {
+				var specific_post_edit_row = $( '#edit-' + id ),
+						specific_post_row = $( '#post-' + id ),
+						product_price = $( '.column-ordinal', specific_post_row ).text(); 
+
+				$('input[name=\"ordinal\"]', specific_post_edit_row ).val( product_price ); 
+			}
+		}
+	});
+    </script>";
+	} 
+	if($current_screen->id == 'edit-favorites'){
+ 	echo"
+    <script type='text/javascript'>
+    jQuery(function($){
+		var wp_inline_edit_function = inlineEditTax.edit;
+		inlineEditTax.edit = function( post_id ) {
+			wp_inline_edit_function.apply( this, arguments );
+			var id = 0;
+			if ( typeof( post_id ) == 'object' ) {
+				id = parseInt( this.getId( post_id ) );
+			}
+		console.log('调试区'+id);
+			if ( id > 0 ) {
+				var specific_post_edit_row = $( '#edit-' + id ),
+						specific_post_row = $( '#tag-' + id ),
+						product_price = $( '.column-ca_ordinal', specific_post_row ).text(); 
+
+				$('input[name=\"ca_ordinal\"]', specific_post_edit_row ).val( product_price ); 
+			}
+		}
+	});
+    </script>";
+	} 
+}
+

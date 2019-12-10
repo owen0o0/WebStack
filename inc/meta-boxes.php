@@ -121,6 +121,9 @@ add_action('save_post', 'save_sites_postdata');
 
 add_action( 'admin_footer', 'add_script_and_styles' );
 function add_script_and_styles() {
+	// 增加位置判断
+	$current_screen = get_current_screen(); 
+    if (!is_object($current_screen) || ($current_screen->id != 'sites') || ($current_screen->post_type != 'sites')) return;
 	echo "<script>
 	jQuery(document).ready(function(){
 	var dami_upload_frame;

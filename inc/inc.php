@@ -122,7 +122,7 @@ function search_filter_page($query) {
     }
     return $query;
 }
-add_filter('pre_get_posts','search_filter_page');
+//add_filter('pre_get_posts','search_filter_page');
 
 /**
  * 去除wordpress前台顶部工具条
@@ -480,12 +480,14 @@ function include_post_types_in_search($query) {
 	}
 	return $query;
 }
-add_action('pre_get_posts', 'include_post_types_in_search');
+//add_action('pre_get_posts', 'include_post_types_in_search');
+ 
 
 /**
  * 让搜索支持自定义字段
  */
-add_action('posts_search', function($search, $query){
+//add_action('posts_search', 'include_custom_fields_in_search',2,2);
+function include_custom_fields_in_search ($search, $query){
 	global $wpdb;
 
 	if ($query->is_main_query() && !empty($query->query['s'])) {
@@ -496,7 +498,7 @@ add_action('posts_search', function($search, $query){
 		$search	.= $wpdb->prepare($sql, $like);
 	}
 	return $search;
-},2,2);
+};
 
 function format_url($url){
     if($url == '')
@@ -511,33 +513,47 @@ function format_url($url){
     }
 }
 
-// 分页代码
-function pagination($query_string){
-    global $posts_per_page, $paged;
-    $my_query = new WP_Query($query_string ."&posts_per_page=-1");
-    $total_posts = $my_query->post_count;
-    if(empty($paged))$paged = 1;
-    $prev = $paged - 1;
-    $next = $paged + 1;
-    $range = 2; // only edit this if you want to show more page-links
-    $showitems = ($range * 2)+1;  
-     
-    $pages = ceil($total_posts/$posts_per_page);
-    if(1 != $pages){
-    echo "<div class='pagination'>";
-    echo ($paged > 2 && $paged+$range+1 > $pages && $showitems < $pages)? "<a href='".get_pagenum_link(1)."'>最前</a>":"";
-    echo ($paged > 1 && $showitems < $pages)? "<a href='".get_pagenum_link($prev)."'>上一页</a>":"";  
-     
-    for ($i=1; $i <= $pages; $i++){
-    if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems )){
-    echo ($paged == $i)? "<span class='current'>".$i."</span>":"<a href='".get_pagenum_link($i)."' class='inactive' >".$i."</a>";
-    }
-    }  
-     
-    echo ($paged < $pages && $showitems < $pages) ? "<a href='".get_pagenum_link($next)."'>下一页</a>" :"";
-    echo ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) ? "<a href='".get_pagenum_link($pages)."'>最后</a>":"";
-    echo "</div>\n";
-    }
-    }
 
- 
+/**
+ * 修改搜索查询的sql代码，将postmeta表左链接进去。
+ */
+add_filter('posts_join', 'cf_search_join' );
+function cf_search_join( $join ) {
+    if(is_admin())
+        return $join;
+    global $wpdb;
+    if ( is_search() ) {
+      $join .=' LEFT JOIN '.$wpdb->postmeta. ' ON '. $wpdb->posts . '.ID = ' . $wpdb->postmeta . '.post_id ';
+    }
+    return $join;
+}
+
+/**
+ * 在wordpress查询代码中加入自定义字段值的查询。
+ */
+add_filter('posts_where', 'cf_search_where');
+function cf_search_where( $where ) {
+    if(is_admin())
+        return $where; 
+    global $pagenow, $wpdb;
+    if ( is_search() ) {
+        $where = preg_replace("/\(\s*".$wpdb->posts.".post_title\s+LIKE\s*(\'[^\']+\')\s*\)/",
+        "(".$wpdb->posts.".post_title LIKE $1) OR (".$wpdb->postmeta.".meta_value LIKE $1)", $where );
+    }
+    return $where;
+}
+
+/**
+ * 去重
+ */
+add_filter ('posts_distinct', 'cf_search_distinct');
+function cf_search_distinct($where) {
+    if(is_admin())
+        return $where;
+    global $wpdb;
+    if ( is_search() )  {
+      return "DISTINCT";
+    }
+    return $where;
+}
+
