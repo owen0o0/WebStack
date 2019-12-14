@@ -7,7 +7,10 @@
                 $qrurl="<img src='" . get_post_meta(get_the_ID(), '_wechat_qr', true) . "' width='128'>";
                 $is_html = 'true';
               } else if($link_url=="") {
-                $qrurl = '地址错误！';
+                // $qrurl = '无二维码！';
+                $link_url = get_permalink($post->ID);
+                $qrurl = "<img src='https://my.tv.sohu.com/user/a/wvideo/getQRCode.do?width=128&height=128&text=" . $link_url . "' width='128'>";
+                $is_html = 'true';
               } else if(io_get_option('is_qr')) {
                 $qrurl = "<img src='https://my.tv.sohu.com/user/a/wvideo/getQRCode.do?width=128&height=128&text=" . $link_url . "' width='128'>";
                 $is_html = 'true';
