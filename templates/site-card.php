@@ -1,8 +1,7 @@
 <?php if ( ! defined( 'ABSPATH' ) ) { exit; }  ?>
 
               <?php
-              if($link_url=="") $link_url = get_permalink($post->ID);
-              $qrurl = $link_url;
+              $qrurl = $link_url ?: get_permalink($post->ID);
               $is_html = '';
               if(get_post_meta($post->ID, '_wechat_qr', true)){
                 $qrurl="<img src='" . get_post_meta(get_the_ID(), '_wechat_qr', true) . "' width='128'>";
