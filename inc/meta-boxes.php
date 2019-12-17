@@ -11,7 +11,7 @@ array(
 	"sites_link" => array(
 		"name" => "_sites_link",
 		"std" => "",
-		"title" => "输入网址链接，需包含 http(s)://",
+		"title" => "输入网址链接，需包含 http(s)://<br><span style='font-weight: normal;color: crimson;margin-top: 10px;display: block;'>注意：“网址”和“公众号二维码”两者可同时填写，但是至少填一项。</span>",
 		"type"=>"text"),
 
 	"sites_sescribe" => array(
@@ -48,7 +48,7 @@ function new_meta_sites_boxes() {
 	global $post, $new_meta_sites_boxes;
 	//获取保存
 	foreach ($new_meta_sites_boxes as $meta_box) {
-		$meta_box_value = get_post_meta($post->ID, $meta_box['name'] . '', true);
+		$meta_box_value = get_post_meta($post->ID, $meta_box['name'] , true);
 		if ($meta_box_value != "")
 		//将默认值替换为已保存的值
 		$meta_box['std'] = $meta_box_value;
@@ -59,15 +59,15 @@ function new_meta_sites_boxes() {
 				echo '<h4>' . $meta_box['title'] . '</h4>';
 			break;
 			case 'text':
-				echo '<h4>' . $meta_box['title'] . '</h4>';
+				echo '<h4 style="margin-bottom: 0;">' . $meta_box['title'] . '</h4>';
 				echo '<span class="form-field"><input type="text" size="40" name="' . $meta_box['name'] . '" value="' . $meta_box['std'] . '" /></span><br />';
 			break;
 			case 'textarea':
-				echo '<h4>' . $meta_box['title'] . '</h4>';
+				echo '<h4 style="margin-bottom: 0;">' . $meta_box['title'] . '</h4>';
 				echo '<textarea id="seo-excerpt" cols="40" rows="2" name="' . $meta_box['name'] . '">' . $meta_box['std'] . '</textarea><br />';
 			break;
 			case 'radio':
-				echo '<h4>' . $meta_box['title'] . '</h4>';
+				echo '<h4 style="margin-bottom: 0;">' . $meta_box['title'] . '</h4>';
 				$counter = 1;
 				foreach ($meta_box['buttons'] as $radiobutton) {
 					$checked = "";
@@ -86,9 +86,8 @@ function new_meta_sites_boxes() {
 			break;
 			case 'upload':
 				$button_text = (isset($meta_box['button_text'])) ? $meta_box['button_text'] : 'Upload';
-				echo '<h4>' . $meta_box['title'] . '</h4>';
+				echo '<h4 style="margin-bottom: 0;">' . $meta_box['title'] . '</h4>';
 				echo '<input class="damiwp_url_input" style="width: 95%;margin-bottom: 10px;" type="text" id="'.$meta_box['name'].'_input" size="'.$meta_box['size'].'" value="'.$meta_box['std'].'" name="'.$meta_box['name'].'"/><br><a href="#" id="'.$meta_box['name'].'" class="dami_upload_button button">'.$button_text.'</a>';
-				//add_script_and_styles();
 			break;
 			}
 		}
@@ -102,7 +101,7 @@ function create_meta_sites_box() {
 function save_sites_postdata($post_id) {
 	global $post, $new_meta_sites_boxes;
 	foreach ($new_meta_sites_boxes as $meta_box) {
-		if (!wp_verify_nonce($_POST[$meta_box['name'] . '_noncename'], plugin_basename(__FILE__))) {
+		if (!wp_verify_nonce((@$_POST[$meta_box['name'] . '_noncename']), plugin_basename(__FILE__))) {
 			return $post_id;
 		}
 		if ('page' == $_POST['post_type']) {
@@ -110,10 +109,10 @@ function save_sites_postdata($post_id) {
 		} else {
 			if (!current_user_can('edit_post', $post_id)) return $post_id;
 		}
-		$data = $_POST[$meta_box['name'] . ''];
-		if (get_post_meta($post_id, $meta_box['name'] . '') == "") add_post_meta($post_id, $meta_box['name'] . '', $data, true);
-		elseif ($data != get_post_meta($post_id, $meta_box['name'] . '', true)) update_post_meta($post_id, $meta_box['name'] . '', $data);
-		elseif ($data == "") delete_post_meta($post_id, $meta_box['name'] . '', get_post_meta($post_id, $meta_box['name'] . '', true));
+		$data = $_POST[$meta_box['name'] ];
+		if (get_post_meta($post_id, $meta_box['name'] ) == "") add_post_meta($post_id, $meta_box['name'] , $data, true);
+		elseif ($data != get_post_meta($post_id, $meta_box['name'] , true)) update_post_meta($post_id, $meta_box['name'] , $data);
+		elseif ($data == "") delete_post_meta($post_id, $meta_box['name'] , get_post_meta($post_id, $meta_box['name'] , true));
 	}
 }
 add_action('admin_menu', 'create_meta_sites_box');

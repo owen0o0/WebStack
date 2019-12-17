@@ -82,9 +82,7 @@
 <?php endif; ?>
 <?php wp_footer(); ?>
 <!-- 自定义代码 -->
-<script>
-<?php echo io_get_option('foot_code');?>
-</script>
+<?php echo io_get_option('code_2_footer');?>
 <!-- end 自定义代码 -->
 </body>
 </html>

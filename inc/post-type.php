@@ -326,7 +326,7 @@ function io_save_quick_edit_data($post_id) {
     if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
         return $post_id;
     // 验证权限，'sites' 为文章类型，默认为 'post' ,这里为我自定义的文章类型'sites'
-    if ( 'sites' == $_POST['post_type'] ) {
+    if ( 'sites' == @$_POST['post_type'] ) {
         if ( !current_user_can( 'edit_page', $post_id ) )
             return $post_id;
     } else {
