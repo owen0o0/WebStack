@@ -57,8 +57,7 @@ include( 'templates/header-nav.php' );
                                 
 	    									<p><?php echo get_post_meta(get_the_ID(), '_sites_sescribe', true) ?></p>
                                          <?php 
-                                         $m_post_link_url = $m_link_url ?: get_permalink($post->ID);
-                                         $qrurl="https://my.tv.sohu.com/user/a/wvideo/getQRCode.do?width=150&height=150&text=". $m_post_link_url;
+                                         $qrurl="https://my.tv.sohu.com/user/a/wvideo/getQRCode.do?width=150&height=150&text=". $m_link_url;
                                          $qrname = "手机查看";
                                          if(get_post_meta(get_the_ID(), '_wechat_qr', true)){
                                             $qrurl=get_post_meta(get_the_ID(), '_wechat_qr', true);
