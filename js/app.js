@@ -197,6 +197,7 @@ function trigger_resizable()
 			ev.preventDefault();
 			public_vars.$mainMenu.add(public_vars.$sidebarProfile).toggleClass('mobile-is-visible');
             if($("#main-menu").hasClass('mobile-is-visible') === true){
+				public_vars.$sidebarMenu.removeClass('collapsed');
                 $(".sidebar-menu-inner").css("max-height",window.innerHeight);
                 ps_init();
             }
