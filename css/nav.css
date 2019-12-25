@@ -19,6 +19,7 @@ a:hover,a:focus{color:#232323;text-decoration:none}
 .xe-comment-entry img{float:left;display:block;background:rgba(136,136,136,.15);margin-right:10px}
 .xe-comment p{margin-bottom:0px}
 .overflowClip_2{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.overflowClip_1{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
 .submit-tag{margin-top:50px}
 .xe-card{position:relative;height:86px;margin:20px 0 0 0}
 .xe-widget{position:relative}
@@ -170,6 +171,11 @@ nav.navbar{position:fixed;z-index:2000!important;right:30px;width:100%;padding:0
 .main-content .panel img{max-width:100%;height:auto}
 footer.main-footer{border-top:0;background-color:#fff}
 .no-search{margin-top:85px}
+.collapsed .main-menu>li>a{position:relative;overflow:hidden}
+.collapsed .main-menu>li>a>i{display:block;width:100%;height:100%;padding:13px;top:0%;left:0;position:absolute;transition:top .25s ease-in-out}
+.collapsed .main-menu>li>a>span:first-of-type{display:-webkit-box!important;overflow:hidden;position:relative;padding:0;bottom:36px;-webkit-line-clamp:1;-webkit-box-orient:vertical;transition:.25s ease-in-out}
+.collapsed .main-menu>li>a:hover>i{top:100%}  
+.collapsed .main-menu>li>a:hover>span:first-of-type{bottom:0px}
 .siteico{background:#f1f5f8;position:relative;overflow:hidden;box-shadow:0 30px 20px -20px rgba(0,0,0,.15);border-radius:10px}
 .siteico:before{content:'';display:block;padding-top:100%}
 .blur{-moz-filter:blur(15px);-ms-filter:blur(15px);filter:blur(15px);filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius=15,MakeShadow=false)}
