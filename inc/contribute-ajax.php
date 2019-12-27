@@ -1,5 +1,7 @@
 <?php 
-
+/**
+ * 弃用，已经移至ajax.php
+ */
 if ( 'POST' != $_SERVER['REQUEST_METHOD'] ) {
 	header('Allow: POST');
 	header('HTTP/1.1 405 Method Not Allowed');

@@ -13,6 +13,7 @@ require_once get_theme_file_path() .'/inc/register.php';
 require_once get_theme_file_path() .'/inc/post-type.php';
 require_once get_theme_file_path() .'/inc/fav-content.php';
 require_once get_theme_file_path() .'/inc/meta-boxes.php';
+require_once get_theme_file_path() .'/inc/ajax.php';
 
  
 // 禁用版本修订

@@ -4,7 +4,10 @@
  * 原文地址：https://www.iowen.cn/wordpress-visitors-upload-pictures
  * 一为忆
  * WebStack 导航主题
+ * 
+ * 弃用，已经移至ajax.php
  */
+
 if ( 'POST' != $_SERVER['REQUEST_METHOD'] ) {
 	header('Allow: POST');
 	header('HTTP/1.1 405 Method Not Allowed');
@@ -48,7 +51,7 @@ if ( !empty( $file ) ) {
         $attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
         wp_update_attachment_metadata( $attach_id, $attach_data );        // 生成附件的元数据，并更新数据库记录。
         // 返回消息至前端
-        print_r(json_encode(array('status'=>1,'msg'=>'图片添加成功','data'=>array('src'=>wp_get_attachment_url( $attach_id ),'title'=>time()))));
+        print_r(json_encode(array('status'=>1,'msg'=>'图片添加成功','data'=>array('id'=>$attach_id,'src'=>wp_get_attachment_url( $attach_id ),'title'=>time()))));
         exit();
     }else{
         echo '{"status":4,"msg":"图片上传失败！"}';

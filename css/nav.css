@@ -282,9 +282,12 @@ input[type="button"],input[type="submit"]{background-color:#222;border:0;-webkit
  
 /* --- tougao --- */
 .show_ico{float:left;width:64px;height:64px;line-height:60px;padding:2px;cursor:pointer}
+.show_ico .remove{position:absolute;cursor:pointer;top:1px;right:1px;font-size:20px;z-index:1;display:block;width:24px;height:24px;line-height:24px;background:rgba(34,34,34,.5);border-radius:50%}
+.wechat .show_ico .remove{font-size:25px;width:29px;height:29px;line-height:29px}
+.show_ico .remove:hover{color:#f1404b}
 .upload_img{position:relative;display:table;color:white;background-color:rgba(136,136,136,.1);overflow:hidden;cursor:pointer;text-align:center;vertical-align:center;border-radius:5px;transition:.3s} 
 .wechat .show_ico{width:132px;height:132px;line-height:128px}
-.upload_img:hover{background:#222324}
+.upload_img:not(.disabled):hover{background:#222324}
 .upload_img input{position:absolute;cursor:pointer;opacity:0;left:0;right:0;top:0;bottom:0}
 .postform{margin:5px}
 .form-control{border-color:#bbb;padding:5px 10px;border-radius:3px}

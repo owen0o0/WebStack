@@ -41,8 +41,9 @@ include( 'templates/header-nav.php' );
                             <div class="upload_img">
                                 <div class="show_ico">
                                     <img id="show_sites_ico" src="<?php echo get_template_directory_uri() . '/images/add.png' ?>" alt="网站图标">
+                                    <i id="remove_sites_ico" class="fa fa-times-circle remove" data-id="" data-type="sites_ico" style="display: none;"></i>
                                 </div> 
-                                <input type="file" id="upload_ico" data-type="sites_ico" accept="image/*" onchange="uploadImg(this)" >
+                                <input type="file" id="upload_sites_ico" data-type="sites_ico" accept="image/*" onchange="uploadImg(this)" >
                             </div>
                         </div>
                         <div class="row">
@@ -87,9 +88,10 @@ include( 'templates/header-nav.php' );
                                 <input type="hidden" value="" id="tougao_wechat_qr" name="tougao_wechat_qr" />
                                 <div class="upload_img wechat">
                                     <div class="show_ico">
-                                        <img id="show_wechat_qr" src="<?php echo get_template_directory_uri() . '/images/add.png' ?>" alt="网站图标">
+                                        <img id="show_wechat_qr" src="<?php echo get_template_directory_uri() . '/images/add.png' ?>" alt="公众号二维码">
+                                        <i id="remove_wechat_qr" class="fa fa-times-circle remove" data-id="" data-type="wechat_qr" style="display: none;"></i>
                                     </div> 
-                                    <input type="file" id="upload_ico" data-type="wechat_qr" accept="image/*" onchange="uploadImg(this)" >
+                                    <input type="file" id="upload_wechat_qr" data-type="wechat_qr" accept="image/*" onchange="uploadImg(this)" >
                                 </div>
                             </div>
                             <div class="col-sm-9 col-md-10 mt-2">
@@ -113,11 +115,7 @@ include( 'templates/header-nav.php' );
 	    	</div>
 	    </div>
     </div>
- 
-<?php  
-$imgUpload  = get_bloginfo('template_directory') . '/inc/img-upload.php'; 
-$contribute = get_bloginfo('template_directory') . '/inc/contribute-ajax.php'; 
-?>
+    
 <script> 
     var verification = Math.floor(Math.random()*(9999-1000+1)+1000);
     $('#verification-text').text(verification);
@@ -127,23 +125,21 @@ $contribute = get_bloginfo('template_directory') . '/inc/contribute-ajax.php';
             showAlert(JSON.parse('{"status":3,"msg":"验证码错误！"}'));
             return false;
         }
-		$.ajax( {
-			url:      '<?php echo $contribute ?>',
+		$.ajax({
+    	    url: theme.ajaxurl,
             type:     'POST',
             dataType: 'json',
-            data:     $(this).serialize(), 
-            error: function(result) {
-                showAlert(JSON.parse('{"status":3,"msg":"网络连接错误！"}'));
-			},
-			success: function(result) {
-                if(result.status == 1){
-                    verification = Math.floor(Math.random()*(9999-1000+1)+1000);
-                    $('#verification-text').text(verification);
-                }
-                showAlert(result);
+            data:     $(this).serialize() + "&action=contribute_post", 
+        }).done(function (result) {
+            if(result.status == 1){
+                verification = Math.floor(Math.random()*(9999-1000+1)+1000);
+                $('#verification-text').text(verification);
             }
+            showAlert(result);
+        }).fail(function (result) {
+            showAlert(JSON.parse('{"status":3,"msg":"网络连接错误！"}'));
         });
-	    return false;
+        return false;
     });
     function showAlert(data) {
         var alert,ico;
@@ -171,10 +167,7 @@ $contribute = get_bloginfo('template_directory') . '/inc/contribute-ajax.php';
         $('#alert_placeholder').append( $html );//prepend
         $html.show(100).delay(3000).hide(200, function(){ $(this).remove() }); 
     }
-    function uploadImg(obj) {
-        upload(obj)
-    }
-    function upload(file) {
+    function uploadImg(file) {
         var doc_id=file.getAttribute("data-type");
         if (file.files != null && file.files[0] != null) {
             if (!/\.(jpg|jpeg|png|JPG|PNG)$/.test(file.files[0].name)) {    
@@ -187,20 +180,23 @@ $contribute = get_bloginfo('template_directory') . '/inc/contribute-ajax.php';
             }
             var formData = new FormData();
             formData.append('files', file.files[0]);
+            formData.append('action','img_upload');
     	    $.ajax({
-    	        url: '<?php echo $imgUpload ?>',
+    	        url: theme.ajaxurl,
                 type: 'POST',
-                cache: false,
                 data: formData,
                 dataType: 'json',
+                cache: false,
                 processData: false,
                 contentType: false
             }).done(function (result) {
                 //console.log('--->>>'+JSON.stringify(result));
                 showAlert(result);
                 if(result.status == 1){
-                    document.getElementById("show_"+doc_id).src = result.data.src;
-                    document.getElementById("tougao_"+doc_id).value = result.data.src;
+                    $("#show_"+doc_id).attr("src", result.data.src);
+                    $("#tougao_"+doc_id).val(result.data.src);
+                    $("#remove_"+doc_id).data('id',result.data.id).show();
+                    $(file).attr("disabled","disabled").parent().addClass('disabled');
                 }
             }).fail(function (result) {
                 showAlert(JSON.parse('{"status":3,"msg":"网络连接错误！"}'));
@@ -210,6 +206,31 @@ $contribute = get_bloginfo('template_directory') . '/inc/contribute-ajax.php';
             return false;
         }
     }
+    $('.fa.remove').click(function() {
+        if(!confirm('确定要删除图片吗?')){
+            return false;
+        }
+        var doc_id = $(this).data('type');
+		$.ajax( {
+			url: theme.ajaxurl,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+				action: "img_remove",
+				id: $(this).data("id")
+			}
+        }).done(function (result) {
+            showAlert(result);
+            if(result.status == 1){
+                $("#show_"+doc_id).attr("src", theme.addico);
+                $("#tougao_"+doc_id).val('');
+                $("#remove_"+doc_id).data('id','').hide();
+                $("#upload_"+doc_id).removeAttr("disabled").val("").parent().removeClass('disabled');
+            }
+        }).fail(function (result) {
+            showAlert(JSON.parse('{"status":3,"msg":"网络连接错误！"}'));
+        });
+    });
 </script>
 
 <?php get_footer(); ?>
