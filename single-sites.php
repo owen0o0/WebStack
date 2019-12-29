@@ -87,7 +87,7 @@ include( 'templates/header-nav.php' );
                             if( $contentinfo ){
                                 the_content();   
                             }else{
-                                echo "暂无介绍内容，请编辑添加";
+                                echo get_post_meta(get_the_ID(), '_sites_sescribe', true);
                             }
                             ?>
 
