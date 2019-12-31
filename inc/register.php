@@ -32,8 +32,9 @@ function theme_load_scripts() {
 			wp_enqueue_script( 'comment-reply' );
 		}
 	}
-	wp_localize_script('app', 'Theme' , array(
+	wp_localize_script('appjs', 'theme' , array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
+		'addico'  => get_template_directory_uri() . '/images/add.png',
 	)); 
 }
 add_action('wp_enqueue_scripts', 'theme_load_scripts');
