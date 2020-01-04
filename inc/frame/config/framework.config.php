@@ -88,11 +88,19 @@ $options[] = array(
             'default' => false,
         ),
         array(
-            'id'      => 'is_qr',
-            'type'    => 'switcher',
-            'title'   => '显示二维码',
-            'after'   => '<br><p>网址块弹窗提示替换为二维码</p>',
-            'default' => false,
+            'id'      => 'po_prompt',
+            'type'    => 'radio',
+            'title'   => '网址块弹窗提示',
+            'desc'    => '网址块默认的弹窗提示内容',
+            'default' => 'url',
+            'class'   => 'horizontal',
+            'options' => array(
+                'null'      => '无',
+                'url'       => '链接',
+                'summary'   => '简介',
+                'qr'        => '二维码'
+            ),
+            'after'   => '如果网址添加了自定义二维码，此设置无效',
         ),
         array(
             'id'      => 'columns',
