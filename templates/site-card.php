@@ -61,7 +61,7 @@
                         <div class="xe-user-name overflowClip_1">
                             <strong><?php the_title() ?></strong>
                         </div>
-                        <p class="overflowClip_2"><?php echo get_post_meta($post->ID, '_sites_sescribe', true) ?></p>
+                        <p class="overflowClip_2"><?php echo get_post_meta($post->ID, '_sites_sescribe', true) ?: get_the_excerpt($post->ID); ?></p>
                     </div>
                 </div>
             </a>
