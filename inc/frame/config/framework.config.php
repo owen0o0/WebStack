@@ -12,7 +12,7 @@ $settings           = array(
   'menu_icon'       => CS_URI.'/assets/images/setting.png',
   'ajax_save'       => true,
   'show_reset_all'  => true,
-  'framework_title' => 'WebStack '.__('主题设置','io_setting').'<style>.cs-framework .cs-body {min-height: 700px;}</style><span style="font-size: 14px;"> - V '.wp_get_theme()->get('Version').'</span>',
+  'framework_title' => 'WebStack '.__('主题设置','io_setting').'<style>.cs-framework .cs-body {min-height: 700px;}</style><span style="font-size: 14px;"> - V '.wp_get_theme()->get('Version').'</span> <a href="https://www.iowen.cn/webstack-pro-navigation-theme-advanced/">升级pro</a>',
   //'framework_title' => '主题设置',
 );
 
