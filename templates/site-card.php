@@ -61,7 +61,7 @@
                         <div class="xe-user-name overflowClip_1">
                             <strong><?php the_title() ?></strong>
                         </div>
-                        <p class="overflowClip_2"><?php echo get_post_meta($post->ID, '_sites_sescribe', true) ?: get_the_excerpt($post->ID); ?></p>
+                        <p class="overflowClip_2"><?php echo get_post_meta($post->ID, '_sites_sescribe', true) ?: preg_replace("/(\s|\&nbsp\;|　|\xc2\xa0)/","",get_the_excerpt($post->ID)); ?></p>
                     </div>
                 </div>
             </a>

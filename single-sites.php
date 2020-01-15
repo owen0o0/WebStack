@@ -98,7 +98,7 @@ include( 'templates/header-nav.php' );
                 </div>
 
                 <h4 class="text-gray mt-4"><i class="icon-io-tag" style="margin-right: 27px;" id="相关导航"></i>相关导航</h4>
-                <div class="row mb-5"> 
+                <div class="row" style="margin-bottom: 8.5rem;"> 
                     <?php
                     $post_num = 6;
                     $i = 0;

@@ -21,7 +21,7 @@ function fav_con($mid) { ?>
             'ignore_sticky_posts' => 1,              //忽略置顶文章
             'posts_per_page'      => $site_n,        //显示的文章数量
             'meta_key'            => '_sites_order',
-            'orderby'             => 'meta_value_num',
+            'orderby'             => array( 'meta_value_num' => 'DESC', 'ID' => 'DESC' ),
             'tax_query'           => array(
                 array(
                     'taxonomy' => 'favorites',       //分类法名称
