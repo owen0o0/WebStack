@@ -30,7 +30,7 @@
                         );
                         if(empty($children)){ ?>
                         <li>
-                            <a href="<?php if (is_home() || is_front_page()): ?><?php else: ?>/<?php endif; ?>#<?php echo $category->name;?>" class="smooth">
+                            <a href="<?php if (is_home() || is_front_page()): ?><?php else: echo home_url() ?>/<?php endif; ?>#<?php echo $category->name;?>" class="smooth">
                                <i class="fa <?php echo $category->description ?> fa-fw"></i>
                                <span class="title"><?php echo $category->name; ?></span>
                             </a>
@@ -45,7 +45,7 @@
                                 <?php foreach ($children as $mid) { ?>
 
                                 <li>
-                                    <a href="<?php if (is_home() || is_front_page()): ?><?php else: ?>/<?php endif; ?>#<?php  echo $mid->name ;?>" class="smooth"><?php echo $mid->name; ?></a>
+                                    <a href="<?php if (is_home() || is_front_page()): ?><?php else: echo home_url() ?>/<?php endif; ?>#<?php  echo $mid->name ;?>" class="smooth"><?php echo $mid->name; ?></a>
                                 </li>
                                 <?php } ?>
                             </ul>

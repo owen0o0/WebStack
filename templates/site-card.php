@@ -41,7 +41,7 @@
                     $blank = '';
                 }else{
                     if(io_get_option('is_go'))
-                        $url = '/go/?url='.base64_encode($link_url) ;
+                        $url = home_url().'/go/?url='.base64_encode($link_url) ;
                     else
                         $url = $link_url;
                 }

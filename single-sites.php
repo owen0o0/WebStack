@@ -67,7 +67,7 @@ include( 'templates/header-nav.php' );
                                          ?>
 	    								<div class="site-go mt-3">
                                         <?php if($m_link_url!=""): ?>
-	    								<a style="margin-right: 10px;" href="<?php echo io_get_option('is_go')? '/go/?url='.base64_encode($m_link_url) : $m_link_url ?>" title="<?php echo $sitetitle ?>" target="_blank" class="btn btn-arrow"><span>链接直达<i class="fa fa-angle-right"></i></span></a>
+	    								<a style="margin-right: 10px;" href="<?php echo io_get_option('is_go')? home_url().'/go/?url='.base64_encode($m_link_url) : $m_link_url ?>" title="<?php echo $sitetitle ?>" target="_blank" class="btn btn-arrow"><span>链接直达<i class="fa fa-angle-right"></i></span></a>
                                         <?php endif; ?>
                                         <a href="javascript:" class="btn btn-arrow"  data-toggle="tooltip" data-placement="bottom" title="" data-html="true" data-original-title="<img src='<?php echo $qrurl ?>' width='150'>"><span><?php echo $qrname ?><i class="fa fa-qrcode"></i></span></a>
 	    								</div>
