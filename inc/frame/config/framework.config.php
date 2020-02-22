@@ -12,7 +12,7 @@ $settings           = array(
   'menu_icon'       => CS_URI.'/assets/images/setting.png',
   'ajax_save'       => true,
   'show_reset_all'  => true,
-  'framework_title' => 'WebStack '.__('主题设置','io_setting').'<style>.cs-framework .cs-body {min-height: 700px;}</style><span style="font-size: 14px;"> - V '.wp_get_theme()->get('Version').'</span> <a href="https://www.iowen.cn/webstack-pro-navigation-theme-advanced/">升级pro</a>',
+  'framework_title' => 'WebStack '.__('主题设置','io_setting').'<style>.cs-framework .cs-body {min-height: 700px;}</style><span style="font-size: 14px;"> - V '.wp_get_theme()->get('Version').'</span> <a href="https://www.iowen.cn/webstack-pro-navigation-theme-advanced/" target="_blank">升级pro</a>',
   //'framework_title' => '主题设置',
 );
 
@@ -34,7 +34,7 @@ $options[] = array(
     'fields' => array(
         array(
             'type'    => 'notice',
-            'content' => '网站LOGO和Favicon设置',
+            'content' => '---》<a href="https://www.iowen.cn/wordpress-version-webstack/" target="_blank">查看教程</a>《---',
             'class'   => 'info',
         ),
         array(
@@ -116,6 +116,33 @@ $options[] = array(
                 'col-sm-4 col-md-3 col-lg-2'  => '6'
             ),
         ),
+        
+
+        
+        array(
+            'id'         => 'bulletin',
+            'type'       => 'switcher',
+            'title'      => '显示公告',
+            'desc'      => '在首页顶部显示公告',
+            'default'    => true,
+        ),
+        array(
+            'id'         => 'bulletin_n',
+            'type'       => 'text',
+            'title'      => '公告数量',
+            'after'      => '需要显示的公告篇数',
+            'default'    => 2,
+            'dependency' => array( 'bulletin', '==', 'true' )
+        ),
+        array(
+            'id'         => 'links',
+            'type'       => 'switcher',
+            'title'      => '友情链接',
+            'label'      => '在首页底部添加友情链接',
+            'default'    => true,
+        ),
+
+
         array(
             'type'    => 'notice',
             'content' => '其他设置',
@@ -172,21 +199,21 @@ $options[] = array(
             'id'      => 'ico_url',
             'type'    => 'text',
             'title'   => '图标源',
-            'default' => 'https://api.iowen.cn/favicon/',
+            'default' => 'https://api.ooopn.com/ico/api.php?url=',
             'desc'    => 'api 地址',
+            'after'   => '如果获取图标失效，请百度搜索‘获取网站图标api’替换能用的就可以了<br>或者自建api服务，源码地址：<a href="https://www.iowen.cn/favicon-api/" target="_blank">https://www.iowen.cn/favicon-api/</a>',
         ),
         array(
             'id'      => 'url_format',
             'type'    => 'switcher',
             'title'   => '不包含 http(s)://',
-            'default' => true,
+            'default' => false,
             'desc'    => '根据图标源 api 要求设置，如果api要求不能包含协议名称，请开启此选项',
         ),
         array(
             'id'      => 'ico_png',
             'type'    => 'text',
             'title'   => '图标源api后缀',
-            'default' => '.png',
             'desc'    => '如：.png ,请根据api格式要求设置，如不需要请留空',
         ),
     ),

@@ -207,11 +207,19 @@ footer.main-footer{border-top:0;background-color:#fff}
 .pt-4,.py-4{padding-top:3rem!important}
 .border-top{border-top:1px solid rgba(130,130,130,.1)!important}
 .main-content .tooltip{word-break:break-word}
+#bulletin_box{margin-top:60px;margin-bottom:-70px;padding:5px 10px}
+#bulletin_box .bulletin-ul{padding-left:10px}
+.bulletin{box-sizing:border-box;height:25px;line-height:25px;overflow:hidden}
+.bulletin ul{list-style-type:none;font-size:14px}
+.d-flex{display:-ms-flexbox!important;display:flex!important}
+.friendlink a{position:relative;display:inline-block;margin:.25rem 1rem .25rem .25rem;}
+.friendlink a:before{content:'\2022';display:inline-block;position:relative;margin-right:5px}
 /*.ad{overflow:hidden}*/
 .ad img{width:100%;max-height:350px}
 .ad-home img,.ad-footer img{max-height:150px}
 @media screen and (max-width:767px){.main-content.page{padding-left:15px;padding-right:15px}
 footer.main-footer .footer-text{text-align:center;float:none}
+#bulletin_box{margin-top:0;margin-bottom:10px}
 .no-search{margin-top:0px}
 .siteico:before{padding-top:60%}
 .mt-sm-3,.my-sm-3{margin-top:2rem!important}

@@ -16,6 +16,8 @@ include( 'templates/header-nav.php' );
 <div class="main-content">
 
 <?php include( 'templates/header-banner.php' ); ?>
+ 
+<?php get_template_part( 'templates/bulletin' ); ?>
 
 <?php
 if(io_get_option('is_search')){include('search-tool.php'); }
@@ -48,7 +50,9 @@ foreach($categories as $category) {
       }
     }
   }
-} ?>
+} 
+get_template_part( 'templates/friendlink' ); 
+?>
 </div>
 <?php
 get_footer();

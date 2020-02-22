@@ -8,6 +8,9 @@ register_nav_menus( array(
 ));
 
 
+//激活友情链接模块
+add_filter( 'pre_option_link_manager_enabled', '__return_true' );
+
 require_once get_theme_file_path() .'/inc/frame/cs-framework.php';
 require_once get_theme_file_path() .'/inc/register.php';
 require_once get_theme_file_path() .'/inc/post-type.php';
@@ -464,42 +467,8 @@ class iconfont {
 	}
 }
 new iconfont();
-
-/**
- * 让搜索支持自定义文章
- */
-function include_post_types_in_search($query) {
-	if(is_search()) {
-		$post_types = get_post_types(array('public' => true, 'exclude_from_search' => false), 'objects');
-		$searchable_types = array();
-		if($post_types) {
-			foreach( $post_types as $type) {
-				$searchable_types[] = $type->name;
-			}
-		}
-		$query->set('post_type', $searchable_types);
-	}
-	return $query;
-}
-//add_action('pre_get_posts', 'include_post_types_in_search');
  
-
-/**
- * 让搜索支持自定义字段
- */
-//add_action('posts_search', 'include_custom_fields_in_search',2,2);
-function include_custom_fields_in_search ($search, $query){
-	global $wpdb;
-
-	if ($query->is_main_query() && !empty($query->query['s'])) {
-
-		$sql    = " OR EXISTS (SELECT * FROM {$wpdb->postmeta} WHERE post_id={$wpdb->posts}.ID and meta_key = '_sites_sescribe' and meta_value like %s)";
-		$like	= '%' . $wpdb->esc_like($query->query['s']) . '%';
-
-		$search	.= $wpdb->prepare($sql, $like);
-	}
-	return $search;
-};
+ 
 
 function format_url($url){
     if($url == '')
@@ -514,6 +483,16 @@ function format_url($url){
     }
 }
 
+# 搜索只查询文章和网址。
+# --------------------------------------------------------------------
+add_filter('pre_get_posts','searchfilter');
+function searchfilter($query) {
+    //限定对搜索查询和非后台查询设置
+    if ($query->is_search && !is_admin() ) {
+        $query->set('post_type',array('sites','post'));
+    }
+    return $query;
+}
 
 /**
  * 修改搜索查询的sql代码，将postmeta表左链接进去。

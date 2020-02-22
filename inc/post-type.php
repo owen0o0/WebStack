@@ -71,6 +71,48 @@ function create_sites_taxonomies() {
 	register_taxonomy( 'favorites', array( 'sites' ), $args );
 }
 
+
+// 公告
+add_action( 'init', 'post_type_bulletin' );
+function post_type_bulletin() {
+	$labels = array(
+		'name'               => '公告', 'post type general name', 'your-plugin-textdomain',
+		'singular_name'      => '公告', 'post type singular name', 'your-plugin-textdomain',
+		'menu_name'          => '公告', 'admin menu', 'your-plugin-textdomain',
+		'name_admin_bar'     => '公告', 'add new on admin bar', 'your-plugin-textdomain',
+		'add_new'            => '发布公告', 'bulletin', 'your-plugin-textdomain',
+		'add_new_item'       => '发布新公告', 'your-plugin-textdomain',
+		'new_item'           => '新公告', 'your-plugin-textdomain',
+		'edit_item'          => '编辑公告', 'your-plugin-textdomain',
+		'view_item'          => '查看公告', 'your-plugin-textdomain',
+		'all_items'          => '所有公告', 'your-plugin-textdomain',
+		'search_items'       => '搜索公告', 'your-plugin-textdomain',
+		'parent_item_colon'  => 'Parent 公告:', 'your-plugin-textdomain',
+		'not_found'          => '你还没有发布公告。', 'your-plugin-textdomain',
+		'not_found_in_trash' => '回收站中没有公告。', 'your-plugin-textdomain'
+	);
+
+	$args = array(
+		'labels'             => $labels,
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'bulletin' ),
+		'capability_type'    => 'post',
+		'menu_icon'          => 'dashicons-controls-volumeon',
+		'has_archive'        => false,
+		'hierarchical'       => false,
+		'menu_position'      => 10,
+		'show_in_rest'       => true,
+		'supports'           => array( 'title', 'editor', 'author', 'comments', 'custom-fields' )
+	);
+
+	register_post_type( 'bulletin', $args );
+}
+
+
 /**
  * 分类项目排序字段
  *
