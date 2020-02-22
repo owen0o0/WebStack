@@ -51,7 +51,7 @@ RewriteRule . /index.php [L]
 ![Thumbnail_index](https://res.iowen.cn/wp-content/uploads/2019/08/Snipaste_2019-08-30_13-50-59.png)
 + 如果菜单里没有css类，请按下图添加
 ![Thumbnail_index](https://res.iowen.cn/wp-content/uploads/2019/11/iowen_20191120_160814.jpg)
-+ <a href="https://www.iowen.cn/wordpress-version-webstack/" target="_blank">其他-></a>
++ <a href="https://www.iowen.cn/webstack-pro-navigation-theme-advanced/" target="_blank">如果你有更多功能需求，点我-></a>
 <br/>
 
 ### 后台截图
