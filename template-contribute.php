@@ -174,8 +174,8 @@ include( 'templates/header-nav.php' );
                 showAlert(JSON.parse('{"status":3,"msg":"图片类型只能是jpeg,jpg,png！"}'));   
                 return false;    
             } 
-            if(file.files[0].size > (1000 * 1024)){
-                showAlert(JSON.parse('{"status":3,"msg":"图片大小不能超过1M"}'));
+            if(file.files[0].size > (1000 * 128)){
+                showAlert(JSON.parse('{"status":3,"msg":"图片大小不能超过128kb"}'));
                 return false;
             }
             var formData = new FormData();

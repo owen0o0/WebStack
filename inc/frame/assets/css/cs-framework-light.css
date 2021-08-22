@@ -148,9 +148,7 @@
 }
 
 .cs-field-upload .button {
-  position: absolute;
-  top: 34px;
-  right: 32px;
+  margin-top: 10px;
 }
 
 /* Seperator */

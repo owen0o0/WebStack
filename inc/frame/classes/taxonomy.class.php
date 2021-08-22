@@ -93,7 +93,14 @@ class CSFramework_Taxonomy extends CSFramework_Abstract{
 
             $default    = ( isset( $field['default'] ) ) ? $field['default'] : '';
             $elem_id    = ( isset( $field['id'] ) ) ? $field['id'] : '';
-            $elem_value = ( is_array( $tax_value ) && isset( $tax_value[$elem_id] ) ) ? $tax_value[$elem_id] : $default;
+            $elem_value = $default;//iotheme.cn
+            if ($form_edit){
+              if($option['data_type'] !== 'serialize' ) {
+                $elem_value = get_term_meta($term->term_id, $elem_id,true);
+              }else{
+                $elem_value = ( is_array( $tax_value ) && isset( $tax_value[$elem_id] ) ) ? $tax_value[$elem_id] : $default;
+              }
+            }//iotheme.cn
 
             echo cs_add_element( $field, $elem_value, $option['id'] );
 
@@ -153,11 +160,15 @@ class CSFramework_Taxonomy extends CSFramework_Abstract{
 
                   if( ! empty( $validate ) ) {
 
-                    $meta_value = get_term_meta( $term_id, $request_key, true );
-
                     $errors[$field['id']] = array( 'code' => $field['id'], 'message' => $validate, 'type' => 'error' );
                     $default_value = isset( $field['default'] ) ? $field['default'] : '';
-                    $request[$field['id']] = ( isset( $meta_value[$field['id']] ) ) ? $meta_value[$field['id']] : $default_value;
+                    if($request_value['data_type'] !== 'serialize' ) {//iotheme.cn
+                      if($meta_value = get_term_meta($term_id, $field['id'],true))
+                        $request[$field['id']] =  $meta_value ;
+                    }else{
+                      $meta_value = get_term_meta( $term_id, $request_key, true );
+                      $request[$field['id']] = ( isset( $meta_value[$field['id']] ) ) ? $meta_value[$field['id']] : $default_value;
+                    }//iotheme.cn
 
                   }
 
@@ -173,19 +184,23 @@ class CSFramework_Taxonomy extends CSFramework_Abstract{
 
           if( empty( $request ) ) {
 
-            delete_term_meta( $term_id, $request_key );
+            if ( $request_value['data_type'] !== 'serialize' ) {//iotheme.cn
+              foreach ( $request as $key => $value ) {
+                delete_term_meta( $term_id, $key );
+              }
+            } else {
+              delete_term_meta( $term_id, $request_key );
+            }//iotheme.cn
 
           } else {
 
-            if( get_term_meta( $term_id, $request_key, true ) ) {
-
-              update_term_meta( $term_id, $request_key, $request );
-
+            if ( $request_value['data_type'] !== 'serialize' ) {//iotheme.cn
+              foreach ( $request as $key => $value ) {
+                update_term_meta( $term_id, $key, $value );
+              }
             } else {
-
-              add_term_meta( $term_id, $request_key, $request );
-
-            }
+              update_term_meta( $term_id, $request_key, $request );
+            }//iotheme.cn
 
           }
 
@@ -210,9 +225,13 @@ class CSFramework_Taxonomy extends CSFramework_Abstract{
 
         if( $taxonomy == $request_value['taxonomy'] ) {
 
-          $request_key = $request_value['id'];
-
-          delete_term_meta( $term_id, $request_key );
+          if ( $request_value['data_type'] !== 'serialize' ) {//iotheme.cn
+            foreach( $request_value['fields'] as $field ) {
+              delete_term_meta( $term_id, $field['id'] );
+            }
+          } else {
+            delete_term_meta( $term_id, $request_value['id'] );
+          }//iotheme.cn
 
         }
 

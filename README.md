@@ -1,11 +1,11 @@
 # WebStack
-WordPress 版 WebStack 主题
+WordPress 版 WebStack 主题。<a href="http://webstack.iotheme.cn/">前往演示站</a>
 <br/>
 
 ### 首页截图
 <br/>
 
-![Thumbnail_index](https://res.iowen.cn/wp-content/uploads/2019/08/iowen_2019-08-27_01-05-39.png)
+![Thumbnail_index](https://owen0o0.github.io/ioStaticResources/webstack/01.png)
 <br/>
 
 ### 环境要求
@@ -16,7 +16,7 @@ WordPress 版 WebStack 主题
 
 ### 安装指南
 + 安装 WordPress ，教程百度
-+ 设置伪静态
++ 设置伪静态（下方规则按自己服务器环境二选一）
 ```
 # Nginx规则
 location /
@@ -46,19 +46,21 @@ RewriteRule . /index.php [L]
 + 分类最多两级，且父级不要添加内容
 + 可以不添加网址图片，主题会自动获取目标网址的 favicon 图标
 + 导航菜单栏标题前面的图标请在分类图像描述中填入（参考下图），图标样式请参考fontawesome
-![Thumbnail_index](https://res.iowen.cn/wp-content/uploads/2019/08/Snipaste_2019-08-30_13-43-06.png)
+![Thumbnail_index](https://owen0o0.github.io/ioStaticResources/webstack/02.png)
++ 增加分类快速添加图标的方法
+![Thumbnail_index](https://owen0o0.github.io/ioStaticResources/webstack/07.png)
 + 导航菜单栏下方可以添加自定义菜单，在后台的外观-->菜单里设置，在菜单的css类添加图标（参考下图），图标样式请参考fontawesome
-![Thumbnail_index](https://res.iowen.cn/wp-content/uploads/2019/08/Snipaste_2019-08-30_13-50-59.png)
+![Thumbnail_index](https://owen0o0.github.io/ioStaticResources/webstack/03.png)
 + 如果菜单里没有css类，请按下图添加
-![Thumbnail_index](https://res.iowen.cn/wp-content/uploads/2019/11/iowen_20191120_160814.jpg)
-+ <a href="https://www.iowen.cn/webstack-pro-navigation-theme-advanced/" target="_blank">如果你有更多功能需求，点我-></a>
+![Thumbnail_index](https://owen0o0.github.io/ioStaticResources/webstack/04.jpg)
++ <a href="https://www.iotheme.cn/store/onenav.html" target="_blank">如果你有更多功能需求，点我-></a>
 <br/>
 
 ### 后台截图
 <br/>
 
-![Thumbnail_index](https://res.iowen.cn/wp-content/uploads/2019/08/iowen_2019-08-27_01-22-37.jpg)
-![Thumbnail_index](https://res.iowen.cn/wp-content/uploads/2019/08/iowen_2019-08-27_01-27-48.png)
+![Thumbnail_index](https://owen0o0.github.io/ioStaticResources/webstack/05.jpg)
+![Thumbnail_index](https://owen0o0.github.io/ioStaticResources/webstack/06.png)
 <br/>
 
 ### 感谢

@@ -1,4 +1,15 @@
 <?php 
+/*
+ * @Theme Name:WebStack
+ * @Theme URI:https://www.iotheme.cn/
+ * @Author: iowen
+ * @Author URI: https://www.iowen.cn/
+ * @Date: 2020-02-22 21:26:05
+ * @LastEditors: iowen
+ * @LastEditTime: 2021-08-22 22:26:36
+ * @FilePath: \WebStack\archive.php
+ * @Description: 
+ */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 get_header(); ?>
 
@@ -29,7 +40,7 @@ include( 'templates/header-nav.php' );
 		<?php while ( have_posts() ) : the_post(); 
 		$link_url = get_post_meta($post->ID, '_sites_link', true); 
         $default_ico = get_template_directory_uri() .'/images/favicon.png';
-		if(current_user_can('level_10') || get_post_meta($post->ID, '_visible', true)!="true"):
+		if(current_user_can('level_10') || get_post_meta($post->ID, '_visible', true)==""):
 		?>
 			<div class="xe-card <?php echo io_get_option('columns') ?> <?php echo get_post_meta($post->ID, '_wechat_qr', true)? 'wechat':''?>">
             <?php include( 'templates/site-card.php' ); ?>

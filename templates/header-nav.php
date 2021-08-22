@@ -1,4 +1,17 @@
-        <div class="sidebar-menu toggle-others fixed">
+<?php
+/*
+ * @Theme Name:WebStack
+ * @Theme URI:https://www.iotheme.cn/
+ * @Author: iowen
+ * @Author URI: https://www.iowen.cn/
+ * @Date: 2019-02-22 21:26:02
+ * @LastEditors: iowen
+ * @LastEditTime: 2021-08-22 23:06:30
+ * @FilePath: \WebStack\templates\header-nav.php
+ * @Description: 
+ */
+if ( ! defined( 'ABSPATH' ) ) { exit; }  ?>
+<div class="sidebar-menu toggle-others fixed">
             <div class="sidebar-menu-inner">
                 <header class="logo-env">
                     <!-- logo -->
@@ -31,15 +44,15 @@
                         if(empty($children)){ ?>
                         <li>
                             <a href="<?php if (is_home() || is_front_page()): ?><?php else: echo home_url() ?>/<?php endif; ?>#<?php echo $category->name;?>" class="smooth">
-                               <i class="fa <?php echo $category->description ?> fa-fw"></i>
-                               <span class="title"><?php echo $category->name; ?></span>
+                                <i class="<?php echo get_term_meta($category->term_id, '_term_ico',true) ?> fa-fw"></i>
+                                <span class="title"><?php echo $category->name; ?></span>
                             </a>
                         </li> 
                         <?php }else { ?>
                         <li>
                             <a>
-                               <i class="fa <?php echo $category->description ?> fa-fw"></i>
-                               <span class="title"><?php echo $category->name; ?></span>
+                                <i class="<?php echo get_term_meta($category->term_id, '_term_ico',true) ?> fa-fw"></i>
+                                <span class="title"><?php echo $category->name; ?></span>
                             </a>
                             <ul>
                                 <?php foreach ($children as $mid) { ?>
@@ -55,10 +68,10 @@
                 }
                 ?> 
 
-                     <li class="submit-tag">
-                     <?php
+                    <li class="submit-tag">
+                    <?php
                         if(function_exists('wp_nav_menu')) wp_nav_menu( array('container' => false, 'items_wrap' => '%3$s', 'theme_location' => 'nav_main',) ); 
-                     ?>
+                    ?>
                     </li>
                 </ul>
             </div>

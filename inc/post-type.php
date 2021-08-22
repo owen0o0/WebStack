@@ -1,4 +1,15 @@
 <?php
+/*
+ * @Theme Name:WebStack
+ * @Theme URI:https://www.iotheme.cn/
+ * @Author: iowen
+ * @Author URI: https://www.iowen.cn/
+ * @Date: 2020-02-22 21:26:05
+ * @LastEditors: iowen
+ * @LastEditTime: 2021-08-22 21:47:11
+ * @FilePath: \WebStack\inc\post-type.php
+ * @Description: 
+ */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 
@@ -112,63 +123,18 @@ function post_type_bulletin() {
 	register_post_type( 'bulletin', $args );
 }
 
-
-/**
- * 分类项目排序字段
- *
- * @param        Term Object $term
- * @param string $taxonomy
- */
-add_action('favorites_add_form_fields','io_add_fav_field');
-function io_add_fav_field(){
-	echo '
-	<table class="form-table">
-		<tbody>
-			<tr class="form-field">
-				<th scope="row" valign="top"><label for="_term_order">'.__('排序','i_owen').'</label></th>
-				<td>
-				<input name="_term_order" id="_term_order" type="text" value="0" size="30">
-				<p class="description">'.__( '数字越大越靠前' ).'</p>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	<h2 style="color: red;">'.__('注意，最多2级，且父级不应有内容','i_owen').'</h2>';
-}
-
-add_action( 'favorites_edit_form_fields', 'term_order_field', 10, 2 );
-function term_order_field( $term, $taxonomy ) {
-   ?>
-
-   <table class="form-table">
-      <tbody>
-      <tr class="form-field">
-         <th scope="row" valign="top">
-            <label for="meta-order"><?php _e( '排序' ); ?></label>
-         </th>
-         <td>
-            <input type="text" name="_term_order" size="3" style="width:10%;" value="<?= get_term_meta( $term->term_id, '_term_order', true ); ?>"/>
-			<p class="description"><?php _e( '数字越大越靠前' ); ?></p>
-         </td>
-      </tr>
-      </tbody>
-   </table>
-   <h2 style="color: red;"><?php _e('注意，最多2级，且父级不应有内容','i_owen'); ?></h2>
-   <?php
-}
-
 /**
  * 保存排序
  *
  * @param int $term_id
  */
 //add_action( 'edited_favorites', 'save_term_order' );
-add_action('created_favorites','save_term_order',10,1);
+//add_action('created_favorites','save_term_order',10,1);
 add_action('edit_favorites','save_term_order',10,1);
 function save_term_order( $term_id ) {
-	if (isset($_POST['_term_order'])) {
-   		update_term_meta( $term_id, '_term_order', $_POST[ '_term_order' ] );
-	}
+	//if (isset($_POST['_term_order'])) {
+   		//update_term_meta( $term_id, '_term_order', $_POST[ '_term_order' ] );
+	//}
 	$ca_menu_id = esc_attr($_POST['ca_ordinal']);
 	if ($ca_menu_id)
 		update_term_meta( $term_id, '_term_order', $ca_menu_id);
@@ -368,13 +334,10 @@ function io_save_quick_edit_data($post_id) {
     if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
         return $post_id;
     // 验证权限，'sites' 为文章类型，默认为 'post' ,这里为我自定义的文章类型'sites'
-    if ( 'sites' == @$_POST['post_type'] ) {
+    if (isset($_POST['post_type']) && 'sites' ==  $_POST['post_type'] ) {
         if ( !current_user_can( 'edit_page', $post_id ) )
             return $post_id;
-    } else {
-        if ( !current_user_can( 'edit_post', $post_id ) )
-        return $post_id;
-	}  
+    } 
 	$post = get_post($post_id); 
 	// 'ordinal' 与前方代码对应
     if (isset($_POST['ordinal']) && ($post->post_type != 'revision')) {

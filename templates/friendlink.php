@@ -1,4 +1,16 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { exit; } ?>
+<?php
+/*
+ * @Theme Name:WebStack
+ * @Theme URI:https://www.iotheme.cn/
+ * @Author: iowen
+ * @Author URI: https://www.iowen.cn/
+ * @Date: 2019-02-22 21:26:02
+ * @LastEditors: iowen
+ * @LastEditTime: 2021-08-22 23:05:46
+ * @FilePath: \WebStack\templates\friendlink.php
+ * @Description: 
+ */
+if ( ! defined( 'ABSPATH' ) ) { exit; } ?>
 
         <?php if( io_get_option('links') ) : ?>
         <h4 class="text-gray mb-4">

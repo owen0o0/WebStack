@@ -1,6 +1,10 @@
+/*
+ * Theme Name:WebStack
+ * Theme URI:https://www.iotheme.cn/
+ */
 body{background-color:#f9f9f9}a{color:#282828;outline:0 !important}p{color:#878888}html,body{height:100%;margin:0;padding:0;border:0}
 a:hover,a:focus{color:#232323;text-decoration:none}
-.box2{height:86px;border-radius:4px;padding:0px 30px 0px 30px;background-color:#fff;border-radius:4px;border:1px solid #e4ecf3;-webkit-transition:all 0.3s ease;-moz-transition:all 0.3s ease;-o-transition:all 0.3s ease;transition:all 0.3s ease}
+.box2{height:72px;border-radius:4px;padding:0px 30px 0px 30px;background-color:#fff;border-radius:4px;border:1px solid #e4ecf3;-webkit-transition:all 0.3s ease;-moz-transition:all 0.3s ease;-o-transition:all 0.3s ease;transition:all 0.3s ease}
 .box2:hover{transform:translateY(-6px);-webkit-transform:translateY(-6px);-moz-transform:translateY(-6px);box-shadow:0 26px 40px -24px rgba(0,36,100,.3);-webkit-box-shadow:0 26px 40px -24px rgba(0,36,100,.3);-moz-box-shadow:0 26px 40px -24px rgba(0,36,100,.3);-webkit-transition:all 0.3s ease;-moz-transition:all 0.3s ease;-o-transition:all 0.3s ease;transition:all 0.3s ease}
 .ps-container .ps-scrollbar-x-rail{position:absolute;bottom:3px;height:5px;zoom:1;filter:alpha(opacity=0);-webkit-opacity:0;-moz-opacity:0;opacity:0;-webkit-transition:background-color .2s linear,opacity .2s linear;-moz-transition:background-color .2s linear,opacity .2s linear;-o-transition:background-color .2s linear,opacity .2s linear;transition:background-color .2s linear,opacity .2s linear}
 .ps-container:hover .ps-scrollbar-x-rail,.ps-container.hover .ps-scrollbar-x-rail{zoom:1;filter:alpha(opacity=60);-webkit-opacity:.6;-moz-opacity:.6;opacity:.6}
@@ -21,7 +25,7 @@ a:hover,a:focus{color:#232323;text-decoration:none}
 .overflowClip_2{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .overflowClip_1{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
 .submit-tag{margin-top:50px}
-.xe-card{position:relative;height:86px;margin:20px 0 0 0}
+.xe-card{position:relative;height:72px;margin:20px 0 0 0}
 .xe-widget{position:relative}
 .xe-widget.xe-conversations{position:absolute;background:#fff;margin-bottom:0px;padding:15px;left:0;right:0;margin:0 15px}
 .transall,.sidebar-menu .main-menu a,.navbar.horizontal-menu .navbar-inner .navbar-brand a[data-toggle=settings-pane],.navbar.horizontal-menu .navbar-inner .navbar-brand a[data-toggle=settings-pane] i,.user-info-navbar .user-info-menu>li>a,.footer-sticked-chat .chat-conversations>li .chat-user,.footer-sticked-chat .chat-conversations>li.open .conversation-window,.footer-sticked-chat .chat-conversations>li.browse-more .other-conversations-list li a span,.breadcrumb.auto-hidden li a,.icon-collection .fontawesome-icon-list .fa-hover .icon-str>i,.icon-collection .fontawesome-icon-list .fa-hover .icon-str>span{-webkit-transition:all 220ms ease-in-out;-moz-transition:all 220ms ease-in-out;-o-transition:all 220ms ease-in-out;transition:all 220ms ease-in-out}

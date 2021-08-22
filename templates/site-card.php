@@ -1,4 +1,16 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { exit; }  ?>
+<?php
+/*
+ * @Theme Name:WebStack
+ * @Theme URI:https://www.iotheme.cn/
+ * @Author: iowen
+ * @Author URI: https://www.iowen.cn/
+ * @Date: 2019-02-22 21:26:02
+ * @LastEditors: iowen
+ * @LastEditTime: 2021-08-22 23:06:10
+ * @FilePath: \WebStack\templates\site-card.php
+ * @Description: 
+ */
+if ( ! defined( 'ABSPATH' ) ) { exit; }  ?>
 
             <?php
             $title = $link_url;
@@ -24,7 +36,7 @@
                         if($link_url=="")
                             $title = '地址错误！';
                         else{
-                            $title = "<img src='https://my.tv.sohu.com/user/a/wvideo/getQRCode.do?width=128&height=128&text=" . $link_url . "' width='128'>";
+                            $title = "<img src='//api.qrserver.com/v1/create-qr-code/?size=150x150&margin=10&data=" . $link_url . "' width='128'>";
                             $is_html = 'data-html="true"';
                         }
                         break;
@@ -34,7 +46,7 @@
             $url = '';
             $blank = '_blank';
             if(io_get_option('details_page')){ 
-              $url=get_permalink();
+                $url=get_permalink();
             }else{ 
                 if($link_url==""){
                     $url = 'javascript:';
@@ -61,7 +73,7 @@
                         <div class="xe-user-name overflowClip_1">
                             <strong><?php the_title() ?></strong>
                         </div>
-                        <p class="overflowClip_2"><?php echo get_post_meta($post->ID, '_sites_sescribe', true) ?: preg_replace("/(\s|\&nbsp\;|　|\xc2\xa0)/","",get_the_excerpt($post->ID)); ?></p>
+                        <p class="overflowClip_1"><?php echo get_post_meta($post->ID, '_sites_sescribe', true) ?: preg_replace("/(\s|\&nbsp\;|　|\xc2\xa0)/","",get_the_excerpt($post->ID)); ?></p>
                     </div>
                 </div>
             </a>

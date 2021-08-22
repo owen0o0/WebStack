@@ -67,7 +67,7 @@ class CSFramework_Metabox extends CSFramework_Abstract{
     $sections   = $callback['args']['sections'];
     $meta_value = get_post_meta( $post->ID, $unique, true );
     $transient  = get_transient( 'cs-metabox-transient' );
-    $cs_errors  = $transient['errors'];
+    //$cs_errors  = $transient['errors'];
     $has_nav    = ( count( $sections ) >= 2 && $callback['args']['context'] != 'side' ) ? true : false;
     $show_all   = ( ! $has_nav ) ? ' cs-show-all' : '';
     $section_id = ( ! empty( $transient['ids'][$unique] ) ) ? $transient['ids'][$unique] : '';
@@ -125,7 +125,11 @@ class CSFramework_Metabox extends CSFramework_Abstract{
 
                 $default    = ( isset( $field['default'] ) ) ? $field['default'] : '';
                 $elem_id    = ( isset( $field['id'] ) ) ? $field['id'] : '';
-                $elem_value = ( is_array( $meta_value ) && isset( $meta_value[$elem_id] ) ) ? $meta_value[$elem_id] : $default;
+                if($callback['args']['data_type'] !== 'serialize' ) {//iotheme.cn
+                  $elem_value = get_term_meta($post->ID, $elem_id,true);
+                }else{
+                  $elem_value = ( is_array( $meta_value ) && isset( $meta_value[$elem_id] ) ) ? $meta_value[$elem_id] : $default;
+                }//iotheme.cn
                 echo cs_add_element( $field, $elem_value, $unique );
 
               }
@@ -199,11 +203,15 @@ class CSFramework_Metabox extends CSFramework_Abstract{
 
                     if( ! empty( $validate ) ) {
 
-                      $meta_value = get_post_meta( $post_id, $request_key, true );
-
                       $errors[$field['id']] = array( 'code' => $field['id'], 'message' => $validate, 'type' => 'error' );
                       $default_value = isset( $field['default'] ) ? $field['default'] : '';
-                      $request[$field['id']] = ( isset( $meta_value[$field['id']] ) ) ? $meta_value[$field['id']] : $default_value;
+                      if($request_value['data_type'] !== 'serialize' ) {//iotheme.cn
+                        if($meta_value = get_post_meta($post_id, $field['id'],true))
+                          $request[$field['id']] =  $meta_value ;
+                      }else{
+                        $meta_value = get_post_meta( $post_id, $request_key, true );
+                        $request[$field['id']] = ( isset( $meta_value[$field['id']] ) ) ? $meta_value[$field['id']] : $default_value;
+                      }//iotheme.cn
 
                     }
 
@@ -219,15 +227,36 @@ class CSFramework_Metabox extends CSFramework_Abstract{
 
           $request = apply_filters( 'cs_save_post', $request, $request_key, $post );
 
-          if( empty( $request ) ) {
+          //if( empty( $request ) ) {
 
-            delete_post_meta( $post_id, $request_key );
+            //delete_post_meta( $post_id, $request_key );
 
+          //} else {
+
+            //update_post_meta( $post_id, $request_key, $request );
+
+          //}
+          if ( empty( $request ) ) {//iotheme.cn
+    
+            if ( $request_value['data_type'] !== 'serialize' ) {
+              foreach ( $request as $key => $value ) {
+                delete_post_meta( $post_id, $key );
+              }
+            } else {
+              delete_post_meta( $post_id, $request_key );
+            }
+    
           } else {
-
-            update_post_meta( $post_id, $request_key, $request );
-
-          }
+    
+            if ( $request_value['data_type'] !== 'serialize' ) {
+              foreach ( $request as $key => $value ) {
+                update_post_meta( $post_id, $key, $value );
+              }
+            } else {
+              update_post_meta( $post_id, $request_key, $request );
+            }
+    
+          }//iotheme.cn
 
           $transient['ids'][$request_key] = cs_get_vars( 'cs_section_id', $request_key );
           $transient['errors'] = $errors;

@@ -1,4 +1,16 @@
-<?php  if ( ! defined( 'ABSPATH' ) ) { exit; }
+<?php  
+/*
+ * @Theme Name:WebStack
+ * @Theme URI:https://www.iotheme.cn/
+ * @Author: iowen
+ * @Author URI: https://www.iowen.cn/
+ * @Date: 2020-02-22 21:26:05
+ * @LastEditors: iowen
+ * @LastEditTime: 2021-08-22 22:25:43
+ * @FilePath: \WebStack\inc\fav-content.php
+ * @Description: 
+ */
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 function fav_con($mid) { ?>
         <h4 class="text-gray" style="display: inline-block;"><i class="icon-io-tag" style="margin-right: 27px;" id="<?php echo $mid->name; ?>"></i><?php echo $mid->name; ?></h4>
         <?php 
@@ -39,7 +51,7 @@ function fav_con($mid) { ?>
           elseif ($myposts->have_posts()): while ($myposts->have_posts()): $myposts->the_post(); 
             $link_url = get_post_meta($post->ID, '_sites_link', true); 
             $default_ico = get_template_directory_uri() .'/images/favicon.png';
-            if(current_user_can('level_10') || get_post_meta($post->ID, '_visible', true)!="true"):
+            if(current_user_can('level_10') || get_post_meta($post->ID, '_visible', true)==""):
           ?>
             <div class="xe-card <?php echo io_get_option('columns') ?> <?php echo get_post_meta($post->ID, '_wechat_qr', true)? 'wechat':''?>">
               <?php include( get_theme_file_path() .'/templates/site-card.php' ); ?>

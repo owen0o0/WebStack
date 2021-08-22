@@ -1,10 +1,21 @@
 <?php
+/*
+ * @Theme Name:WebStack
+ * @Theme URI:https://www.iotheme.cn/
+ * @Author: iowen
+ * @Author URI: https://www.iowen.cn/
+ * @Date: 2019-02-22 21:26:02
+ * @LastEditors: iowen
+ * @LastEditTime: 2021-08-22 23:20:28
+ * @FilePath: \WebStack\inc\inc.php
+ * @Description: 
+ */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * 注册菜单
  */
 register_nav_menus( array(
-	'nav_main' => __( '主菜单' , 'i_owen' ),
+	'nav_main' => __( '侧栏底部菜单' , 'i_owen' ),
 ));
 
 
@@ -15,7 +26,6 @@ require_once get_theme_file_path() .'/inc/frame/cs-framework.php';
 require_once get_theme_file_path() .'/inc/register.php';
 require_once get_theme_file_path() .'/inc/post-type.php';
 require_once get_theme_file_path() .'/inc/fav-content.php';
-require_once get_theme_file_path() .'/inc/meta-boxes.php';
 require_once get_theme_file_path() .'/inc/ajax.php';
 
  
@@ -172,10 +182,14 @@ if( io_get_option('ioc_wp_head') ) :
 endif;
 
 //隐藏帮助选项卡
-add_filter( 'contextual_help', 'wpse50723_remove_help', 999, 3 );  
-function wpse50723_remove_help($old_help, $screen_id, $screen){  
-    $screen->remove_help_tabs();  
-    return $old_help;  
+add_action('in_admin_header', function(){
+        global $current_screen;
+        $current_screen->remove_help_tabs();
+});
+add_filter('admin_footer_text', 'left_admin_footer_text');
+function left_admin_footer_text($text) {
+    $text = '<span id="footer-thankyou">感谢您使用 <a href="https://www.iotheme.cn/" target="_blank">一为的WordPress主题</a></span>';
+    return $text;
 }
 
 /**
@@ -367,13 +381,22 @@ function modify_css(){
 		echo "<style>" . $css . "</style>";
 	}
 }
-
-function remove_submenu() {   
-    remove_submenu_page( 'themes.php', 'theme-editor.php' );   
-}    
 if ( is_admin() ) {   
-    add_action('admin_init','remove_submenu');   
+    add_action('admin_init','remove_submenu');  
+    function remove_submenu() {   
+        remove_submenu_page( 'themes.php', 'theme-editor.php' ); 
+    }  
 }  
+add_action( 'current_screen', 'block_theme_editor_access' );
+function block_theme_editor_access() {
+    if ( is_admin() ) {
+        $screen = get_current_screen();
+        if ( 'theme-editor' == $screen->id ) {
+            wp_redirect( admin_url() );
+            exit;
+        }
+    }
+} 
 add_action('generate_rewrite_rules', 'io_rewrite_rules' );   
 /**********重写规则************/  
 function io_rewrite_rules( $wp_rewrite ){   
@@ -395,9 +418,11 @@ add_action("template_redirect", 'io_template_redirect');
 function io_template_redirect(){   
     global $wp;   
     global $wp_query, $wp_rewrite;   
-       
+    
     //查询custom_page变量   
-    @$reditect_page =  $wp_query->query_vars['custom_page'];   
+    if( !isset($wp_query->query_vars['custom_page']) )   
+        return;  
+    $reditect_page =  $wp_query->query_vars['custom_page'];   
     //如果custom_page等于go，则载入go.php页面   
     //注意 my-account/被翻译成index.php?custom_page=hello_page了。    
     if($reditect_page=='go'){

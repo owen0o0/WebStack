@@ -1,5 +1,16 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { exit; }
-
+<?php 
+/*
+ * @Theme Name:WebStack
+ * @Theme URI:https://www.iotheme.cn/
+ * @Author: iowen
+ * @Author URI: https://www.iowen.cn/
+ * @Date: 2020-02-22 21:26:05
+ * @LastEditors: iowen
+ * @LastEditTime: 2021-08-22 18:42:09
+ * @FilePath: \WebStack\inc\register.php
+ * @Description: 
+ */
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 define( 'THEME_URL', get_bloginfo('template_directory') );
 function theme_load_scripts() {
 	$theme_version = esc_attr(wp_get_theme()->get('Version'));
@@ -35,6 +46,7 @@ function theme_load_scripts() {
 	wp_localize_script('appjs', 'theme' , array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 		'addico'  => get_template_directory_uri() . '/images/add.png',
+		'version' => $theme_version,
 	)); 
 }
 add_action('wp_enqueue_scripts', 'theme_load_scripts');

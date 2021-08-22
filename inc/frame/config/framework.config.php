@@ -1,4 +1,16 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access pages directly.
+<?php 
+/*
+ * @Theme Name:WebStack
+ * @Theme URI:https://www.iotheme.cn/
+ * @Author: iowen
+ * @Author URI: https://www.iowen.cn/
+ * @Date: 2019-02-22 21:26:02
+ * @LastEditors: iowen
+ * @LastEditTime: 2021-08-22 18:35:36
+ * @FilePath: \WebStack\inc\frame\config\framework.config.php
+ * @Description: 
+ */
+if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access pages directly.
 // ===============================================================================================
 // -----------------------------------------------------------------------------------------------
 // FRAMEWORK SETTINGS
@@ -11,8 +23,8 @@ $settings           = array(
   'menu_position'   => 59,
   'menu_icon'       => CS_URI.'/assets/images/setting.png',
   'ajax_save'       => true,
-  'show_reset_all'  => true,
-  'framework_title' => 'WebStack '.__('主题设置','io_setting').'<style>.cs-framework .cs-body {min-height: 700px;}</style><span style="font-size: 14px;"> - V '.wp_get_theme()->get('Version').'</span> <a href="https://www.iowen.cn/webstack-pro-navigation-theme-advanced/" target="_blank">升级pro</a>',
+  'show_reset_all'  => false,
+  'framework_title' => 'WebStack '.__('主题设置','io_setting').'<style>.cs-framework .cs-body {min-height: 700px;}</style><span style="font-size: 14px;"> - V '.wp_get_theme()->get('Version').'</span> <a href="https://www.iotheme.cn/store/onenav.html" target="_blank">go pro</a>',
   //'framework_title' => '主题设置',
 );
 
@@ -35,6 +47,11 @@ $options[] = array(
         array(
             'type'    => 'notice',
             'content' => '---》<a href="https://www.iowen.cn/wordpress-version-webstack/" target="_blank">查看教程</a>《---',
+            'class'   => 'info',
+        ),
+        array(
+            'type'    => 'notice',
+            'content' => '---》<a href="https://www.iotheme.cn/help" target="_blank">帮助中心</a>《---',
             'class'   => 'info',
         ),
         array(
@@ -199,15 +216,15 @@ $options[] = array(
             'id'      => 'ico_url',
             'type'    => 'text',
             'title'   => '图标源',
-            'default' => 'https://api.ooopn.com/ico/api.php?url=',
+            'default' => 'https://ico.mikelin.cn/',
             'desc'    => 'api 地址',
-            'after'   => '如果获取图标失效，请百度搜索‘获取网站图标api’替换能用的就可以了<br>或者自建api服务，源码地址：<a href="https://www.iowen.cn/favicon-api/" target="_blank">https://www.iowen.cn/favicon-api/</a>',
+            'after'   => '默认api地址：https://ico.mikelin.cn/<br>如果获取图标失效，请百度搜索‘获取网站图标api’替换能用的就可以了<br>或者自建api服务，源码地址：<a href="https://www.iowen.cn/favicon-api/" target="_blank">https://www.iowen.cn/favicon-api/</a>',
         ),
         array(
             'id'      => 'url_format',
             'type'    => 'switcher',
             'title'   => '不包含 http(s)://',
-            'default' => false,
+            'default' => true,
             'desc'    => '根据图标源 api 要求设置，如果api要求不能包含协议名称，请开启此选项',
         ),
         array(

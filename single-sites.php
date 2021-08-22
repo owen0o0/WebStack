@@ -1,4 +1,15 @@
 <?php 
+/*
+ * @Theme Name:WebStack
+ * @Theme URI:https://www.iotheme.cn/
+ * @Author: iowen
+ * @Author URI: https://www.iowen.cn/
+ * @Date: 2020-02-22 21:26:05
+ * @LastEditors: iowen
+ * @LastEditTime: 2021-08-22 22:26:27
+ * @FilePath: \WebStack\single-sites.php
+ * @Description: 
+ */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 get_header(); ?>
 
@@ -58,7 +69,7 @@ include( 'templates/header-nav.php' );
 	    									<p><?php echo get_post_meta(get_the_ID(), '_sites_sescribe', true) ?></p>
                                          <?php 
                                          $m_post_link_url = $m_link_url ?: get_permalink($post->ID);
-                                         $qrurl="https://my.tv.sohu.com/user/a/wvideo/getQRCode.do?width=150&height=150&text=". $m_post_link_url;
+                                         $qrurl="//api.qrserver.com/v1/create-qr-code/?size=150x150&margin=10&data=". $m_post_link_url;
                                          $qrname = "手机查看";
                                          if(get_post_meta(get_the_ID(), '_wechat_qr', true)){
                                             $qrurl=get_post_meta(get_the_ID(), '_wechat_qr', true);
@@ -123,7 +134,7 @@ include( 'templates/header-nav.php' );
                             while ( $related_items->have_posts() ) : $related_items->the_post();
                             $link_url = get_post_meta($post->ID, '_sites_link', true); 
                             $default_ico = get_template_directory_uri() .'/images/favicon.png';
-                            if(current_user_can('level_10') || get_post_meta($post->ID, '_visible', true)!="true"):
+                            if(current_user_can('level_10') || get_post_meta($post->ID, '_visible', true)==""):
                             ?>
                                 <div class="xe-card col-sm-6 col-md-4 <?php echo get_post_meta($post->ID, '_wechat_qr', true)? 'wechat':''?>">
                                 <?php include( 'templates/site-card.php' ); ?>

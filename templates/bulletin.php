@@ -1,4 +1,16 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { exit; } ?>
+<?php 
+/*
+ * @Theme Name:WebStack
+ * @Theme URI:https://www.iotheme.cn/
+ * @Author: iowen
+ * @Author URI: https://www.iowen.cn/
+ * @Date: 2019-02-22 21:26:02
+ * @LastEditors: iowen
+ * @LastEditTime: 2021-08-22 23:05:51
+ * @FilePath: \WebStack\templates\bulletin.php
+ * @Description: 
+ */
+if ( ! defined( 'ABSPATH' ) ) { exit; } ?>
 <?php if( io_get_option('bulletin')) : ?>
 <div id="bulletin_box" class="panel">
     <div class="d-flex text-muted">

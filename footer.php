@@ -1,4 +1,16 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { exit; }?>
+<?php 
+/*
+ * @Theme Name:WebStack
+ * @Theme URI:https://www.iotheme.cn/
+ * @Author: iowen
+ * @Author URI: https://www.iowen.cn/
+ * @Date: 2019-02-22 21:26:02
+ * @LastEditors: iowen
+ * @LastEditTime: 2021-08-22 17:31:58
+ * @FilePath: \WebStack\footer.php
+ * @Description: 
+ */
+if ( ! defined( 'ABSPATH' ) ) { exit; }?>
             <footer class="main-footer sticky footer-type-1">
                 <div class="go-up">
                     <a href="#" rel="go-top">
@@ -8,7 +20,7 @@
                 <div class="footer-inner">
                     <div class="footer-text">
                         Copyright © <?php echo date('Y') ?> <?php bloginfo('name'); ?> <?php if(io_get_option('icp')) echo '<a href="http://www.beian.miit.gov.cn/" target="_blank" rel="link noopener">' . io_get_option('icp') . '</a>'?>
-                        &nbsp;&nbsp;Design by <a href="http://webstack.cc" target="_blank"><strong>Webstack</strong></a>&nbsp;&nbsp;Modify by <a href="https://www.iowen.cn" target="_blank"><strong>一为</strong></a>
+                        &nbsp;&nbsp;Design by <a href="http://webstack.cc" target="_blank"><strong>Webstack</strong></a>&nbsp;&nbsp;Modify by <a href="https://www.iotheme.cn" target="_blank"><strong>一为</strong></a>
                     </div>
                 </div>
             </footer>
