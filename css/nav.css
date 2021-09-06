@@ -22,8 +22,9 @@ a:hover,a:focus{color:#232323;text-decoration:none}
 .ps-container.ie:hover .ps-scrollbar-x,.ps-container.ie:hover .ps-scrollbar-y,.ps-container.ie.hover .ps-scrollbar-x,.ps-container.ie.hover .ps-scrollbar-y{visibility:visible}
 .xe-comment-entry img{float:left;display:block;background:rgba(136,136,136,.15);margin-right:10px}
 .xe-comment p{margin-bottom:0px}
-.overflowClip_2{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-.overflowClip_1{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
+.overflowClip_1{overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;word-break:break-all;display:-webkit-box!important;-webkit-line-clamp:1;-webkit-box-orient:vertical}
+.overflowClip_2{overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;word-break:break-all;display:-webkit-box!important;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.overflowClip_1{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block!important}
 .submit-tag{margin-top:50px}
 .xe-card{position:relative;height:72px;margin:20px 0 0 0}
 .xe-widget{position:relative}
