@@ -1,4 +1,13 @@
 <?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access pages directly.
+/*
+ * @Author: iowen
+ * @Author URI: https://www.iowen.cn/
+ * @Date: 2020-02-22 21:26:04
+ * @LastEditors: iowen
+ * @LastEditTime: 2021-12-20 22:47:45
+ * @FilePath: \WebStack\inc\frame\functions\fallback.php
+ * @Description: 
+ */
 /**
  *
  * A fallback for get term meta
@@ -28,7 +37,7 @@ if( ! function_exists( 'get_term_meta' ) ) {
  *
  */
 if( ! function_exists( 'add_term_meta' ) ) {
-  function add_term_meta( $term_id, $meta_key = '', $meta_value, $unique = false ) {
+  function add_term_meta( $term_id, $meta_key = '', $meta_value = '', $unique = false ) {
 
     return update_term_meta( $term_id, $meta_key, $meta_value, $unique );
 

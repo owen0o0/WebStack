@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2020-02-22 21:26:05
  * @LastEditors: iowen
- * @LastEditTime: 2021-08-22 21:47:11
+ * @LastEditTime: 2021-12-20 23:53:13
  * @FilePath: \WebStack\inc\post-type.php
  * @Description: 
  */
@@ -218,12 +218,17 @@ function io_work_convert_restrict($query) {
 add_filter('manage_edit-sites_columns', 'io_ordinal_manage_posts_columns');
 add_action('manage_posts_custom_column','io_ordinal_manage_posts_custom_column',10,2);
 function io_ordinal_manage_posts_columns($columns){
+    $columns['link']       = '链接';
 	$columns['ordinal']    = '排序'; 
 	$columns['visible']    = '可见性'; 
 	return $columns;
 }
 function io_ordinal_manage_posts_custom_column($column_name,$id){ 
 	switch( $column_name ) :
+		case 'link': {
+			echo get_post_meta($id, '_sites_link', true);
+			break;
+		}
 		case 'ordinal': {
 			echo get_post_meta($id, '_sites_order', true);
 			break;

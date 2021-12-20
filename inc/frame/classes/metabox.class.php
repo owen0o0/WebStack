@@ -126,7 +126,7 @@ class CSFramework_Metabox extends CSFramework_Abstract{
                 $default    = ( isset( $field['default'] ) ) ? $field['default'] : '';
                 $elem_id    = ( isset( $field['id'] ) ) ? $field['id'] : '';
                 if($callback['args']['data_type'] !== 'serialize' ) {//iotheme.cn
-                  $elem_value = get_term_meta($post->ID, $elem_id,true);
+                  $elem_value = get_post_meta($post->ID, $elem_id,true);
                 }else{
                   $elem_value = ( is_array( $meta_value ) && isset( $meta_value[$elem_id] ) ) ? $meta_value[$elem_id] : $default;
                 }//iotheme.cn

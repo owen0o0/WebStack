@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2019-02-22 21:26:02
  * @LastEditors: iowen
- * @LastEditTime: 2021-08-22 23:20:28
+ * @LastEditTime: 2021-12-20 23:48:24
  * @FilePath: \WebStack\inc\inc.php
  * @Description: 
  */
@@ -524,8 +524,8 @@ function searchfilter($query) {
  */
 add_filter('posts_join', 'cf_search_join' );
 function cf_search_join( $join ) {
-    if(is_admin())
-        return $join;
+    //if(is_admin())
+    //    return $join;
     global $wpdb;
     if ( is_search() ) {
       $join .=' LEFT JOIN '.$wpdb->postmeta. ' ON '. $wpdb->posts . '.ID = ' . $wpdb->postmeta . '.post_id ';
@@ -538,8 +538,8 @@ function cf_search_join( $join ) {
  */
 add_filter('posts_where', 'cf_search_where');
 function cf_search_where( $where ) {
-    if(is_admin())
-        return $where; 
+    //if(is_admin())
+    //    return $where; 
     global $pagenow, $wpdb;
     if ( is_search() ) {
         $where = preg_replace("/\(\s*".$wpdb->posts.".post_title\s+LIKE\s*(\'[^\']+\')\s*\)/",
@@ -553,8 +553,8 @@ function cf_search_where( $where ) {
  */
 add_filter ('posts_distinct', 'cf_search_distinct');
 function cf_search_distinct($where) {
-    if(is_admin())
-        return $where;
+    //if(is_admin())
+    //    return $where;
     global $wpdb;
     if ( is_search() )  {
       return "DISTINCT";
