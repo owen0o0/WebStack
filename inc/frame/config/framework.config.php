@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2019-02-22 21:26:02
  * @LastEditors: iowen
- * @LastEditTime: 2021-08-22 18:35:36
+ * @LastEditTime: 2022-07-25 16:48:37
  * @FilePath: \WebStack\inc\frame\config\framework.config.php
  * @Description: 
  */
@@ -24,7 +24,7 @@ $settings           = array(
   'menu_icon'       => CS_URI.'/assets/images/setting.png',
   'ajax_save'       => true,
   'show_reset_all'  => false,
-  'framework_title' => 'WebStack '.__('主题设置','io_setting').'<style>.cs-framework .cs-body {min-height: 700px;}</style><span style="font-size: 14px;"> - V '.wp_get_theme()->get('Version').'</span> <a href="https://www.iotheme.cn/store/onenav.html" target="_blank">go pro</a>',
+  'framework_title' => 'WebStack '.__('主题设置','io_setting').'<style>.cs-framework .cs-body {min-height: 700px;}</style><span style="font-size: 14px;"> - V '.wp_get_theme()->get('Version').'</span> <a href="https://www.iotheme.cn/store/onenav.html" target="_blank">go OneNav</a>',
   //'framework_title' => '主题设置',
 );
 
@@ -216,15 +216,15 @@ $options[] = array(
             'id'      => 'ico_url',
             'type'    => 'text',
             'title'   => '图标源',
-            'default' => 'https://ico.mikelin.cn/',
+            'default' => 'https://t3.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=',
             'desc'    => 'api 地址',
-            'after'   => '默认api地址：https://ico.mikelin.cn/<br>如果获取图标失效，请百度搜索‘获取网站图标api’替换能用的就可以了<br>或者自建api服务，源码地址：<a href="https://www.iowen.cn/favicon-api/" target="_blank">https://www.iowen.cn/favicon-api/</a>',
+            'after'   => '默认api地址：https://t3.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=<br>如果获取图标失效，请百度搜索‘获取网站图标api’替换能用的就可以了<br>或者自建api服务，源码地址：<a href="https://www.iowen.cn/favicon-api/" target="_blank">https://www.iowen.cn/favicon-api/</a>',
         ),
         array(
             'id'      => 'url_format',
             'type'    => 'switcher',
             'title'   => '不包含 http(s)://',
-            'default' => true,
+            'default' => false,
             'desc'    => '根据图标源 api 要求设置，如果api要求不能包含协议名称，请开启此选项',
         ),
         array(
@@ -408,6 +408,20 @@ $options[] = array(
 			'desc'    => __('去除链接中的分类category标志，有利于SEO优化，每次开启或关闭此功能，都需要重新保存一下固定链接！（默认关闭）','io_setting'),
 			'default' => true
 		),
+        array(
+            'id'      => 'gravatar',
+            'type'    => 'select',
+            'title'   => 'Gravatar加速',
+            'default' => 'geekzu',
+            'options' => array(
+                'gravatar'    => __('使用 Gravatar官方 默认服务器','io_setting'),
+                'cravatar'    => __('使用 Cravatar 镜像加速服务','io_setting'),
+                'sep'         => __('使用 sep.cc 镜像加速服务','io_setting'),
+                'loli'        => __('使用 loli 镜像加速服务','io_setting'),
+                'chinayes'    => __('使用 wp-china-yes.cn 镜像加速服务','io_setting'),
+                'geekzu'      => __('使用 极客族 提供的加速服务','io_setting'),
+            ),
+        ),
 		
 	),
 );

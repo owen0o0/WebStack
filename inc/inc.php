@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2019-02-22 21:26:02
  * @LastEditors: iowen
- * @LastEditTime: 2021-12-20 23:48:24
+ * @LastEditTime: 2022-07-25 16:40:51
  * @FilePath: \WebStack\inc\inc.php
  * @Description: 
  */
@@ -494,7 +494,90 @@ class iconfont {
 new iconfont();
  
  
+add_filter('pre_get_avatar_data', function($args, $id_or_email){
+    $gravatar_cdn = io_get_option('gravatar','geekzu');
+    if($gravatar_cdn=='gravatar'){
+        return $args;
+    }
+    $email_hash = '';
+    $user       = $email = false;
+    
+    if(is_object($id_or_email) && isset($id_or_email->comment_ID)){
+        $id_or_email    = get_comment($id_or_email);
+    }
 
+    if(is_numeric($id_or_email)){
+        $user    = get_user_by('id', absint($id_or_email));
+    }elseif($id_or_email instanceof WP_User){    // User Object
+        $user    = $id_or_email;
+    }elseif($id_or_email instanceof WP_Post){    // Post Object
+        $user    = get_user_by('id', intval($id_or_email->post_author));
+    }elseif($id_or_email instanceof WP_Comment){    // Comment Object
+        if(!empty($id_or_email->user_id)){
+            $user    = get_user_by('id', intval($id_or_email->user_id));
+        }elseif(!empty($id_or_email->comment_author_email)){
+            $email    = $id_or_email->comment_author_email;
+        }
+    }elseif(is_string($id_or_email)){
+        if(strpos($id_or_email, '@md5.gravatar.com')){
+            list($email_hash)    = explode('@', $id_or_email);
+        } else {
+            $email    = $id_or_email;
+        }
+    }
+
+    if($user){
+        $args    = apply_filters('io_default_avatar_data', $args, $user->ID);
+        if($args['found_avatar']){
+            return $args;
+        }else{
+            $email = $user->user_email;
+        }
+    }
+    
+    if(!$email_hash){
+        if($email){
+            $email_hash = md5(strtolower(trim($email)));
+        }
+    }
+
+    if($email_hash){
+        $args['found_avatar']    = true;
+    }
+    
+    switch ($gravatar_cdn){
+        case "cravatar":
+            $url    = '//cravatar.cn/avatar/'.$email_hash;
+            break;
+        case "sep":
+            $url    = '//cdn.sep.cc/avatar/'.$email_hash;
+            break;
+        case "loli":
+            $url    = '//gravatar.loli.net/avatar/'.$email_hash;
+            break;
+        case "chinayes":
+            $url    = '//gravatar.wp-china-yes.net/avatar/'.$email_hash;
+            break;
+        case "geekzu":
+            $url    = '//sdn.geekzu.org/avatar/'.$email_hash;
+            break;
+        default:
+            $url    = '//sdn.geekzu.org/avatar/'.$email_hash;
+    }
+
+    $url_args    = array_filter([
+        's'    => $args['size'],
+        'd'    => $args['default'],
+        'f'    => $args['force_default'] ? 'y' : false,
+        'r'    => $args['rating'],
+    ]);
+
+    $url            = add_query_arg(rawurlencode_deep($url_args), set_url_scheme($url, $args['scheme']));
+    $args['url']    = apply_filters('get_avatar_url', $url, $id_or_email, $args);
+
+    return $args;
+
+}, 10, 2);
 function format_url($url){
     if($url == '')
     return;

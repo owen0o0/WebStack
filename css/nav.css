@@ -42,7 +42,7 @@ a:hover,a:focus{color:#232323;text-decoration:none}
 .sidebar-menu .logo-env .logo .logo-collapsed{display:none}
 .sidebar-menu .main-menu{padding:0 30px;margin-top:20px;margin-bottom:20px;list-style:none}
 .navbar.horizontal-menu .navbar-inner>.nav.navbar-mobile{display:none}
-.navbar .navbar-content{position:absolute;background:#fff;width:100%;box-shadow:0 5px 20px rgba(0,0,0,.05);padding-bottom:1px}
+.navbar .navbar-content{position:absolute;background:#fff;display:flex;width:100%;box-shadow:0 5px 20px rgba(0,0,0,.05);padding-bottom:1px;justify-content:space-between;align-items:center;}
 @media screen and (max-width:767px){.sidebar-menu .main-menu{margin-top:10px;margin-bottom:10px}
 }
 footer.main-footer .go-up{width:45px;float:right;position:fixed;right:10px;bottom:30px;z-index:10;margin:0;padding:0;list-style:none}
@@ -117,6 +117,7 @@ footer.main-footer:after{clear:both}
 .user-info-navbar{background-color:#fff;min-height:0;border:0;padding:0;margin:-30px;margin-bottom:30px}
 .user-info-navbar .user-info-menu{margin:0}
 .user-info-navbar .user-info-menu.left-links{float:left}
+.user-info-navbar .user-info-menu.right-links{float:right}
 .user-info-navbar .user-info-menu li{line-height:1;display:table-cell;text-align:center;vertical-align:middle}
 .user-info-navbar .user-info-menu li a{line-height:1}
 .user-info-navbar .user-info-menu>li>a{display:block;padding:18px 10px;color:#979898;text-decoration:none}
@@ -168,8 +169,8 @@ footer.main-footer .footer-text{float:left}
 
 /* --- customize --- */
 .nothing{padding:20px 0;margin:10px 0;text-align:center;color:#888;background:rgba(136,136,136,.2);border-radius:5px}
-nav.navbar{position:fixed;z-index:2000!important;right:30px;width:100%;padding:0 0 0 250px;background-color:transparent}
-.sidebar-menu.collapsed+.main-content>nav.navbar{padding-left:80px}
+nav.navbar{position:fixed;z-index:2000!important;width:calc(100% - 250px);padding:0;background-color:transparent}
+.sidebar-menu.collapsed+.main-content>nav.navbar{width:calc(100% - 80px)}
 .xe-widget.xe-conversations:hover,.xe-widget.xe-conversations:focus{background:#fff!important;text-decoration:none}
 .xe-card.wechat a:after{content:'\f029';position:absolute;display:inline-block;font-family:FontAwesome;font-size:18px;color:#6d747a;margin-left:10px;bottom:0;right:5px}
 .mx-auto{margin-left:auto;margin-right:auto;float:none}
