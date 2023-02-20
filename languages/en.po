@@ -1,0 +1,442 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WebStack\n"
+"POT-Creation-Date: 2023-02-20 22:02+0800\n"
+"PO-Revision-Date: 2023-02-20 22:04+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: inc/frame\n"
+
+#: 404.php:20
+msgid "抱歉，没有你要找的内容..."
+msgstr "Sorry, the contents you're searching don't esixt..."
+
+#: 404.php:22
+msgid "返回首页"
+msgstr "Back to home"
+
+#. translators: %s: post title
+#: comments.php:37
+#, php-format
+msgctxt "comments title"
+msgid "One Reply to &ldquo;%s&rdquo;"
+msgstr ""
+
+#: comments.php:42
+#, php-format
+msgctxt "comments title"
+msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:76
+msgid "Comments are closed."
+msgstr ""
+
+#: go.php:22
+msgid "加载中"
+msgstr "Loading"
+
+#: inc/ajax.php:29
+msgid "图片添加成功"
+msgstr "The image is added successfully"
+
+#: inc/ajax.php:32
+msgid "图片上传失败！"
+msgstr "Image upload failed!"
+
+#: inc/ajax.php:44
+msgid "没有上传图像！"
+msgstr "No images uploaded!"
+
+#: inc/ajax.php:48
+#, php-format
+msgid "图片 %s 删除失败！"
+msgstr "Image %s Delete failed!"
+
+#: inc/ajax.php:50
+msgid "删除成功！"
+msgstr "Deleting succeeded!"
+
+#: inc/ajax.php:60
+#, php-format
+msgid "您投稿也太勤快了吧，%s秒后再试！"
+msgstr "Your submission is too frequent. Try again in '%s' seconds!"
+
+#: inc/ajax.php:74
+msgid "请选择分类。"
+msgstr "Please select a category."
+
+#: inc/ajax.php:77
+msgid "不能选用父级分类目录。"
+msgstr "Parent category is not allowed."
+
+#: inc/ajax.php:80
+msgid "网站描叙必须填写，且长度不得超过50字。"
+msgstr ""
+"The description of the website must be filled in and must not exceed 50 "
+"words in length."
+
+#: inc/ajax.php:83
+msgid "网站链接和公众号二维码至少填一项。"
+msgstr ""
+"Fill in at least one link to the website link and the QR code of the "
+"official account."
+
+#: inc/ajax.php:86
+msgid "网站链接必须符合URL格式。"
+msgstr "Website links must conform to the URL format."
+
+#: inc/ajax.php:89
+msgid "网站名称必须填写，且长度不得超过30字。"
+msgstr ""
+"The name of the website must be filled in and the length must not exceed 30 "
+"words."
+
+#: inc/ajax.php:119
+msgid "投稿成功！"
+msgstr "Submission succeeded!"
+
+#: inc/ajax.php:121
+msgid "投稿失败！"
+msgstr "Submission failed!"
+
+#: inc/fav-content.php:48 search.php:33
+msgid "没有内容"
+msgstr "No content"
+
+#: inc/inc.php:323
+#, php-format
+msgid "Feed已经关闭, 请访问网站%s首页%s！"
+msgstr "Feed is closed, please visit the %shomepage%s!"
+
+#: page.php:28 single-sites.php:108 single.php:28 template-contribute.php:29
+msgid "编辑"
+msgstr "Edit"
+
+#: search-tool.php:8 search-tool.php:17
+msgid "常用"
+msgstr "Common"
+
+#: search-tool.php:9 search-tool.php:27
+msgid "搜索"
+msgstr "Search"
+
+#: search-tool.php:10 search-tool.php:38
+msgid "工具"
+msgstr "Tools"
+
+#: search-tool.php:11 search-tool.php:49
+msgid "社区"
+msgstr "Community"
+
+#: search-tool.php:12 search-tool.php:59
+msgid "生活"
+msgstr "Life"
+
+#: search-tool.php:13 search-tool.php:71
+msgid "求职"
+msgstr "Job"
+
+#: search-tool.php:19 search-tool.php:29
+msgid "百度一下"
+msgstr "Baidu"
+
+#: search-tool.php:19 search-tool.php:29
+msgid "百度"
+msgstr "Baidu"
+
+#: search-tool.php:20 search-tool.php:30
+msgid "谷歌两下"
+msgstr "Google"
+
+#: search-tool.php:21
+msgid "站内搜索"
+msgstr "Search in website"
+
+#: search-tool.php:21
+msgid "站内"
+msgstr "In Website"
+
+#: search-tool.php:22 search-tool.php:61
+msgid "淘宝"
+msgstr "Taobao"
+
+#: search-tool.php:23 search-tool.php:33
+msgid "微软Bing搜索"
+msgstr "Bing"
+
+#: search-tool.php:31
+msgid "360好搜"
+msgstr "So.com"
+
+#: search-tool.php:32
+msgid "搜狗搜索"
+msgstr "Sougou"
+
+#: search-tool.php:32
+msgid "搜狗"
+msgstr "Sogou"
+
+#: search-tool.php:34
+msgid "UC移动端搜索"
+msgstr "UC mobile search"
+
+#: search-tool.php:34
+msgid "神马"
+msgstr "SM.cn"
+
+#: search-tool.php:40 search-tool.php:41 search-tool.php:42 search-tool.php:43
+#: search-tool.php:44
+msgid "请输入网址(不带http://)"
+msgstr "Please enter the URL (without http://)"
+
+#: search-tool.php:40
+msgid "权重查询"
+msgstr "Weight Search"
+
+#: search-tool.php:41
+msgid "友链检测"
+msgstr "Friendly link check"
+
+#: search-tool.php:42
+msgid "备案查询"
+msgstr "ICP check"
+
+#: search-tool.php:43
+msgid "PING检测"
+msgstr "PING check"
+
+#: search-tool.php:44
+msgid "死链检测"
+msgstr "Dead link check"
+
+#: search-tool.php:45
+msgid "请输入关键词"
+msgstr "Enter keywords"
+
+#: search-tool.php:45
+msgid "关键词挖掘"
+msgstr "Keyword digging"
+
+#: search-tool.php:51
+msgid "知乎"
+msgstr "Zhihu"
+
+#: search-tool.php:52
+msgid "微信"
+msgstr "Wechat"
+
+#: search-tool.php:53
+msgid "微博"
+msgstr "Weibo"
+
+#: search-tool.php:54
+msgid "豆瓣"
+msgstr "Douban"
+
+#: search-tool.php:55
+msgid "SEO问答社区"
+msgstr "SEO community"
+
+#: search-tool.php:55
+msgid "搜外问答"
+msgstr "SeoWhy"
+
+#: search-tool.php:62
+msgid "京东"
+msgstr "JD"
+
+#: search-tool.php:63
+msgid "下厨房"
+msgstr "Xiachufang"
+
+#: search-tool.php:64
+msgid "香哈菜谱"
+msgstr "Xiangha"
+
+#: search-tool.php:66
+msgid "去哪儿"
+msgstr "Qunar"
+
+#: search-tool.php:67
+msgid "快递100"
+msgstr "Kuaidi100"
+
+#: search-tool.php:73
+msgid "智联招聘"
+msgstr "Zhaopin"
+
+#: search-tool.php:74
+msgid "前程无忧"
+msgstr "51job"
+
+#: search-tool.php:75
+msgid "拉钩网"
+msgstr "Lagou"
+
+#: search-tool.php:76
+msgid "猎聘网"
+msgstr "Liepin"
+
+#: search.php:21
+msgid "输入关键字搜索"
+msgstr "Search keyword"
+
+#: search.php:28
+msgid "的搜索结果"
+msgstr "search results"
+
+#: search.php:59
+msgid "返回主页"
+msgstr "Homepage"
+
+#: single-sites.php:73
+msgid "手机查看"
+msgstr "Mobile view"
+
+#: single-sites.php:76
+msgid "公众号"
+msgstr "WeChat"
+
+#: single-sites.php:81
+msgid "链接直达"
+msgstr "Direct link"
+
+#: single-sites.php:111
+msgid "相关导航"
+msgstr "Relevant Sites"
+
+#: single-sites.php:144
+msgid "没有相关内容!"
+msgstr "No relevant contents!"
+
+#: template-contribute.php:36
+msgid "添加网站"
+msgstr "Add a website"
+
+#: template-contribute.php:39
+msgid "网站图标:"
+msgstr "Favicon:"
+
+#: template-contribute.php:43
+msgid "网站图标"
+msgstr "Favicon"
+
+#: template-contribute.php:53
+msgid "网站名称"
+msgstr "Site name"
+
+#: template-contribute.php:59
+msgid "网站链接"
+msgstr "Site Links"
+
+#: template-contribute.php:65
+msgid "网站描叙"
+msgstr "Site description"
+
+#: template-contribute.php:73
+msgid "选择分类"
+msgstr "Select category"
+
+#: template-contribute.php:87
+msgid "公众号二维码:"
+msgstr "QR code:"
+
+#: template-contribute.php:91
+msgid "公众号二维码"
+msgstr "QR code"
+
+#: template-contribute.php:98
+msgid "网站介绍:"
+msgstr "Site introduction:"
+
+#: template-contribute.php:107
+msgid "输入验证码"
+msgstr "Enter verification code"
+
+#: template-contribute.php:111
+msgid "提交"
+msgstr "Submit"
+
+#: template-contribute.php:125
+msgid "验证码错误！"
+msgstr "Verification code error!"
+
+#: template-contribute.php:140 template-contribute.php:202
+#: template-contribute.php:231
+msgid "网络连接错误！"
+msgstr "Network error!"
+
+#: template-contribute.php:174
+msgid "图片类型只能是jpeg,jpg,png！"
+msgstr "The picture type can only be JPEG, JPG, PNG!"
+
+#: template-contribute.php:178
+msgid "图片大小不能超过128kb"
+msgstr "Image size cannot exceed 128KB"
+
+#: template-contribute.php:205
+msgid "请选择文件！"
+msgstr "Please select file!"
+
+#: template-contribute.php:210
+msgid "确定要删除图片吗?"
+msgstr "Are you sure you want to delete the picture?"
+
+#: templates/friendlink.php:17
+msgid "友情链接"
+msgstr "Friendly link"
+
+#: templates/site-card.php:30 templates/site-card.php:37
+msgid "地址错误！"
+msgstr "Wrong address!"
+
+#. Theme Name of the plugin/theme
+msgid "WebStack"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://www.iotheme.cn"
+msgstr "https://www.iotheme.cn"
+
+#. Description of the plugin/theme
+msgid ""
+"wordpress 导航主题！官方网站：<a href=\"https://www.iotheme.cn\">一为主题</"
+"a>，</br><a href=\"https://www.iotheme.cn/store/onenav.html\">升级到最新的"
+"OneNav导航主题</a>，体验更多功能"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "iowen"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.iowen.cn/"
+msgstr "https://www.iowen.cn/"
+
+#. Template Name of the plugin/theme
+msgid "投稿模板"
+msgstr ""
+
+#~ msgid "侧栏底部菜单"
+#~ msgstr "Sidebar bottom menu"
+
+#~ msgid "感谢您使用"
+#~ msgstr "Thank you for using it"

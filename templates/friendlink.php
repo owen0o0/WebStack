@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; } ?>
 
         <?php if( io_get_option('links') ) : ?>
         <h4 class="text-gray mb-4">
-            <i class="fa fa-bookmark" id="friendlink" style="margin-right:10px"></i>友情链接
+            <i class="fa fa-bookmark" id="friendlink" style="margin-right:10px"></i><?php _e('友情链接','i_theme') ?>
         </h4>
         <div class="friendlink" style="margin-bottom:-40px">
             <div class="panel">

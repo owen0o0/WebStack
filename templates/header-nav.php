@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2019-02-22 21:26:02
  * @LastEditors: iowen
- * @LastEditTime: 2021-08-22 23:06:30
+ * @LastEditTime: 2023-02-20 19:59:51
  * @FilePath: \WebStack\templates\header-nav.php
  * @Description: 
  */
@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }  ?>
                         );
                         if(empty($children)){ ?>
                         <li>
-                            <a href="<?php if (is_home() || is_front_page()): ?><?php else: echo home_url() ?>/<?php endif; ?>#<?php echo $category->name;?>" class="smooth">
+                            <a href="<?php if (is_home() || is_front_page()): ?><?php else: echo home_url() ?>/<?php endif; ?>#term-<?php echo $category->term_id;?>" class="smooth">
                                 <i class="<?php echo get_term_meta($category->term_id, '_term_ico',true) ?> fa-fw"></i>
                                 <span class="title"><?php echo $category->name; ?></span>
                             </a>
@@ -58,7 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }  ?>
                                 <?php foreach ($children as $mid) { ?>
 
                                 <li>
-                                    <a href="<?php if (is_home() || is_front_page()): ?><?php else: echo home_url() ?>/<?php endif; ?>#<?php  echo $mid->name ;?>" class="smooth"><?php echo $mid->name; ?></a>
+                                    <a href="<?php if (is_home() || is_front_page()): ?><?php else: echo home_url() ?>/<?php endif; ?>#term-<?php  echo $mid->term_id ;?>" class="smooth"><?php echo $mid->name; ?></a>
                                 </li>
                                 <?php } ?>
                             </ul>

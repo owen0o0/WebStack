@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2020-02-22 21:26:05
  * @LastEditors: iowen
- * @LastEditTime: 2021-08-22 22:26:36
+ * @LastEditTime: 2023-02-20 20:52:23
  * @FilePath: \WebStack\archive.php
  * @Description: 
  */
@@ -39,7 +39,7 @@ include( 'templates/header-nav.php' );
 		<?php if ( have_posts() ) : ?>
 		<?php while ( have_posts() ) : the_post(); 
 		$link_url = get_post_meta($post->ID, '_sites_link', true); 
-        $default_ico = get_template_directory_uri() .'/images/favicon.png';
+        $default_ico = get_theme_file_uri('/images/favicon.png');
 		if(current_user_can('level_10') || get_post_meta($post->ID, '_visible', true)==""):
 		?>
 			<div class="xe-card <?php echo io_get_option('columns') ?> <?php echo get_post_meta($post->ID, '_wechat_qr', true)? 'wechat':''?>">

@@ -131,9 +131,15 @@ if( ! function_exists( 'cs_locate_template' ) ) {
  *
  */
 if ( ! function_exists( 'io_get_option' ) ) {
+  $io_get_option = false;
   function io_get_option( $option_name = '', $default = '' ) {
-
-    $options = apply_filters( 'io_get_option', get_option( CS_OPTION ), $option_name, $default );
+    global $io_get_option;
+    if ($io_get_option) {
+        $options = $io_get_option;
+    } else {
+        $options = apply_filters( 'io_get_option', get_option( CS_OPTION ), $option_name, $default );
+        $io_get_option = $options;
+    } 
 
     if( ! empty( $option_name ) && ! empty( $options[$option_name] ) ) {
       return $options[$option_name];

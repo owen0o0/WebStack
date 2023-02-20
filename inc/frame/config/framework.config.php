@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2019-02-22 21:26:02
  * @LastEditors: iowen
- * @LastEditTime: 2022-07-25 16:48:37
+ * @LastEditTime: 2023-02-20 21:19:10
  * @FilePath: \WebStack\inc\frame\config\framework.config.php
  * @Description: 
  */
@@ -60,7 +60,7 @@ $options[] = array(
             'title' => '上传 Logo',
             'add_title' => '上传',
             'after'    => '<p class="cs-text-muted">'.'建议高80px',
-            'default'   => get_stylesheet_directory_uri() . '/images/logo@2x.png',
+            'default'   => get_theme_file_uri('/images/logo@2x.png'),
         ),
         array(
             'id' => 'logo_small',
@@ -68,21 +68,58 @@ $options[] = array(
             'title' => '方形 Logo',
             'add_title' => '上传',
             'after'    => '<p class="cs-text-muted">'.'建议 80x80',
-            'default'   => get_stylesheet_directory_uri() . '/images/logo-collapsed@2x.png',
+            'default'   => get_theme_file_uri('/images/logo-collapsed@2x.png'),
         ),
         array(
             'id' => 'favicon',
             'type' => 'image',
             'title' => '上传 Favicon',
             'add_title' => '上传',
-            'default'   => get_stylesheet_directory_uri() . '/images/favicon.png',
+            'default'   => get_theme_file_uri('/images/favicon.png'),
         ),
         array(
             'id' => 'apple_icon',
             'type' => 'image',
             'title' => '上传 apple_icon',
             'add_title' => '上传',
-            'default'   => get_stylesheet_directory_uri() . '/images/app-ico.png',
+            'default'   => get_theme_file_uri('/images/app-ico.png'),
+        ),
+        array(
+            'id'      => 'login_beautify',
+            'type'    => 'switcher',
+            'title'   => '美化登录页',
+            'default' => true,
+        ),
+        array(
+            'id' => 'login_img',
+            'type' => 'image',
+            'title' => '登录页背景图',
+            'add_title' => '上传',
+            'default'   => get_theme_file_uri('/images/login.jpg'),
+			'dependency' => array( 'login_beautify', '==', true )
+        ),
+        array(
+            'id' => 'login_logo',
+            'type' => 'image',
+            'title' => '登录页 Logo',
+            'add_title' => '上传',
+            'after'    => '<p class="cs-text-muted">'.'建议高80px',
+            'default'   => get_theme_file_uri('/images/logo_dark@2x.png'),
+			'dependency' => array( 'login_beautify', '==', true )
+        ),
+        array(
+            'id' => 'login_color_l',
+            'type' => 'color_picker',
+            'title' => '登录背景色-左',
+            'default'   => '#7d00a0',
+			'dependency' => array( 'login_beautify', '==', true )
+        ),
+        array(
+            'id' => 'login_color_r',
+            'type' => 'color_picker',
+            'title' => '登录背景色-右',
+            'default'   => '#c11b8d',
+			'dependency' => array( 'login_beautify', '==', true )
         ),
     ),
 );
@@ -270,12 +307,24 @@ $options[] = array(
             'id' => 'custom_css',
             'type' => 'wysiwyg',
             'title' => '自定义样式css代码',
-            'desc' => '显示在网站头部 &lt;head&gt;',
+            'desc' => '显示在网站头部 &lt;/head&gt; 之前',
             'after'    => '<p class="cs-text-muted">'.__('自定义 CSS,自定义美化...<br>如：','io_setting').'body .test{color:#ff0000;}</p>',
             'settings' => array(
-              'textarea_rows' => 5,
-              'tinymce'       => false,
-              'media_buttons' => false,
+                'textarea_rows' => 5,
+                'tinymce'       => false,
+                'media_buttons' => false,
+            )
+        ),
+        array(
+            'id' => 'code_head_js',
+            'type' => 'wysiwyg',
+            'title' => 'head自定义 js 代码',
+            'desc' => '显示在网站头部 &lt;/head&gt; 之前',
+            'after'    => '<p class="cs-text-muted">'.__('出现在网站头部 &lt;/head&gt; 前','io_setting').'</p>',
+            'settings' => array(
+                'textarea_rows' => 5,
+                'tinymce'       => false,
+                'media_buttons' => false,
             )
         ),
         array(
@@ -285,9 +334,9 @@ $options[] = array(
             'desc' => '显示在网站底部',
             'after'    => '<p class="cs-text-muted">'.__('出现在网站底部 body 前，主要用于站长统计代码...</p>','io_setting'),
             'settings' => array(
-              'textarea_rows' => 5,
-              'tinymce'       => false,
-              'media_buttons' => false,
+                'textarea_rows' => 5,
+                'tinymce'       => false,
+                'media_buttons' => false,
             )
         ),
     )
@@ -406,6 +455,13 @@ $options[] = array(
 			'type'    => 'switcher',
 			'title'   => __('去除分类标志','io_setting'),
 			'desc'    => __('去除链接中的分类category标志，有利于SEO优化，每次开启或关闭此功能，都需要重新保存一下固定链接！（默认关闭）','io_setting'),
+			'default' => true
+		),
+		array(
+			'id'      => 'ioc_login_language',
+			'type'    => 'switcher',
+			'title'   => '去除登录页语言切换',
+			'desc'    => __('移除 wp5.9 登录页面中增加的语言切换框，开启登录页美化需关闭此项。','io_setting'),
 			'default' => true
 		),
         array(

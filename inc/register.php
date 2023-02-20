@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2020-02-22 21:26:05
  * @LastEditors: iowen
- * @LastEditTime: 2021-08-22 18:42:09
+ * @LastEditTime: 2023-02-20 20:56:55
  * @FilePath: \WebStack\inc\register.php
  * @Description: 
  */
@@ -45,7 +45,7 @@ function theme_load_scripts() {
 	}
 	wp_localize_script('appjs', 'theme' , array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
-		'addico'  => get_template_directory_uri() . '/images/add.png',
+		'addico'  => get_theme_file_uri('/images/add.png'),
 		'version' => $theme_version,
 	)); 
 }

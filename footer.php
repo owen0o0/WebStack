@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2019-02-22 21:26:02
  * @LastEditors: iowen
- * @LastEditTime: 2021-08-24 09:40:18
+ * @LastEditTime: 2023-02-20 21:30:14
  * @FilePath: \WebStack\footer.php
  * @Description: 
  */
@@ -18,10 +18,12 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }?>
                     </a>
                 </div>
                 <div class="footer-inner">
+                    <!---请保留版权说明，谢谢---->
                     <div class="footer-text">
                         Copyright © <?php echo date('Y') ?> <?php bloginfo('name'); ?> <?php if(io_get_option('icp')) echo '<a href="https://beian.miit.gov.cn/" target="_blank" rel="link noopener">' . io_get_option('icp') . '</a>'?>
                         &nbsp;&nbsp;Design by <a href="http://webstack.cc" target="_blank"><strong>Webstack</strong></a>&nbsp;&nbsp;Modify by <a href="https://www.iotheme.cn" target="_blank"><strong>一为</strong></a>
                     </div>
+                    <!---请保留版权说明，谢谢---->
                 </div>
             </footer>
         </div>
@@ -29,6 +31,18 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }?>
 <?php if (is_home() || is_front_page()): ?>
     <script type="text/javascript">
     $(document).ready(function() {
+        setTimeout(function () { 
+            if($('a.smooth[href="'+window.location.hash+'"]')[0]){
+                $('a.smooth[href="'+window.location.hash+'"]').click();
+            } else if(window.location.hash != ''){
+                $("html, body").animate({
+                    scrollTop: $(window.location.hash).offset().top - 80
+                }, {
+                    duration: 500,
+                    easing: "swing"
+                });
+            }
+        }, 300);
         $(document).on('click', '.has-sub', function(){
             var _this = $(this)
             if(!$(this).hasClass('expanded')) {

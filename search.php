@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2020-02-22 21:26:05
  * @LastEditors: iowen
- * @LastEditTime: 2021-08-22 22:26:31
+ * @LastEditTime: 2023-02-20 20:54:24
  * @FilePath: \WebStack\search.php
  * @Description: 
  */
@@ -18,19 +18,19 @@ get_header();
 <div class="main-content">
 	<div id="search" class="s-search">
 		<form name="formsearch" method="get" action="<?php bloginfo('url'); ?>?s=" id="super-search-fm">
-            <input type="text" id="search-text" name="s" class="search-keyword" placeholder="输入关键字搜索" style="outline:0"/> 
+            <input type="text" id="search-text" name="s" class="search-keyword" placeholder="<?php _e('输入关键字搜索','i_theme') ?>" style="outline:0"/> 
             <button type="submit" οnmοuseοut="this.className='select_class'" οnmοuseοver="this.className='select_over'" ><i class="fa fa-search "></i></button>
         </form>
 	</div>
 
 	<div class="row">
 		<div class="col-12 col-lg-8 mx-auto">
-			<h4 class="text-gray"><i class="fa fa-search" style="margin-right: 27px;"></i>“<?php echo $s; ?>” <?php _e('的搜索结果','i_swallow'); ?></h4>
+			<h4 class="text-gray"><i class="fa fa-search" style="margin-right: 27px;"></i>“<?php echo $s; ?>” <?php _e('的搜索结果','i_theme'); ?></h4>
         	<div class="row">
                  
 			<?php if ( !have_posts() ) : ?>
 				<div class="col-lg-12">
-            		<div class="nothing">没有内容</div>
+            		<div class="nothing"><?php _e('没有内容','i_theme') ?></div>
           		</div>
     		<?php endif; ?>
 			
@@ -38,7 +38,7 @@ get_header();
     		<?php if ( have_posts() ) : ?>
 			<?php while ( have_posts() ) : the_post();
 			$link_url = get_post_meta($post->ID, '_sites_link', true); 
-            $default_ico = get_template_directory_uri() .'/images/favicon.png';
+            $default_ico = get_theme_file_uri('/images/favicon.png');
 			if(current_user_can('level_10') || get_post_meta($post->ID, '_visible', true)==""):
 			?>
 				<div class="xe-card col-sm-4 col-md-3 <?php echo get_post_meta($post->ID, '_wechat_qr', true)? 'wechat':''?>">
@@ -56,7 +56,7 @@ get_header();
 			    ));?>
 			</div>
 			<div style="text-align:center;margin-top:50px;margin-bottom:30px;">
-			<a href="<?php bloginfo('url') ?>" class="but-home ">返回主页</a>
+			<a href="<?php bloginfo('url') ?>" class="but-home "><?php _e('返回主页','i_theme') ?></a>
 			</div>
 		</div>
 	</div>

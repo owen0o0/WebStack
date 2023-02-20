@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2021-08-22 19:00:30
  * @LastEditors: iowen
- * @LastEditTime: 2021-08-22 23:09:55
+ * @LastEditTime: 2023-02-20 19:24:47
  * @FilePath: \WebStack\inc\frame\config\taxonomy.config.php
  * @Description: 
  */
@@ -20,7 +20,7 @@ $options[] = array(
     'fields' => array(
         array(
             'type'    => 'notice',
-            'content' => '<h2 style="color: red;">'.__('注意，最多2级，且父级不应有内容','i_owen').'</h2>',
+            'content' => '<h2 style="color: red;">'.__('注意，最多2级，且父级不应有内容','i_theme').'</h2>',
             'class'   => 'info',
         ),
         array(

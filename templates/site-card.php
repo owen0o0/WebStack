@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2019-02-22 21:26:02
  * @LastEditors: iowen
- * @LastEditTime: 2021-08-22 23:06:10
+ * @LastEditTime: 2023-02-20 19:36:41
  * @FilePath: \WebStack\templates\site-card.php
  * @Description: 
  */
@@ -27,14 +27,14 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }  ?>
                         break;
                     case 'url': 
                         if($link_url=="")
-                            $title = '地址错误！';
+                            $title = __('地址错误！','i_theme');
                         break;
                     case 'summary':
                         $title = get_post_meta($post->ID, '_sites_sescribe', true);
                         break;
                     case 'qr':
                         if($link_url=="")
-                            $title = '地址错误！';
+                            $title = __('地址错误！','i_theme');
                         else{
                             $title = "<img src='//api.qrserver.com/v1/create-qr-code/?size=150x150&margin=10&data=" . $link_url . "' width='128'>";
                             $is_html = 'data-html="true"';

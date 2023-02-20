@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2020-02-22 21:26:05
  * @LastEditors: iowen
- * @LastEditTime: 2021-08-22 22:26:27
+ * @LastEditTime: 2023-02-20 21:55:16
  * @FilePath: \WebStack\single-sites.php
  * @Description: 
  */
@@ -41,7 +41,7 @@ include( 'templates/header-nav.php' );
                                 $m_link_url  = get_post_meta($post->ID, '_sites_link', true); 
                                 $m_thumbnail = get_post_meta(get_the_ID(), '_thumbnail', true);
                                 if($m_thumbnail == '' && $m_link_url == '')
-                                    $imgurl = get_template_directory_uri() .'/images/favicon.png';
+                                    $imgurl = get_theme_file_uri('/images/favicon.png');
                                 else
                                     $imgurl = $m_thumbnail? $m_thumbnail : (io_get_option('ico_url') .format_url($m_link_url) . io_get_option('ico_png'));
                                 $sitetitle = get_the_title();
@@ -70,15 +70,15 @@ include( 'templates/header-nav.php' );
                                          <?php 
                                          $m_post_link_url = $m_link_url ?: get_permalink($post->ID);
                                          $qrurl="//api.qrserver.com/v1/create-qr-code/?size=150x150&margin=10&data=". $m_post_link_url;
-                                         $qrname = "手机查看";
+                                         $qrname = __("手机查看","i_theme");
                                          if(get_post_meta(get_the_ID(), '_wechat_qr', true)){
                                             $qrurl=get_post_meta(get_the_ID(), '_wechat_qr', true);
-                                            $qrname = "公众号";
+                                            $qrname = __("公众号","i_theme");
                                          } 
                                          ?>
 	    								<div class="site-go mt-3">
                                         <?php if($m_link_url!=""): ?>
-	    								<a style="margin-right: 10px;" href="<?php echo io_get_option('is_go')? home_url().'/go/?url='.base64_encode($m_link_url) : $m_link_url ?>" title="<?php echo $sitetitle ?>" target="_blank" class="btn btn-arrow"><span>链接直达<i class="fa fa-angle-right"></i></span></a>
+	    								<a style="margin-right: 10px;" href="<?php echo io_get_option('is_go')? home_url().'/go/?url='.base64_encode($m_link_url) : $m_link_url ?>" title="<?php echo $sitetitle ?>" target="_blank" class="btn btn-arrow"><span><?php _e('链接直达','i_theme') ?><i class="fa fa-angle-right"></i></span></a>
                                         <?php endif; ?>
                                         <a href="javascript:" class="btn btn-arrow"  data-toggle="tooltip" data-placement="bottom" title="" data-html="true" data-original-title="<img src='<?php echo $qrurl ?>' width='150'>"><span><?php echo $qrname ?><i class="fa fa-qrcode"></i></span></a>
 	    								</div>
@@ -105,10 +105,10 @@ include( 'templates/header-nav.php' );
                         </div>
                     <?php endwhile; ?>
                     </div>
-                        <?php edit_post_link(__('编辑','i_owen'), '<span class="edit-link">', '</span>' ); ?>
+                        <?php edit_post_link(__('编辑','i_theme'), '<span class="edit-link">', '</span>' ); ?>
                 </div>
 
-                <h4 class="text-gray mt-4"><i class="icon-io-tag" style="margin-right: 27px;" id="相关导航"></i>相关导航</h4>
+                <h4 class="text-gray mt-4"><i class="icon-io-tag" style="margin-right: 27px;" id="relevant_c"></i><?php _e('相关导航','i_theme') ?></h4>
                 <div class="row" style="margin-bottom: 8.5rem;"> 
                     <?php
                     $post_num = 6;
@@ -133,7 +133,7 @@ include( 'templates/header-nav.php' );
                         if ($related_items->have_posts()) :
                             while ( $related_items->have_posts() ) : $related_items->the_post();
                             $link_url = get_post_meta($post->ID, '_sites_link', true); 
-                            $default_ico = get_template_directory_uri() .'/images/favicon.png';
+                            $default_ico = get_theme_file_uri('/images/favicon.png');
                             if(current_user_can('level_10') || get_post_meta($post->ID, '_visible', true)==""):
                             ?>
                                 <div class="xe-card col-sm-6 col-md-4 <?php echo get_post_meta($post->ID, '_wechat_qr', true)? 'wechat':''?>">
@@ -141,7 +141,7 @@ include( 'templates/header-nav.php' );
                                 </div>
                             <?php endif; $i++; endwhile; endif; wp_reset_postdata();
                     }
-                    if ($i == 0) echo '<div class="col-lg-12"><div class="nothing">没有相关内容!</div></div>';
+                    if ($i == 0) echo '<div class="col-lg-12"><div class="nothing">'.__('没有相关内容!','i_theme').'</div></div>';
                     ?>
                 </div>
                 <br /> 

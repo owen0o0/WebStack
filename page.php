@@ -25,7 +25,7 @@ include( 'templates/header-nav.php' );
                             <div class="col-sm-12">
                                 <?php while( have_posts() ): the_post(); ?>
 	    			            <?php the_content();?>
-                                    <?php edit_post_link(__('编辑','i_owen'), '<span class="edit-link">', '</span>' ); ?>
+                                    <?php edit_post_link(__('编辑','i_theme'), '<span class="edit-link">', '</span>' ); ?>
 	    		                <?php endwhile; ?>
                             </div> 
                         </div>

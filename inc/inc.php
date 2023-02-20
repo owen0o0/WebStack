@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2019-02-22 21:26:02
  * @LastEditors: iowen
- * @LastEditTime: 2022-07-25 16:40:51
+ * @LastEditTime: 2023-02-20 21:38:08
  * @FilePath: \WebStack\inc\inc.php
  * @Description: 
  */
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  * 注册菜单
  */
 register_nav_menus( array(
-	'nav_main' => __( '侧栏底部菜单' , 'i_owen' ),
+	'nav_main' => '侧栏底部菜单',
 ));
 
 
@@ -28,7 +28,12 @@ require_once get_theme_file_path() .'/inc/post-type.php';
 require_once get_theme_file_path() .'/inc/fav-content.php';
 require_once get_theme_file_path() .'/inc/ajax.php';
 
- 
+
+add_action('after_setup_theme', 'my_theme_setup');
+function my_theme_setup(){
+    load_theme_textdomain( 'i_theme', get_template_directory() . '/languages' );
+}
+
 // 禁用版本修订
 add_filter( 'wp_revisions_to_keep', 'disable_wp_revisions_to_keep', 10, 2 );
 function disable_wp_revisions_to_keep( $num, $post ) {
@@ -188,9 +193,22 @@ add_action('in_admin_header', function(){
 });
 add_filter('admin_footer_text', 'left_admin_footer_text');
 function left_admin_footer_text($text) {
-    $text = '<span id="footer-thankyou">感谢您使用 <a href="https://www.iotheme.cn/" target="_blank">一为的WordPress主题</a></span>';
+    $text = '<span id="footer-thankyou">感谢您使用 <a href="https://www.iotheme.cn/" target="_blank">一为的 WordPress 主题</a></span>';
     return $text;
 }
+
+function io_head_favicon(){
+    if (io_get_option('favicon','')) {
+        echo "<link rel='shortcut icon' href='" . io_get_option('favicon','') . "'>";
+    } else {
+        echo "<link rel='shortcut icon' href='" . home_url('/favicon.ico') . "'>";
+    }
+    if (io_get_option('apple_icon','')) {
+        echo "<link rel='apple-touch-icon' href='" . io_get_option('apple_icon','') . "'>";
+    }
+}
+add_action('admin_head', 'io_head_favicon');
+
 
 /**
  * 去除后台标题中的“—— WordPress”
@@ -302,7 +320,7 @@ function ioc_seo_wl( $content ) {
  */
 if( io_get_option('ioc_feed') ) :
     function digwp_disable_feed() {
-        wp_die(sprintf(__('<h1>Feed已经关闭, 请访问网站<a href="%s">首页</a>!</h1>' , 'i_owen'), get_bloginfo('url')));
+        wp_die('<h1>' . sprintf(__('Feed已经关闭, 请访问网站%s首页%s！', 'i_theme'), '<a href="' . get_bloginfo('url') . '">', '</a>') . '</h1>');
     }
     add_action('do_feed', 'digwp_disable_feed', 1);
     add_action('do_feed_rdf', 'digwp_disable_feed', 1);
@@ -381,6 +399,14 @@ function modify_css(){
 		echo "<style>" . $css . "</style>";
 	}
 }
+function modify_head_js(){
+	if (io_get_option("code_head_js",'')) {
+		$js = io_get_option("code_head_js");
+		echo $js;
+	}
+}
+add_action('wp_head','modify_head_js');
+
 if ( is_admin() ) {   
     add_action('admin_init','remove_submenu');  
     function remove_submenu() {   
@@ -645,3 +671,80 @@ function cf_search_distinct($where) {
     return $where;
 }
 
+if(io_get_option('ioc_login_language',false)){
+    add_filter( 'login_display_language_dropdown', '__return_false' );
+}
+
+/**
+ * 美化Wordpress登录页 By 一为
+ * 原文地址：https://www.iowen.cn/chundaimameihuawordpressmorendengluye/
+ */
+function io_login_header(){
+    echo '<div class="login-container">
+    <div class="login-body">
+        <div class="login-img shadow-lg position-relative flex-fill">
+            <div class="img-bg position-absolute">
+                <div class="login-info">
+                    <h2>'. get_bloginfo('name') .'</h2>
+                    <p>'. get_bloginfo('description') .'</p>
+                </div>
+            </div>
+        </div>';
+}
+
+function io_login_footer(){
+    echo '</div><!--login-body END-->
+    </div><!--login-container END-->
+    <div class="footer-copyright position-absolute">
+            <span>Copyright © <a href="'. esc_url(home_url()) .'" class="text-white-50" title="'. get_bloginfo('name') .'" rel="home">'. get_bloginfo('name') .'</a>&nbsp;&nbsp;Modify by <a href="https://www.iotheme.cn" target="_blank">一为</a></span> 
+    </div>';
+}
+
+
+/**
+ * 美化Wordpress登录页 By 一为
+ * 原文地址：https://www.iowen.cn/chundaimameihuawordpressmorendengluye/
+ */
+function custom_login_style(){
+    $login_color_l = io_get_option('login_color_l','#7d00a0');
+    $login_color_r = io_get_option('login_color_r','#c11b8d');
+    echo '<style type="text/css">
+    body{background:'.$login_color_l.';background:-o-linear-gradient(45deg,'.$login_color_l.','.$login_color_r.');background:linear-gradient(45deg,'.$login_color_l.','.$login_color_r.');height:100vh}
+    .login h1 a{background-image:url('.io_get_option('login_logo',get_theme_file_uri('/images/logo_dark@2x.png')).');width:180px;background-position:center center;background-size:'.io_get_option('login_logo_size',160).'px}
+    .login-container{position:relative;display:flex;align-items:center;justify-content:center;height:100vh}
+    .login-body{position:relative;display:flex;margin:0 1.5rem}
+    .login-img{display:none}
+    .img-bg{color:#fff;padding:2rem;bottom:-2rem;left:0;top:-2rem;right:0;border-radius:10px;background-image:url('.io_get_option('login_img',get_theme_file_uri('/images/login.jpg')).');background-repeat:no-repeat;background-position:center center;background-size:cover}
+    .img-bg h2{font-size:2rem;margin-bottom:1.25rem}
+    #login{position:relative;background:#fff;border-radius:10px;padding:28px;width:280px;box-shadow:0 1rem 3rem rgba(0,0,0,.175)}
+    .flex-fill{flex:1 1 auto}
+    .position-relative{position:relative}
+    .position-absolute{position:absolute}
+    .shadow-lg{box-shadow:0 1rem 3rem rgba(0,0,0,.175)!important}
+    .footer-copyright{bottom:0;color:rgba(255,255,255,.6);text-align:center;margin:20px;left:0;right:0}
+    .footer-copyright a{color:rgba(255,255,255,.6);text-decoration:none}
+    #login form{-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;border-width:0;padding:0}
+    #login form .forgetmenot{float:none}
+    .login #login_error,.login .message,.login .success{border-left-color:#40b9f1;box-shadow:none;background:#d4eeff;border-radius:6px;color:#2e73b7}
+    .login #login_error{border-left-color:#f1404b;background:#ffd4d6;color:#b72e37}
+    #login form p.submit{padding:20px 0 0}
+    #login form p.submit .button-primary{float:none;background-color:#f1404b;font-weight:bold;color:#fff;width:100%;height:40px;border-width:0;text-shadow:none!important;border-color:none;transition:.5s}
+    #login form input{box-shadow:none!important;outline:none!important}
+    #login form p.submit .button-primary:hover{background-color:#444}
+    .login #backtoblog,.login #nav{padding:0}
+    @media screen and (min-width:768px){.login-body{width:1200px}
+    .login-img{display:block}
+    #login{margin-left:-60px;padding:40px}
+    }
+</style>';
+}
+if (io_get_option('login_beautify', true)) {
+    add_action('login_header', 'io_login_header');
+    add_action('login_footer', 'io_login_footer');
+
+    add_action('login_head', 'custom_login_style');
+    
+    if(!io_get_option('ioc_login_language',false)){
+        add_filter( 'login_display_language_dropdown', '__return_false' );
+    }
+}

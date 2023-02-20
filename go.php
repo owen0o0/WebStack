@@ -19,7 +19,7 @@ if( $a==$url ) {
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta http-equiv="refresh" content="0.1;url=<?php echo $b; ?>">
 <meta name="robots" content="noindex,follow">
-<title><?php _e('加载中','i_owen') ?></title>
+<title><?php _e('加载中','i_theme') ?></title>
 
 <script type="text/javascript">
 var msg = document.title;
