@@ -141,10 +141,10 @@ if ( ! function_exists( 'io_get_option' ) ) {
         $io_get_option = $options;
     } 
 
-    if( ! empty( $option_name ) && ! empty( $options[$option_name] ) ) {
+    if( !empty( $option_name ) && isset( $options[$option_name] ) ) {
       return $options[$option_name];
     } else {
-      return ( ! empty( $default ) ) ? $default : null;
+      return ( !empty( $default ) ) ? $default : null;
     }
 
   }
