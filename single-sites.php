@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2020-02-22 21:26:05
  * @LastEditors: iowen
- * @LastEditTime: 2023-02-20 22:27:46
+ * @LastEditTime: 2023-02-20 22:31:44
  * @FilePath: \WebStack\single-sites.php
  * @Description: 
  */
@@ -16,13 +16,12 @@ get_header(); ?>
 
 <?php 
 $categories= get_categories(array(
-  'taxonomy'     => 'favorites',
-  'meta_key'     => '_term_order',
-  'orderby'      => 'meta_value_num',
-  'order'        => 'desc',
-  'hide_empty'   => 0,
-  )
-); 
+    'taxonomy'     => 'favorites',
+    'meta_key'     => '_term_order',
+    'orderby'      => 'meta_value_num',
+    'order'        => 'desc',
+    'hide_empty'   => 0,
+)); 
 include( 'templates/header-nav.php' );
 ?>
 <div class="main-content page">
@@ -30,13 +29,13 @@ include( 'templates/header-nav.php' );
 <?php include( 'templates/header-banner.php' ); ?>
 
     <div class="container">
-	    <div class="row mt-5 mt-sm-0">
-	    	<div class="col-12 mx-auto">
+        <div class="row mt-5 mt-sm-0">
+            <div class="col-12 mx-auto">
                 <div class="panel panel-default"> 
                     <div class="panel-body my-4 ">
                     <?php while( have_posts() ): the_post();?>
                         <div class="row">
-	    					<div class="col-12 col-sm-4 col-lg-3">
+                            <div class="col-12 col-sm-4 col-lg-3">
                                 <?php 
                                 $m_link_url  = get_post_meta($post->ID, '_sites_link', true); 
                                 $m_thumbnail = get_post_meta(get_the_ID(), '_thumbnail', true);
@@ -50,13 +49,13 @@ include( 'templates/header-nav.php' );
                                     <div class="blur blur-layer" style="background: transparent url(<?php echo $imgurl ?>) no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;animation: rotate 30s linear infinite;"></div>
                                     <img class="img-cover" src="<?php echo $imgurl ?>" alt="<?php echo $sitetitle ?>" title="<?php echo $sitetitle ?>">
                                 </div>
-	    					</div>
-	    					<div class="col-12 col-sm-8 col-lg-5 mt-4 mt-md-0">
-	    						<div class="site-body p-xl-4">
+                            </div>
+                            <div class="col-12 col-sm-8 col-lg-5 mt-4 mt-md-0">
+                                <div class="site-body p-xl-4">
                                     <?php 
                                     $terms = get_the_terms( get_the_ID(), 'favorites' );
                                     if( !empty( $terms ) ){
-                                    	foreach( $terms as $term ){
+                                        foreach( $terms as $term ){
                                             $name = $term->name;
                                             $link = esc_url( get_term_link( $term, 'res_category' ) );
                                             echo " <a class='btn-cat' href='$link'>".$name."</a>";
@@ -66,26 +65,26 @@ include( 'templates/header-nav.php' );
                                     <div class="site-name h3"><?php echo $sitetitle ?></div>
                                     <div class="mt-2">
                                 
-	    									<p><?php echo get_post_meta(get_the_ID(), '_sites_sescribe', true) ?></p>
-                                         <?php 
-                                         $m_post_link_url = $m_link_url ?: get_permalink($post->ID);
-                                         $qrurl="//api.qrserver.com/v1/create-qr-code/?size=150x150&margin=10&data=". $m_post_link_url;
-                                         $qrname = __("手机查看","i_theme");
-                                         if(get_post_meta(get_the_ID(), '_wechat_qr', true)){
+                                            <p><?php echo get_post_meta(get_the_ID(), '_sites_sescribe', true) ?></p>
+                                        <?php 
+                                        $m_post_link_url = $m_link_url ?: get_permalink($post->ID);
+                                        $qrurl="//api.qrserver.com/v1/create-qr-code/?size=150x150&margin=10&data=". $m_post_link_url;
+                                        $qrname = __("手机查看","i_theme");
+                                        if(get_post_meta(get_the_ID(), '_wechat_qr', true)){
                                             $qrurl=get_post_meta(get_the_ID(), '_wechat_qr', true);
                                             $qrname = __("公众号","i_theme");
-                                         } 
-                                         ?>
-	    								<div class="site-go mt-3">
+                                        } 
+                                        ?>
+                                        <div class="site-go mt-3">
                                         <?php if($m_link_url!=""): ?>
-	    								<a style="margin-right: 10px;" href="<?php echo io_get_option('is_go')? home_url().'/go/?url='.base64_encode($m_link_url) : $m_link_url ?>" title="<?php echo $sitetitle ?>" target="_blank" class="btn btn-arrow"><span><?php _e('链接直达','i_theme') ?><i class="fa fa-angle-right"></i></span></a>
+                                        <a style="margin-right: 10px;" href="<?php echo io_get_option('is_go')? home_url().'/go/?url='.base64_encode($m_link_url) : $m_link_url ?>" title="<?php echo $sitetitle ?>" target="_blank" class="btn btn-arrow"><span><?php _e('链接直达','i_theme') ?><i class="fa fa-angle-right"></i></span></a>
                                         <?php endif; ?>
                                         <a href="javascript:" class="btn btn-arrow"  data-toggle="tooltip" data-placement="bottom" title="" data-html="true" data-original-title="<img src='<?php echo $qrurl ?>' width='150'>"><span><?php echo $qrname ?><i class="fa fa-qrcode"></i></span></a>
-	    								</div>
-	    							</div>
+                                        </div>
+                                    </div>
 
-	    						</div>
-	    					</div>
+                                </div>
+                            </div>
                             <div class="col-12 col-sm-12 col-lg-4 mt-4 mt-lg-0">
                                 
                                 <?php if(io_get_option('ad_right_s')) echo '<div class="ad ad-right">' . stripslashes( io_get_option('ad_right') ) . '</div>'; ?>
@@ -109,7 +108,7 @@ include( 'templates/header-nav.php' );
                 </div>
 
                 <h4 class="text-gray mt-4"><i class="icon-io-tag" style="margin-right: 27px;" id="relevant_c"></i><?php _e('相关导航','i_theme') ?></h4>
-                <div class="row" style="margin-bottom: 8.5rem;"> 
+                <div class="row mb-5"> 
                     <?php
                     $post_num = 6;
                     $i = 0;
@@ -150,7 +149,7 @@ include( 'templates/header-nav.php' );
                     comments_template();
                 }
                 ?>
-	    	</div>
+            </div>
         
         <?php if(io_get_option('ad_footer_s')) echo '<div class="ad ad-footer">' . stripslashes( io_get_option('ad_footer') ) . '</div>'; ?>
         
