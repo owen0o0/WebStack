@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2020-02-22 21:26:05
  * @LastEditors: iowen
- * @LastEditTime: 2023-02-20 21:55:16
+ * @LastEditTime: 2023-02-20 22:27:46
  * @FilePath: \WebStack\single-sites.php
  * @Description: 
  */
@@ -143,9 +143,13 @@ include( 'templates/header-nav.php' );
                     }
                     if ($i == 0) echo '<div class="col-lg-12"><div class="nothing">'.__('没有相关内容!','i_theme').'</div></div>';
                     ?>
-                </div>
-                <br /> 
+                </div> 
 
+                <?php
+                if (comments_open() || get_comments_number()) {
+                    comments_template();
+                }
+                ?>
 	    	</div>
         
         <?php if(io_get_option('ad_footer_s')) echo '<div class="ad ad-footer">' . stripslashes( io_get_option('ad_footer') ) . '</div>'; ?>
