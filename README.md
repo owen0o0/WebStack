@@ -3,6 +3,9 @@ WordPress 版 WebStack 主题。<a href="http://webstack.iotheme.cn/">前往演�
 <br/>
 
 ### 声明
+当你使用  WebStack 主题发布的文章、文字、图片、视频等内容均属于你自己的行为，你的这些行为所带来的安全或法律风险均与本站无关。
+
+
 “Webstack Pro”是作者在19年尝试的一个收费项目，现已不在维护支持，且与<a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank">Viggo</a>无关，应当时名字欠缺考虑，给<a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank">Viggo</a>带来了不必要的麻烦，在此道歉。<br/>
 现今网络上流传的“Webstack Pro”版本均为盗用作者19年的内容，与作者和<a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank">Viggo</a>无关。
 
