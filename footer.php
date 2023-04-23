@@ -1,16 +1,26 @@
 <?php 
 /*
  * @Theme Name:WebStack
- * @Theme URI:https://www.iotheme.cn/
+ * @Theme URI:https://github.com/owen0o0/WebStack
  * @Author: iowen
  * @Author URI: https://www.iowen.cn/
  * @Date: 2019-02-22 21:26:02
  * @LastEditors: iowen
- * @LastEditTime: 2023-02-20 21:30:14
+ * @LastEditTime: 2023-04-24 00:42:32
  * @FilePath: \WebStack\footer.php
  * @Description: 
  */
-if ( ! defined( 'ABSPATH' ) ) { exit; }?>
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+$_icp = '';
+if(io_get_option('icp')){
+    $_icp .= '<a href="https://beian.miit.gov.cn/" target="_blank" rel="link noopener">' . io_get_option('icp') . '</a>&nbsp;';
+}
+if ($police_icp = io_get_option('police_icp')) {
+    if (preg_match('/\d+/', $police_icp, $arr)) {
+        $_icp .= ' <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=' . $arr[0] . '" target="_blank" class="'.$class.'" rel="noopener">' . $police_icp . '</a>&nbsp;';
+    }
+}
+?>
             <footer class="main-footer sticky footer-type-1">
                 <div class="go-up">
                     <a href="#" rel="go-top">
@@ -20,8 +30,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }?>
                 <div class="footer-inner">
                     <!---请保留版权说明，谢谢---->
                     <div class="footer-text">
-                        Copyright © <?php echo date('Y') ?> <?php bloginfo('name'); ?> <?php if(io_get_option('icp')) echo '<a href="https://beian.miit.gov.cn/" target="_blank" rel="link noopener">' . io_get_option('icp') . '</a>'?>
-                        &nbsp;&nbsp;Design by <a href="http://webstack.cc" target="_blank"><strong>Webstack</strong></a>&nbsp;&nbsp;Modify by <a href="https://www.iotheme.cn" target="_blank"><strong>一为</strong></a>
+                        Copyright © <?php echo date('Y') ?> <?php bloginfo('name'); ?> <?php echo $_icp ?>
+                        &nbsp;&nbsp;Design by <a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank"><strong>Webstack</strong></a>&nbsp;&nbsp;Modify by <a href="https://github.com/owen0o0/WebStack" target="_blank"><strong>iowen</strong></a>
                     </div>
                     <!---请保留版权说明，谢谢---->
                 </div>
@@ -46,10 +56,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }?>
         $(document).on('click', '.has-sub', function(){
             var _this = $(this)
             if(!$(this).hasClass('expanded')) {
-               setTimeout(function(){
+                setTimeout(function(){
                     _this.find('ul').attr("style","")
-               }, 300);
-              
+                }, 300);
             } else {
                 $('.has-sub ul').each(function(id,ele){
                     var _that = $(this)

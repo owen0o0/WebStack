@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2019-02-22 21:26:02
  * @LastEditors: iowen
- * @LastEditTime: 2023-02-20 21:19:10
+ * @LastEditTime: 2023-04-24 00:37:18
  * @FilePath: \WebStack\inc\frame\config\framework.config.php
  * @Description: 
  */
@@ -225,6 +225,11 @@ $options[] = array(
             'id'      => 'icp',
             'type'    => 'text',
             'title'   => '备案号',
+        ),
+        array(
+            'id'      => 'police_icp',
+            'type'    => 'text',
+            'title'   => '公安备案号',
         ),
         array(
             'id'      => 'lazyload',
