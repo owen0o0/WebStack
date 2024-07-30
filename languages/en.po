@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WebStack\n"
-"POT-Creation-Date: 2023-02-20 22:02+0800\n"
-"PO-Revision-Date: 2023-02-20 22:04+0800\n"
+"POT-Creation-Date: 2024-07-30 22:28+0800\n"
+"PO-Revision-Date: 2024-07-30 22:30+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4.4\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -117,7 +117,11 @@ msgstr "Submission succeeded!"
 msgid "投稿失败！"
 msgstr "Submission failed!"
 
-#: inc/fav-content.php:48 search.php:33
+#: inc/fav-content.php:18 taxonomy-favorites.php:36
+msgid "此分类需登陆后查看"
+msgstr "This category requires login to view"
+
+#: inc/fav-content.php:52 search.php:33
 msgid "没有内容"
 msgstr "No content"
 
@@ -126,7 +130,7 @@ msgstr "No content"
 msgid "Feed已经关闭, 请访问网站%s首页%s！"
 msgstr "Feed is closed, please visit the %shomepage%s!"
 
-#: page.php:28 single-sites.php:108 single.php:28 template-contribute.php:29
+#: page.php:30 single-sites.php:113 single.php:39 template-contribute.php:22
 msgid "编辑"
 msgstr "Edit"
 
@@ -307,96 +311,100 @@ msgstr "search results"
 msgid "返回主页"
 msgstr "Homepage"
 
-#: single-sites.php:73
+#: single-sites.php:35
+msgid "此内容需登陆后查看"
+msgstr "This content requires login to view"
+
+#: single-sites.php:76
 msgid "手机查看"
 msgstr "Mobile view"
 
-#: single-sites.php:76
+#: single-sites.php:79
 msgid "公众号"
 msgstr "WeChat"
 
-#: single-sites.php:81
+#: single-sites.php:84
 msgid "链接直达"
 msgstr "Direct link"
 
-#: single-sites.php:111
+#: single-sites.php:118
 msgid "相关导航"
 msgstr "Relevant Sites"
 
-#: single-sites.php:144
+#: single-sites.php:151
 msgid "没有相关内容!"
 msgstr "No relevant contents!"
 
-#: template-contribute.php:36
+#: template-contribute.php:29
 msgid "添加网站"
 msgstr "Add a website"
 
-#: template-contribute.php:39
+#: template-contribute.php:32
 msgid "网站图标:"
 msgstr "Favicon:"
 
-#: template-contribute.php:43
+#: template-contribute.php:36
 msgid "网站图标"
 msgstr "Favicon"
 
-#: template-contribute.php:53
+#: template-contribute.php:46
 msgid "网站名称"
 msgstr "Site name"
 
-#: template-contribute.php:59
+#: template-contribute.php:52
 msgid "网站链接"
 msgstr "Site Links"
 
-#: template-contribute.php:65
+#: template-contribute.php:58
 msgid "网站描叙"
 msgstr "Site description"
 
-#: template-contribute.php:73
+#: template-contribute.php:66
 msgid "选择分类"
 msgstr "Select category"
 
-#: template-contribute.php:87
+#: template-contribute.php:80
 msgid "公众号二维码:"
 msgstr "QR code:"
 
-#: template-contribute.php:91
+#: template-contribute.php:84
 msgid "公众号二维码"
 msgstr "QR code"
 
-#: template-contribute.php:98
+#: template-contribute.php:91
 msgid "网站介绍:"
 msgstr "Site introduction:"
 
-#: template-contribute.php:107
+#: template-contribute.php:100
 msgid "输入验证码"
 msgstr "Enter verification code"
 
-#: template-contribute.php:111
+#: template-contribute.php:104
 msgid "提交"
 msgstr "Submit"
 
-#: template-contribute.php:125
+#: template-contribute.php:118
 msgid "验证码错误！"
 msgstr "Verification code error!"
 
-#: template-contribute.php:140 template-contribute.php:202
-#: template-contribute.php:231
+#: template-contribute.php:133 template-contribute.php:195
+#: template-contribute.php:224
 msgid "网络连接错误！"
 msgstr "Network error!"
 
-#: template-contribute.php:174
+#: template-contribute.php:167
 msgid "图片类型只能是jpeg,jpg,png！"
 msgstr "The picture type can only be JPEG, JPG, PNG!"
 
-#: template-contribute.php:178
+#: template-contribute.php:171
 msgid "图片大小不能超过128kb"
 msgstr "Image size cannot exceed 128KB"
 
-#: template-contribute.php:205
+#: template-contribute.php:198
 msgid "请选择文件！"
 msgstr "Please select file!"
 
-#: template-contribute.php:210
+#: template-contribute.php:203
 msgid "确定要删除图片吗?"
 msgstr "Are you sure you want to delete the picture?"
 
@@ -433,6 +441,10 @@ msgstr "https://www.iowen.cn/"
 
 #. Template Name of the plugin/theme
 msgid "投稿模板"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "文章列表"
 msgstr ""
 
 #~ msgid "侧栏底部菜单"

@@ -6,8 +6,8 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2019-02-22 21:26:02
  * @LastEditors: iowen
- * @LastEditTime: 2023-02-20 19:36:41
- * @FilePath: \WebStack\templates\site-card.php
+ * @LastEditTime: 2024-07-30 21:03:08
+ * @FilePath: /WebStack/templates/site-card.php
  * @Description: 
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }  ?>
@@ -57,16 +57,23 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }  ?>
                     else
                         $url = $link_url;
                 }
-            } 
-
+            }
+            $ico = io_theme_get_thumb();
+            //判断是不是文章 post
+            if(get_post_type() == 'post'){
+                $title = '';
+                $url = get_permalink();
+            }else{
+                $ico = $ico ?: (io_get_option('ico_url') . format_url($link_url) . io_get_option('ico_png'));
+            }
             ?>
             <a href="<?php echo $url ?>" target="<?php echo $blank ?>" class="xe-widget xe-conversations box2 label-info" <?php echo $tooltip . ' ' . $is_html ?> title="<?php echo $title ?>">
                 <div class="xe-comment-entry">
                     <div class="xe-user-img">
                         <?php if(io_get_option('lazyload')): ?>
-                        <img class="img-circle lazy" src="<?php echo $default_ico; ?>" data-src="<?php echo get_post_meta($post->ID, '_thumbnail', true)? get_post_meta($post->ID, '_thumbnail', true): (io_get_option('ico_url') .format_url($link_url) . io_get_option('ico_png')) ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" width="40">
+                        <img class="img-circle lazy" src="<?php echo $default_ico; ?>" data-src="<?php echo $ico ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" width="40" height="40">
                         <?php else: ?>
-                        <img class="img-circle lazy" src="<?php echo get_post_meta($post->ID, '_thumbnail', true)? get_post_meta($post->ID, '_thumbnail', true): (io_get_option('ico_url') .format_url($link_url) . io_get_option('ico_png')) ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" width="40">
+                        <img class="img-circle lazy" src="<?php echo $ico ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" width="40" height="40">
                         <?php endif ?>
                     </div>
                     <div class="xe-comment">

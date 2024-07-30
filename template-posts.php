@@ -1,31 +1,32 @@
-<?php 
+<?php
 /*
- * @Theme Name:WebStack
- * @Theme URI:https://www.iotheme.cn/
- * @Author: iowen
- * @Author URI: https://www.iowen.cn/
- * @Date: 2020-02-22 21:26:05
- * @LastEditors: iowen
- * @LastEditTime: 2024-07-30 18:25:17
- * @FilePath: /WebStack/archive.php
- * @Description: 
- */
-if ( ! defined( 'ABSPATH' ) ) { exit; }
-get_header(); ?>
+Template Name: 文章列表
+*/
 
+get_header(); 
 
-<?php 
 include( 'templates/header-nav.php' );
+
+// 获取文章列表
+
+$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+$args = array(
+    'ignore_sticky_posts' => 1,
+    'paged' => $paged,
+);
+
+if(isset($_GET['cat']))
+    $args['cat'] = $_GET['cat'];
+$args = apply_filters('io_blog_post_query_var_filters', $args);
+query_posts( $args );
+
+
 ?>
-<div class="main-content">
-    
+<div class="main-content page">
 <?php include( 'templates/header-banner.php' ); ?>
-
-
     <div class="container">
 	    <div class="row mt-5 mt-sm-0">
 	    	<div class="col-12 mx-auto">
-					<h1 class="text-gray"><i class="icon-io-tag" style="margin-right: 27px;" id="<?php single_cat_title() ?>"></i><?php single_cat_title() ?></h1>
                 <div class="panel panel-default">
                     <div class="cat_list">
                     <?php if ( have_posts() ) : ?>
@@ -53,11 +54,11 @@ include( 'templates/header-nav.php' );
                     <?php endwhile; endif;?>
                     </div>
 	                <div class="posts-nav">
-	                    <?php echo paginate_links(array(
-	                        'prev_next'          => 0,
-	                        'before_page_number' => '',
-	                        'mid_size'           => 2,
-	                    ));?>
+	                <?php echo paginate_links(array(
+	                    'prev_next'          => 0,
+	                    'before_page_number' => '',
+	                    'mid_size'           => 2,
+	                ));?>
 	                </div>
                 </div>
 	    	</div>

@@ -6,14 +6,18 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2020-02-22 21:26:05
  * @LastEditors: iowen
- * @LastEditTime: 2023-02-20 20:55:06
- * @FilePath: \WebStack\inc\fav-content.php
+ * @LastEditTime: 2024-07-30 21:51:29
+ * @FilePath: /WebStack/inc/fav-content.php
  * @Description: 
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
-function fav_con($mid) { ?>
+function fav_con($mid, $visible) { ?>
         <h4 class="text-gray" style="display: inline-block;"><i class="icon-io-tag" style="margin-right: 27px;" id="term-<?php echo $mid->term_id; ?>"></i><?php echo $mid->name; ?></h4>
         <?php 
+        if($visible == 2){
+            echo '<div class="login-notice">'.__('此分类需登陆后查看','i_theme').'</div>';
+            return;
+        }
         $site_n           = io_get_option('site_n');
         $category_count   = $mid->category_count;
         $count            = $site_n;
@@ -51,7 +55,7 @@ function fav_con($mid) { ?>
           elseif ($myposts->have_posts()): while ($myposts->have_posts()): $myposts->the_post(); 
             $link_url = get_post_meta($post->ID, '_sites_link', true); 
             $default_ico = get_theme_file_uri('/images/favicon.png');
-            if(current_user_can('level_10') || get_post_meta($post->ID, '_visible', true)==""):
+            if(io_is_visible( get_post_meta($post->ID, '_visible', true))):
           ?>
             <div class="xe-card <?php echo io_get_option('columns') ?> <?php echo get_post_meta($post->ID, '_wechat_qr', true)? 'wechat':''?>">
               <?php include( get_theme_file_path() .'/templates/site-card.php' ); ?>

@@ -6,16 +6,16 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2020-02-22 21:26:05
  * @LastEditors: iowen
- * @LastEditTime: 2023-02-20 20:54:24
- * @FilePath: \WebStack\search.php
+ * @LastEditTime: 2024-07-30 19:17:10
+ * @FilePath: /WebStack/search.php
  * @Description: 
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 get_header();
+include( 'templates/header-nav.php' );
 ?>
-
-<a href="<?php bloginfo('url') ?>" style="position:absolute;margin:30px 0 0 30px;z-index:1000;"><img src="<?php echo io_get_option('logo_normal') ?>" height="40" alt="<?php bloginfo('name') ?>"></a>
 <div class="main-content">
+<?php include( 'templates/header-banner.php' ); ?>
 	<div id="search" class="s-search">
 		<form name="formsearch" method="get" action="<?php bloginfo('url'); ?>?s=" id="super-search-fm">
             <input type="text" id="search-text" name="s" class="search-keyword" placeholder="<?php _e('输入关键字搜索','i_theme') ?>" style="outline:0"/> 
@@ -39,7 +39,7 @@ get_header();
 			<?php while ( have_posts() ) : the_post();
 			$link_url = get_post_meta($post->ID, '_sites_link', true); 
             $default_ico = get_theme_file_uri('/images/favicon.png');
-			if(current_user_can('level_10') || get_post_meta($post->ID, '_visible', true)==""):
+			if(io_is_visible( get_post_meta($post->ID, '_visible', true))):
 			?>
 				<div class="xe-card col-sm-4 col-md-3 <?php echo get_post_meta($post->ID, '_wechat_qr', true)? 'wechat':''?>">
             	  	

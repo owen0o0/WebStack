@@ -6,8 +6,8 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2021-08-22 19:00:30
  * @LastEditors: iowen
- * @LastEditTime: 2021-08-22 22:27:34
- * @FilePath: \WebStack\inc\frame\config\metabox.config.php
+ * @LastEditTime: 2024-07-30 18:14:07
+ * @FilePath: /WebStack/inc/frame/config/metabox.config.php
  * @Description: 
  */
 if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access pages directly.
@@ -24,10 +24,16 @@ $options[] = array(
             'name'   => 'section_4',
             'fields' => array(
                 array(
-                    'id'    => '_visible',
-                    'type'  => 'switcher',
-                    'title' => '管理员可见',
-                    'label' => '如果开启，将只有登录管理员账号后才会显示',
+                    'id' => '_visible',
+                    'type' => 'radio',
+                    'title' => '可查看用户',
+                    'class'   => 'horizontal',
+                    'options' => array(
+                        '1' => '仅管理员可见',
+                        '2' => '登陆可见',
+                        '0' => '所有人',
+                    ),
+                    'default' => '0',
                 ),
                 array(
                     "id" => "_sites_link",

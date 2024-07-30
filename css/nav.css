@@ -6,6 +6,12 @@ body{background-color:#f9f9f9}a{color:#282828;outline:0 !important}p{color:#8788
 a:hover,a:focus{color:#232323;text-decoration:none}
 .box2{height:72px;border-radius:4px;padding:0px 30px 0px 30px;background-color:#fff;border-radius:4px;border:1px solid #e4ecf3;-webkit-transition:all 0.3s ease;-moz-transition:all 0.3s ease;-o-transition:all 0.3s ease;transition:all 0.3s ease}
 .box2:hover{transform:translateY(-6px);-webkit-transform:translateY(-6px);-moz-transform:translateY(-6px);box-shadow:0 26px 40px -24px rgba(0,36,100,.3);-webkit-box-shadow:0 26px 40px -24px rgba(0,36,100,.3);-moz-box-shadow:0 26px 40px -24px rgba(0,36,100,.3);-webkit-transition:all 0.3s ease;-moz-transition:all 0.3s ease;-o-transition:all 0.3s ease;transition:all 0.3s ease}
+.tag .container,.category .container,.page-template-template-posts .container,.page-template-default .container,.single-post .container{max-width: 900px!important;}
+.cat_list .post-title{font-size: 24px;line-height: 1.5;margin:15px 0;}
+.single-post .h2{margin-bottom:20px;}
+.single-post .post-meta{margin-bottom:40px;}
+.tag h1,.category h1{font-size: 14px;line-height: normal;margin:15px 0;}
+.login-notice{border-radius: 12px;background: #f1f4f5;text-align: center;color: #888;padding: 20px;margin-top: 10px;margin-bottom: 20px;}
 .ps-container .ps-scrollbar-x-rail{position:absolute;bottom:3px;height:5px;zoom:1;filter:alpha(opacity=0);-webkit-opacity:0;-moz-opacity:0;opacity:0;-webkit-transition:background-color .2s linear,opacity .2s linear;-moz-transition:background-color .2s linear,opacity .2s linear;-o-transition:background-color .2s linear,opacity .2s linear;transition:background-color .2s linear,opacity .2s linear}
 .ps-container:hover .ps-scrollbar-x-rail,.ps-container.hover .ps-scrollbar-x-rail{zoom:1;filter:alpha(opacity=60);-webkit-opacity:.6;-moz-opacity:.6;opacity:.6}
 .ps-container .ps-scrollbar-x-rail:hover,.ps-container .ps-scrollbar-x-rail.hover{background-color:rgba(255,255,255,.5)}
@@ -199,6 +205,16 @@ footer.main-footer{border-top:0;background-color:#fff}
 .btn-cat{color:#fff;background:#f14141;font-size:12px;padding:2px 5px;border-radius:4px;transition:.3s}
 .btn-cat:hover{color:#fff;background:#212224}
 .btn-move{float:right;font-size:12px;margin-top:11px}
+.ml-auto{margin-left:auto}
+.mr-auto{margin-right:auto}
+.ml-1{margin-left:.8rem!important}
+.mr-1{margin-right:.8rem!important}
+.ml-2{margin-left:1.5rem!important}
+.mr-2{margin-right:1.5rem!important}
+.ml-3{margin-left:2rem!important}
+.mr-3{margin-right:2rem!important}
+.ml-4{margin-left:3rem!important}
+.mr-4{margin-right:3rem!important}
 .mt-1,.my-1{margin-top:.8rem!important}
 .mb-1,.my-1{margin-bottom:.8rem!important}
 .mt-2,.my-2{margin-top:1.5rem!important}

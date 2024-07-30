@@ -5,19 +5,12 @@ Template Name: 投稿模板
 
 get_header(); 
 
-$categories= get_categories(array(
-  'taxonomy'     => 'favorites',
-  'meta_key'     => '_term_order',
-  'orderby'      => 'meta_value_num',
-  'order'        => 'desc',
-  'hide_empty'   => 0,
-  )
-); 
 include( 'templates/header-nav.php' );
 ?>
 <div class="main-content page">
+<?php include( 'templates/header-banner.php' ); ?>
     <div class="container">
-	    <div class="row">
+	    <div class="row mt-5 mt-sm-0">
 	    	<div class="col-12 mx-auto">
                 <div class="panel panel-default">
                     <h1 class="h2"><?php echo get_the_title() ?></h1>

@@ -8,6 +8,7 @@
  * @version 1.0.0
  *
  */
+#[AllowDynamicProperties]
 abstract class CSFramework_Abstract {
 
   public function __construct() {}

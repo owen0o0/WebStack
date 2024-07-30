@@ -4,8 +4,8 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2021-02-21 21:26:02
  * @LastEditors: iowen
- * @LastEditTime: 2023-02-20 20:53:39
- * @FilePath: \WebStack\header.php
+ * @LastEditTime: 2024-07-30 19:49:22
+ * @FilePath: /WebStack/header.php
  * @Description: 
  */ 
 if ( ! defined( 'ABSPATH' ) ) { exit; } 
@@ -33,6 +33,6 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <link rel="apple-touch-icon" href="<?php echo io_get_option('apple_icon') ?>">
 <?php wp_head(); ?>
 </head> 
- <body class="page-body <?php echo io_get_option('theme_mode')?>">
+ <body <?php body_class('page-body '.io_get_option('theme_mode')) ?>>
     <div class="page-container">
       

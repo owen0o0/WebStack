@@ -6,8 +6,8 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2020-02-22 21:26:05
  * @LastEditors: iowen
- * @LastEditTime: 2021-12-20 23:53:13
- * @FilePath: \WebStack\inc\post-type.php
+ * @LastEditTime: 2024-07-30 21:12:27
+ * @FilePath: /WebStack/inc/post-type.php
  * @Description: 
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -234,7 +234,17 @@ function io_ordinal_manage_posts_custom_column($column_name,$id){
 			break;
 		}
 		case 'visible': {
-			echo get_post_meta($id, '_visible', true)? "管理员" : "所有人";
+			switch (get_post_meta($id, '_visible', true)) {
+				case '1':
+					echo "管理员";
+					break;
+				case '2':
+					echo "登陆用户";
+					break;
+				default:
+					echo "所有人";
+					break;
+			}
 			break;
 		}
 	endswitch;

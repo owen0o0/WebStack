@@ -6,8 +6,8 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2019-02-22 21:26:02
  * @LastEditors: iowen
- * @LastEditTime: 2023-04-24 00:37:18
- * @FilePath: \WebStack\inc\frame\config\framework.config.php
+ * @LastEditTime: 2024-07-30 18:22:23
+ * @FilePath: /WebStack/inc/frame/config/framework.config.php
  * @Description: 
  */
 if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access pages directly.
@@ -28,13 +28,6 @@ $settings           = array(
   //'framework_title' => '主题设置',
 );
 
-// 所有分类ID
-$cats_id = '';
-$categories = get_categories(array('hide_empty' => 0)); 
-foreach ($categories as $cat) {
-$cats_id .= '<span style="margin-right: 15px;">'.$cat->cat_name.' [ '.$cat->cat_ID.' ]</span>';
-}
-$blog_name = trim(get_bloginfo('name'));
 
 // ---------------------------------------
 // 图标  --------------------------------
