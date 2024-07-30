@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2019-02-22 21:26:02
  * @LastEditors: iowen
- * @LastEditTime: 2024-07-30 18:22:23
+ * @LastEditTime: 2024-07-30 23:21:25
  * @FilePath: /WebStack/inc/frame/config/framework.config.php
  * @Description: 
  */
@@ -466,14 +466,12 @@ $options[] = array(
             'id'      => 'gravatar',
             'type'    => 'select',
             'title'   => 'Gravatar加速',
-            'default' => 'geekzu',
+            'default' => 'chinayes',
             'options' => array(
                 'gravatar'    => __('使用 Gravatar官方 默认服务器','io_setting'),
                 'cravatar'    => __('使用 Cravatar 镜像加速服务','io_setting'),
-                'sep'         => __('使用 sep.cc 镜像加速服务','io_setting'),
-                'loli'        => __('使用 loli 镜像加速服务','io_setting'),
-                'chinayes'    => __('使用 wp-china-yes.cn 镜像加速服务','io_setting'),
-                'geekzu'      => __('使用 极客族 提供的加速服务','io_setting'),
+                'iocdn'    => '一为云 加速服务（cdn.iocdn.cc）',
+                'chinayes'    => __('使用 wp-china-yes.cn 镜像加速服务','io_setting')
             ),
         ),
 		

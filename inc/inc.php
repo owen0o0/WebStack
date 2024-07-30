@@ -6,7 +6,7 @@
  * @Author URI: https://www.iowen.cn/
  * @Date: 2019-02-22 21:26:02
  * @LastEditors: iowen
- * @LastEditTime: 2024-07-30 22:06:04
+ * @LastEditTime: 2024-07-30 23:22:56
  * @FilePath: /WebStack/inc/inc.php
  * @Description: 
  */
@@ -521,7 +521,7 @@ new iconfont();
  
  
 add_filter('pre_get_avatar_data', function($args, $id_or_email){
-    $gravatar_cdn = io_get_option('gravatar','geekzu');
+    $gravatar_cdn = io_get_option('gravatar','chinayes');
     if($gravatar_cdn=='gravatar'){
         return $args;
     }
@@ -584,11 +584,14 @@ add_filter('pre_get_avatar_data', function($args, $id_or_email){
         case "chinayes":
             $url    = '//gravatar.wp-china-yes.net/avatar/'.$email_hash;
             break;
-        case "geekzu":
-            $url    = '//sdn.geekzu.org/avatar/'.$email_hash;
+        case "iocdn":
+            $url    = '//cdn.iocdn.cc/avatar/'.$email_hash;
+            break;
+        case "qiniu":
+            $url    = '//dn-qiniu-avatar.qbox.me/avatar/'.$email_hash;
             break;
         default:
-            $url    = '//sdn.geekzu.org/avatar/'.$email_hash;
+            $url    = '//gravatar.wp-china-yes.net/avatar/'.$email_hash;
     }
 
     $url_args    = array_filter([
