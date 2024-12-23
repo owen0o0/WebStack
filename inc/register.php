@@ -30,7 +30,7 @@ function theme_load_scripts() {
 		wp_enqueue_style('nav'); 
 
 		wp_deregister_script( 'jquery' );
-		wp_register_script( 'jquery', THEME_URL.'/js/jquery-1.11.1.min.js', array(), $theme_version ,false);
+		wp_register_script( 'jquery', THEME_URL.'/js/jquery-3.7.1.min.js', array(), $theme_version ,false);
 		wp_enqueue_script('jquery');
 
 		wp_enqueue_script('bootstrap');
