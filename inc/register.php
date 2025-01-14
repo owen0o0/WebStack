@@ -2,11 +2,11 @@
 /*
  * @Theme Name:WebStack
  * @Theme URI:https://www.iotheme.cn/
- * @Author: iowen
+ * @Author: iowen, LoveDoLove
  * @Author URI: https://www.iowen.cn/
  * @Date: 2020-02-22 21:26:05
  * @LastEditors: iowen
- * @LastEditTime: 2023-02-20 20:56:55
+ * @LastEditTime: 2024-12-24 20:56:55
  * @FilePath: \WebStack\inc\register.php
  * @Description: 
  */
